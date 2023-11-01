@@ -2,20 +2,40 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmp, setConfPass] = useState();
+  const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     //in axios.post the link should be there of mongodb
+
+    if (password !== confirmp) {
+      setError("Passwords do not match");
+      return;
+    }
+    setError("");
     axios
-      .post("", { name, email, password, confirmp })
-      .then((result) => console.log(result))
-      .catch((err) => console.log(err));
+      .post("http://localhost:4001/register", { name, email, password })
+      .then((result) => {
+        setSuccessMessage("Registered successfully. Login to Start!");
+        console.log(result);
+      })
+      .catch((err) => {
+        if (err.response && err.response.data) {
+          setError(err.response.data.error); // Set the error message from the server response
+        } else {
+          setError("Registration failed. Please try again.");
+        }
+        console.log(err);
+      });
   };
 
   return (
@@ -27,14 +47,15 @@ function Signup() {
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="email">
-              <strong>Username</strong>
+              <strong>Name</strong>
             </label>
             <input
               type="text"
               placeholder="Enter Name"
               autoComplete="off"
-              name="email"
+              name="name"
               className="form-control rounded-0"
+              required
               onChange={(e) => setName(e.target.value)}
             />
           </div>
@@ -48,6 +69,7 @@ function Signup() {
               autoComplete="off"
               name="email"
               className="form-control rounded-0"
+              required
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
@@ -60,6 +82,7 @@ function Signup() {
               placeholder="Enter Password"
               name="password"
               className="form-control rounded-0"
+              required
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
@@ -72,9 +95,15 @@ function Signup() {
               placeholder="Confirm Password"
               name="password"
               className="form-control rounded-0"
+              required
               onChange={(e) => setConfPass(e.target.value)}
             />
           </div>
+
+          {error && <p className="text-danger">{error}</p>}
+          {successMessage && (
+            <p className="text-success fw-bold">{successMessage}</p>
+          )}
           <button type="submit" className="btn btn-primary w-100 rounded-10">
             Register
           </button>
