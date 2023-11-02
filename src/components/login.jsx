@@ -8,12 +8,28 @@ function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     //in axios.post the link should be there of mongodb
-    axios.post("", { email, password }).then((result) => console.log(result));
-    navigate("/");
+    axios
+      .post("http://localhost:4001/login", { email, password })
+      .then((result) => {
+        console.log(result);
+        if (result.data.message === "Success") {
+          console.log("Logined Sucessfully");
+          navigate("/home"); //navigate to home page}
+        }
+      })
+      .catch((err) => {
+        if (err.response && err.response.data) {
+          setError(err.response.data.error); // Set the error message from the server response
+        } else {
+          setError("Login failed. Please try again.");
+        }
+        console.log(err);
+      });
   };
 
   return (
@@ -48,6 +64,7 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          {error && <p className="text-danger">{error}</p>}
           <button type="submit" className="btn btn-primary w-100 rounded-10">
             Login
           </button>
