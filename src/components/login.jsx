@@ -7,12 +7,28 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In axios.post, you should provide the correct MongoDB API endpoint
-    axios.post("", { email, password }).then((result) => console.log(result));
-    navigate("/");
+    //in axios.post the link should be there of mongodb
+    axios
+      .post("https://to-do-list-backend-kappa.vercel.app/login", { email, password })
+      .then((result) => {
+        console.log(result);
+        if (result.data.message === "Success") {
+          console.log("Logined Sucessfully");
+          navigate("/home"); //navigate to home page}
+        }
+      })
+      .catch((err) => {
+        if (err.response && err.response.data) {
+          setError(err.response.data.error); // Set the error message from the server response
+        } else {
+          setError("Login failed. Please try again.");
+        }
+        console.log(err);
+      });
   };
 
   const cardStyle = {
@@ -25,7 +41,6 @@ function Login() {
     justifyContent: "center",
     alignItems: "center",
   };
-
   return (
     <div style={cardStyle} className="bg-secondary">
       <div className="mx-auto shadow-lg p-3 rounded-4 px-4" style={{ backgroundColor: "#313641", width: "40%", maxWidth: "370px"}}>
@@ -64,6 +79,10 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          {error && <p className="text-danger">{error}</p>}
+          <button type="submit" className="btn btn-primary w-100 rounded-10">
+            Login
+          </button>
           <div className="d-flex justify-content-center">
             <button type="submit" className="btn w-50 rounded-pill" style={{ backgroundColor: "#67BBD3" }}>
               Login

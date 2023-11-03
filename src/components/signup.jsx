@@ -2,20 +2,40 @@ import React, { useState } from "react";
 import backgroundImage from "./img/bgi.jpeg";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmp, setConfPass] = useState("");
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [confirmp, setConfPass] = useState();
+  const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In axios.post, you should provide the correct MongoDB API endpoint
+    //in axios.post the link should be there of mongodb
+
+    if (password !== confirmp) {
+      setError("Passwords do not match");
+      return;
+    }
+    setError("");
     axios
-      .post("", { name, email, password, confirmp })
-      .then((result) => console.log(result))
-      .catch((err) => console.log(err));
+      .post("https://to-do-list-backend-kappa.vercel.app/register", { name, email, password })
+      .then((result) => {
+        setSuccessMessage("Registered successfully. Login to Start!");
+        console.log(result);
+      })
+      .catch((err) => {
+        if (err.response && err.response.data) {
+          setError(err.response.data.error); // Set the error message from the server response
+        } else {
+          setError("Registration failed. Please try again.");
+        }
+        console.log(err);
+      });
   };
 
   const cardStyle = {
@@ -97,6 +117,10 @@ function Signup() {
             </div>
             <div className="mb-3">
               <div className="d-flex justify-content-center">
+              {error && <p className="text-danger">{error}</p>}
+              {successMessage && (
+                <p className="text-success fw-bold">{successMessage}</p>
+              )}
                 <button type="submit" className="btn w-75 rounded-pill" style={{ backgroundColor: "#67BBD3" }}>
                   Register
                 </button>
