@@ -5,13 +5,7 @@ const userModel = require("./model/signups");
 
 const app = express();
 app.use(express.json());
-app.use(cors(
-  {
-    origin: ["https://to-do-list-xi-beige.vercel.app"],
-    methods: ["POST", "GET"],
-    credentials: true
-  }
-));
+app.use(cors());
 
 mongoose.connect(
   "mongodb+srv://saniyaswapnilmehta:54321@cluster0.ox96hsl.mongodb.net/todo?retryWrites=true&w=majority"
