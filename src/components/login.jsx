@@ -79,13 +79,19 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          {error && <p className="text-danger">{error}</p>
-          
+     
+          {/* {error && <p className="text-danger">{error}</p> */}
           <div className="d-flex justify-content-center">
+              {error && <p className="text-danger">{error}</p>}
+              {/* {successMessage && (
+                <p className="text-success fw-bold">{successMessage}</p> */}
+              
+        
             <button type="submit" className="btn w-50 rounded-pill" style={{ backgroundColor: "#67BBD3" }}>
               Login
             </button>
           </div>
+         
         </form>
       </div>
     </div>
