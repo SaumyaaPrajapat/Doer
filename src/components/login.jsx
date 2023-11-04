@@ -79,10 +79,7 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          {error && <p className="text-danger">{error}</p>}
-          <button type="submit" className="btn btn-primary w-100 rounded-10">
-            Login
-          </button>
+          {error && <p className="text-danger">{error}</p>
           <div className="d-flex justify-content-center">
             <button type="submit" className="btn w-50 rounded-pill" style={{ backgroundColor: "#67BBD3" }}>
               Login
