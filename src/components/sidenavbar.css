@@ -1,0 +1,39 @@
+.side-navbar {
+  display: flex;
+  flex-direction: column; /* Change to column to make it vertical */
+  min-height: 100vh;
+  width: 7rem;
+  color: #212529;
+  flex: 1 0 auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.side-navbar a {
+  padding: 15px 10px;
+  transition: color 0.3s; /* Add a smooth transition effect for the color change */
+}
+.side-navbar a:hover {
+  margin-top: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #edeeef;
+}
+.bi-envelope {
+  color: #2b89e0;
+}
+.bi-bar-chart {
+  color: #039712;
+}
+.bi-calendar-check {
+  color: #8e24b8;
+}
+.bi-ui-checks-grid {
+  color: #041ea0;
+}
+.bi-box-arrow-right {
+  color: #f8063a;
+}

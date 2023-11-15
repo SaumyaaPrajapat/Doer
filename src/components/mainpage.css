@@ -1,0 +1,42 @@
+.main {
+  margin-left: 15rem;
+}
+
+.custom-btn {
+  background-color: #67bbd3;
+  color: white;
+  border: 1px solid #67bbd3;
+  border-radius: 15px;
+  padding: 4px 10px;
+  margin: 8px;
+  transition: 0.3s;
+  margin-left: 1rem;
+}
+
+.custom-btn:hover {
+  background-color: #3e98c7;
+  border-color: #3e98c7;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .main {
+    margin-left: 0.5rem;
+  }
+
+  .custom-btn {
+    padding: 4px 8px;
+    margin-left: 0.5rem; /* Adjust margin for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    margin-left: 0.2rem;
+  }
+
+  .custom-btn {
+    padding: 4px 6px;
+    margin-left: 0.2rem;
+  }
+}
