@@ -12,7 +12,7 @@ const FirstPage = () => {
       {/*Navbar starts*/}
       <nav
         className="navbar navbar-expand-lg navbar-light bg-light"
-        style={{ top: 0 }}
+        style={{ top: 0, height: "60px" }}
       >
         <div className="container">
           <Link to="/" className="navbar-brand">

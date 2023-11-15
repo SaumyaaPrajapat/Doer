@@ -163,29 +163,6 @@
   background-color: #ffd100;
 }
 
-.end {
-  display: flex;
-  justify-content: flex-end; /* Aligns "Add task" button to the right margin */
-  margin-top: 10px;
-}
-
-.end button {
-  background-color: #fd0442c5;
-  color: white;
-  border-radius: 5px;
-  padding: 2px 6px;
-  cursor: pointer;
-  margin-left: 5px;
-  border: none;
-  transition: background-color 0.3s;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.end button:hover {
-  background-color: #fe3366c5;
-}
-
 @media (max-width: 768px) {
   .card {
     width: 100%;
