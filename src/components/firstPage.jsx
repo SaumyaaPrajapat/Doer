@@ -1,52 +1,107 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-const FirstPage = () => {
-  const [isOpen, setIsOpen] = useState(false);
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import Logo from "./img/Logo.png";
+import "./firstPage.css";
 
-  const toggleNavbar = () => {
-    setIsOpen(!isOpen);
+const Clock = () => {
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const intervalID = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(intervalID);
+  }, []);
+
+  const hoursStyle = {
+    transform: ` rotate(${
+      (time.getHours() % 12) * 30 + time.getMinutes() / 2
+    }deg)`,
   };
+
+  const minutesStyle = {
+    transform: ` rotate(${time.getMinutes() * 6}deg)`,
+  };
+
+  const secondsStyle = {
+    transform: ` rotate(${time.getSeconds() * 6}deg)`,
+  };
+
   return (
-    <div>
-      {/*Navbar starts*/}
-      <nav
-        className="navbar navbar-expand-lg navbar-light bg-light"
-        style={{ top: 0, height: "60px" }}
-      >
-        <div className="container">
+    <div className="clock">
+      <div className="hand hours" style={hoursStyle}></div>
+      <div className="hand minutes" style={minutesStyle}></div>
+      <div className="hand seconds" style={secondsStyle}></div>
+      <div className="point"></div>
+      <div className="marker">
+        <span className="marker__1"></span>
+        <span className="marker__2"></span>
+        <span className="marker__3"></span>
+        <span className="marker__4"></span>
+      </div>
+    </div>
+  );
+};
+
+const FirstPage = () => {
+  const [isHoveredSignUp, setIsHoveredSignUp] = useState(false);
+  const [isHoveredLogin, setIsHoveredLogin] = useState(false);
+
+  const buttonStyle = {
+    marginRight: "10px",
+    color: "#fff",
+    border: "2px solid transparent",
+    transition: "border 0.3s",
+    fontWeight: "600",
+    fontSize: "1rem",
+  };
+
+  const buttonHoverStyle = {
+    border: "2px solid #fff",
+  };
+
+  return (
+    <div className="containerStyle">
+      <nav className="navbar navbar-expand-lg navbar-light" style={{ top: 0 }}>
+        <div className="BAR">
           <Link to="/" className="navbar-brand">
-            Doer
+            <img
+              src={Logo}
+              style={{ height: "150%", marginLeft: "40%" }}
+              alt="Logo"
+            />
           </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            onClick={toggleNavbar}
-            aria-controls="navbarNav"
-            aria-expanded={isOpen}
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div
-            className={`collapse navbar-collapse ${
-              isOpen ? "show" : "flex-column"
-            }`}
-            id="navbarNav"
-          >
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
+          <div className="d-flex" style={{ marginTop: "1rem" }}>
+            <ul
+              className="navbar-nav"
+              style={{ display: "flex", flexDirection: "row" }}
+            >
+              <li className="nav">
                 <Link
                   to="/register"
-                  className="nav-link btn btn-outline-primary border w-100 rounded-10 me-2"
+                  className="nav-link btn btn-outline rounded-10"
+                  style={{
+                    ...buttonStyle,
+                    ...(isHoveredSignUp ? buttonHoverStyle : {}),
+                  }}
+                  onMouseEnter={() => setIsHoveredSignUp(true)}
+                  onMouseLeave={() => setIsHoveredSignUp(false)}
                 >
-                  Sign Up
+                  Get Started
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav">
                 <Link
                   to="/login"
-                  className="nav-link btn btn-outline-primary border w-100 rounded-10"
+                  className="nav-link btn btn-size-10 rounded-10"
+                  style={{
+                    ...buttonStyle,
+                    ...(isHoveredLogin ? buttonHoverStyle : {}),
+                  }}
+                  onMouseEnter={() => setIsHoveredLogin(true)}
+                  onMouseLeave={() => setIsHoveredLogin(false)}
                 >
                   Login
                 </Link>
@@ -55,62 +110,49 @@ const FirstPage = () => {
           </div>
         </div>
       </nav>
-      {/*Navbar ends*/}
-
-      {/*Content starts*/}
-      <div
-        className="container"
-        style={{ marginTop: "50px", paddingBottom: "70px" }}
-      >
-        <div className="row">
-          <div className="col-md-6 offset-md-3 text-center">
-            <h1>Doer</h1>
+      <div className="groupedSectionStyle">
+        <div>
+          {/* Div 1 */}
+          <div className="tex">
+            Chart the course to productivity, with
+            <span className="textbox"> Doer.</span>
           </div>
-          <div className="col-md-6 ms-auto " style={{ maxWidth: "50%" }}>
-            <p style={{ fontSize: "18px", lineHeight: "1.6", color: "#555" }}>
-              Doer is a to-do list website that helps you get things done. It's
-              simple, intuitive, and powerful. With Doer, you can create tasks
-              and subtasks, set due dates and priorities, add notes and tags,
-              track your progress.
-              <br />
-              <br />
-              Doer is the perfect tool for anyone who wants to be more
-              productive and organized. It's great for individuals, students,
-              professionals, and teams.
-              <br />
-              <br />
-              Doer can help you in many ways. It can help you keep track of all
-              your tasks and deadlines in one place, so you're never
-              overwhelmed. It can help you prioritize your tasks and focus on
-              the most important things, so you're using your time wisely.
-              <br />
-              <br />
-              If you're looking for a to-do list website that can help you get
-              things done, Doer is the perfect solution for you. Sign up today
-              and start getting more done!
-            </p>
+          <div className="otherStyle">
+            Doer is your centralized hub for tasks, streamlining teamwork and
+            amplifying your productivity effortlessly. With everything in one
+            place, make your workflow smoother and more efficient.
+          </div>
+          <div className="buttonsView">
+            <div>
+              <Link to="/register">
+                <button
+                  type="button"
+                  className="btn-custom rounded-5"
+                  style={{
+                    backgroundColor: "#67BBD3",
+                    color: "black",
+                  }}
+                >
+                  Try Doer for free
+                </button>
+              </Link>
+            </div>
+            <div>
+              <button type="button" className="btn-custom rounded-5">
+                How it works
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="design">
+          <div className="checkmarkStyle">
+            <div className="wrapper">
+              <Clock />
+            </div>
           </div>
         </div>
       </div>
-
-      {/*Content ends*/}
-
-      {/*Footer starts*/}
-      <footer
-        style={{
-          position: "fixed",
-          left: "0",
-          bottom: "0",
-          width: "100%",
-          height: "10%",
-          backgroundColor: "#f8f9fa",
-          textAlign: "center",
-          padding: "10px 25px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
+      <footer className="footer">
         <div>
           <p>&copy; 2023 Doer. All rights reserved</p>
         </div>
@@ -120,7 +162,6 @@ const FirstPage = () => {
           </p>
         </div>
       </footer>
-      {/*Footer ends*/}
     </div>
   );
 };
