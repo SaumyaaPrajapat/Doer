@@ -14,7 +14,10 @@ const Card = () => {
   const [contentVisible, setContentVisible] = useState(true);
   const [inputValue, setInputValue] = useState("");
   const [listItems, setListItems] = useState([]);
-  const { darkMode, toggleDarkMode } = useDarkMode();
+  const [taskName, setTaskName] = useState("Tittle");
+  const [isEditingTaskName, setIsEditingTaskName] = useState(false);
+  const [isTaskNameClicked, setIsTaskNameClicked] = useState(false);
+  const { darkMode } = useDarkMode();
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
@@ -24,6 +27,30 @@ const Card = () => {
       setListItems([...listItems, inputValue]);
       setInputValue("");
     }
+  };
+ 
+  const startEditingTaskName = () => {
+    setIsEditingTaskName(true);
+   
+    const originalTitle = document.title;
+  
+    document.title = `${taskName} - Doer`;
+  
+    if (!isTaskNameClicked) {
+      setIsTaskNameClicked(true);
+  
+      // Set a timeout to revert the title after 40 seconds
+      setTimeout(() => {
+        document.title = originalTitle;
+      }, 30000);
+    }
+  };
+  
+
+  const handleTaskNameChange = (e) => {
+    setTaskName(e.currentTarget.textContent); 
+    setIsEditingTaskName(false);
+  
   };
 
   const toggleContent = () => {
@@ -40,7 +67,20 @@ const Card = () => {
       }}
     >
       <div className={`title ${darkMode ? "dark-mode-content" : ""}`}>
-        Task Name
+      <div
+          onClick={startEditingTaskName}
+          className={isEditingTaskName ? "editable" : ""}
+        >
+          {isEditingTaskName ? (
+            <div
+              contentEditable
+              onBlur={handleTaskNameChange}
+              dangerouslySetInnerHTML={{ __html: taskName }}
+            />
+          ) : (
+            <div>{taskName}</div>
+          )}
+        </div>
         <div className="arrowIconStyles" onClick={toggleContent}>
           <MdKeyboardDoubleArrowDown />
         </div>
