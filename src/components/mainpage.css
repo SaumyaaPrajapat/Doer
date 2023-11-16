@@ -30,7 +30,8 @@ html {
 }
 
 .custom-btn:hover {
-  background-color: #3e98c7;
+  background-color: #171717;
+  border: none;
   border-color: #3e98c7;
 }
 

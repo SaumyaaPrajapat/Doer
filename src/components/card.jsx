@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
-import { SlCalender } from "react-icons/sl";
-import { BsFillAlarmFill } from "react-icons/bs";
-import { BiEditAlt } from "react-icons/bi";
-import { BiCommentEdit } from "react-icons/bi";
-import { CgCalendarDates } from "react-icons/cg";
 import { useDarkMode } from "./DarkModeContext";
 import "./card.css";
+import { BiBookmark } from "react-icons/bi";
+import { BiCalendarCheck } from "react-icons/bi";
+import { BiBell } from "react-icons/bi";
+import { Dropdown } from "react-bootstrap";
 
 const Card = () => {
   const [contentVisible, setContentVisible] = useState(true);
@@ -18,6 +17,7 @@ const Card = () => {
   const [isEditingTaskName, setIsEditingTaskName] = useState(false);
   const [isTaskNameClicked, setIsTaskNameClicked] = useState(false);
   const [completedTasks, setCompletedTasks] = useState([]);
+  const [priority, setPriority] = useState("Medium"); // Default priority
   const { darkMode } = useDarkMode();
 
   const handleInputChange = (e) => {
@@ -40,17 +40,26 @@ const Card = () => {
 
     if (!isTaskNameClicked) {
       setIsTaskNameClicked(true);
-
-      // Set a timeout to revert the title after 40 seconds
-      setTimeout(() => {
-        document.title = originalTitle;
-      }, 30000);
     }
   };
 
   const handleTaskNameChange = (e) => {
     setTaskName(e.currentTarget.textContent);
     setIsEditingTaskName(false);
+  };
+
+  const handleTaskNameKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleTaskNameChange(e);
+    }
+  };
+
+  const handleInputKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleAddItem();
+    }
   };
 
   const toggleContent = () => {
@@ -61,13 +70,20 @@ const Card = () => {
     const updatedCompletedTasks = [...completedTasks];
 
     if (updatedCompletedTasks.includes(index)) {
-      // If task is already marked as completed, remove it from the completedTasks array
       updatedCompletedTasks.splice(updatedCompletedTasks.indexOf(index), 1);
     } else {
-      // Mark the task as completed
       updatedCompletedTasks.push(index);
     }
 
+    setCompletedTasks(updatedCompletedTasks);
+  };
+
+  const handleDeleteTask = (index) => {
+    const updatedListItems = [...listItems];
+    updatedListItems.splice(index, 1);
+    setListItems(updatedListItems);
+
+    const updatedCompletedTasks = completedTasks.filter((taskIndex) => taskIndex !== index);
     setCompletedTasks(updatedCompletedTasks);
   };
 
@@ -79,27 +95,30 @@ const Card = () => {
         boxShadow: darkMode
           ? "5px 5px 12px #0b0b0c, -5px -5px 12px #2b2b30"
           : "13px 13px 33px #ababab, -13px -13px 33px #ffffff",
-        borderRadius: "25px",
+        borderRadius: "15px",
         marginLeft: "7rem",
         marginTop: "2rem",
       }}
     >
-      <div className={`title ${darkMode ? "dark-mode-content" : ""}`}>
-        <div
-          onClick={startEditingTaskName}
-          className={isEditingTaskName ? "editable" : ""}
-          style={{ color: darkMode ? "#fff" : "#000" }}
-        >
-          {isEditingTaskName ? (
-            <div
-              contentEditable
-              onBlur={handleTaskNameChange}
-              dangerouslySetInnerHTML={{ __html: taskName }}
-            />
-          ) : (
-            <div>{taskName}</div>
-          )}
-        </div>
+      <div
+        onClick={startEditingTaskName}
+        className={`title ${isEditingTaskName ? "editable" : ""} ${darkMode ? "dark-mode-content" : ""}`}
+      >
+        {isEditingTaskName ? (
+          <input
+            type="text"
+            onBlur={handleTaskNameChange}
+            onKeyPress={handleTaskNameKeyPress}
+            value={taskName}
+            style={{
+              minWidth: "100px",
+              color: darkMode ? "#fff" : "#000",
+              backgroundColor: darkMode ? "#1b1b1e" : "inherit",
+            }}
+          />
+        ) : (
+          <div>{taskName}</div>
+        )}
         <div className="arrowIconStyles" onClick={toggleContent}>
           <MdKeyboardDoubleArrowDown />
         </div>
@@ -114,15 +133,39 @@ const Card = () => {
                   display: "flex",
                   alignItems: "center",
                   fontSize: "18px",
-                  textDecoration: completedTasks.includes(index) ? "line-through" : "none", color: completedTasks.includes(index) ? "#d3d3d3" : "inherit", // Light grey color when strikethrough
+                  textDecoration: completedTasks.includes(index) ? "line-through" : "none",
+                  color: completedTasks.includes(index) ? "#d3d3d3" : "inherit",
                 }}
               >
                 <input
                   type="checkbox"
-                  style={{ marginRight: "12px", width: "20px", height: "20px",backgroundColor:"transparent", }}
+                  style={{
+                    marginRight: "12px",
+                    width: "20px",
+                    height: "20px",
+                    backgroundColor: "transparent"
+                  }}
                   onChange={() => handleTaskCompletion(index)}
+                  checked={completedTasks.includes(index)}
                 />
-                <span>{item}</span>
+                <input
+                  type="text"
+                  value={item}
+                  onChange={(e) => {
+                    const updatedListItems = [...listItems];
+                    updatedListItems[index] = e.target.value;
+                    setListItems(updatedListItems);
+                  }}
+                  style={{
+                    minWidth: "100px",
+                    border: "none",
+                    outline: "none",
+                    backgroundColor: darkMode ? "#1b1b1e" : "inherit",
+                    color: darkMode ? "#fff" : "inherit",
+                  }}
+                  disabled={completedTasks.includes(index)}
+                />
+                <button type="button" onClick={() => handleDeleteTask(index)} style={{ height: "15px", marginLeft: "0px", }}>-</button>
               </li>
             ))}
           </ul>
@@ -131,6 +174,7 @@ const Card = () => {
               type="text"
               value={inputValue}
               onChange={handleInputChange}
+              onKeyPress={handleInputKeyPress}
               placeholder="Add tasks to list"
               className={`custom-input ${contentVisible ? "enlarged" : ""}`}
               style={{
@@ -141,56 +185,37 @@ const Card = () => {
                 outline: "none",
                 borderRadius: "4px",
                 boxShadow: darkMode ? "inset 2px 3px 8px rgb(5, 5, 5)" : "inset 2px 3px 8px #c2c2c2",
+                minWidth: "100px",
+                marginLeft: "40px", // Set a minimum width for the input field
               }}
             />
-            <button onClick={handleAddItem} className="custom-button">
+            <button type="button" onClick={handleAddItem} className={`custom-button ${darkMode ? "dark-mode-content" : ""}`}>
               +
             </button>
           </div>
         </div>
       )}
-      <div className="buttons">
-        <button className="today-button">
-          <SlCalender /> Due
-        </button>
-        <div className="dropdown">
-          <button
-            className="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton1"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Priority
-          </button>
-          <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li>
-              <a className="dropdown-item" href="#">
-                High
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Medium
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Low
-              </a>
-            </li>
-          </ul>
-        </div>
-        <button className="remainder-button">
-          <BsFillAlarmFill /> Reminder
-        </button>
-      </div>
 
-      <div className="bottom">
-        <BiEditAlt title="Edit" />
-        <BiCommentEdit title="Comment on tasks" />
-        <CgCalendarDates title="Set Due date" />
+      {/* Priority Dropdown */}
+      <div className="btn-group" style={{ marginRight: "8px" }}>
+        
+        <Dropdown>
+          <Dropdown.Toggle variant="light" className={`btn ${darkMode ? "dark-mode-content" : ""}`}>
+            <BiBookmark />
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item onClick={() => setPriority("High")}>High</Dropdown.Item>
+            <Dropdown.Item onClick={() => setPriority("Medium")}>Medium</Dropdown.Item>
+            <Dropdown.Item onClick={() => setPriority("Low")}>Low</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       </div>
+      <button type="button" className={`btn ${darkMode ? "dark-mode-content" : ""}`}>
+        <BiCalendarCheck />
+      </button>
+      <button type="button" className={`btn ${darkMode ? "dark-mode-content" : ""}`}>
+        <BiBell />
+      </button>
     </div>
   );
 };
