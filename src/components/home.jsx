@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./home.css";
-import logo from "./logo.png";
+import logo from "./logofinal.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import MainPage from "./mainpage";
