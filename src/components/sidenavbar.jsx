@@ -1,4 +1,3 @@
-// sidenavbar.jsx
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -8,10 +7,18 @@ import { useDarkMode } from "./DarkModeContext";
 const SideNavbar = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
 
+  // Define boxShadow style based on darkMode condition
+  const boxShadowStyle = darkMode
+    ? "5px 5px 12px #0b0b0c, -5px -5px 12px #2b2b30"
+    : "13px 13px 33px #ababab, -13px -13px 33px #ffffff";
+
   return (
     <div className={`container-fluid ${darkMode ? "dark-mode-content" : ""}`}>
       <div className={`row ${darkMode ? "dark-mode-content" : ""}`}>
-        <div className={`side-navbar ${darkMode ? "dark-mode" : ""}`}>
+        <div
+          className={`side-navbar ${darkMode ? "dark-mode" : ""}`}
+          style={{ boxShadow: boxShadowStyle }}
+        >
           <ul>
             <li>
               <a className="nav-link" href="/inbox">

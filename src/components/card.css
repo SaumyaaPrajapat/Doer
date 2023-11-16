@@ -39,13 +39,14 @@
 }
 
 .title {
-  color: #333;
   font-size: 20px;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+
 .arrowIconStyles {
   cursor: pointer;
   display: flex;
@@ -80,13 +81,8 @@
   text-align: left;
 }
 
-.content li:nth-child(odd) {
-  background-color: #f3f3f3;
-}
 
-.content li:nth-child(even) {
-  background-color: #e0e0e0;
-}
+
 .content ul {
   list-style: none;
   padding: 0;
@@ -98,14 +94,7 @@
   margin-bottom: 10px; /* Add some vertical spacing between list items */
 }
 
-.content li::before {
-  content: "\2022"; /* Unicode character for a bullet (•) */
-  position: absolute; /* Position the bullet absolutely within the li element */
-  left: 0; /* Align the bullet to the left of the li */
-  top: 50%; /* Vertically center the bullet */
-  transform: translateY(-50%); /* Adjust to center vertically */
-  color: #333;
-}
+
 
 .buttons {
   display: flex;

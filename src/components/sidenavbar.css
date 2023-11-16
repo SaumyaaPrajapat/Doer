@@ -17,9 +17,8 @@
   flex-direction: column; /* Change flex-direction to column to align items vertically */
   align-items: flex-start; /* Align items to the start of the flex container */
   min-height: 100vh;
-  border-top-right-radius: 20px ;
+  border-top-right-radius: 0px ;
   margin-left: 0%;
-  box-shadow: 5px 5px 12px #0b0b0c, -5px -5px 12px #2b2b30;
   transition: background-color 0.3s;
 }
 

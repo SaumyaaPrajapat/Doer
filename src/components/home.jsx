@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./home.css";
-import logo from "./logofinal.png";
+import logo from "./logo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import MainPage from "./mainpage";
@@ -55,8 +55,26 @@ const App = () => {
                     type="text"
                     className="search-input"
                     placeholder="Search"
+                    style={{
+                      padding: "8px",
+                      border: "0px solid #ccc",
+                      backgroundColor: darkMode ? "#1b1b1e" : "white",
+                      color: darkMode ? "#ccc" : "#000",
+                      outline: "none",
+                      borderRadius: "4px",
+                      boxShadow: darkMode ? "inset 2px 3px 8px rgb(5, 5, 5)" : "inset 2px 3px 8px #c2c2c2",
+                    }}
                   />
-                  <button type="submit" className="search-button">
+                  <button type="submit" className="search-button"
+                  style={{
+                    backgroundColor: darkMode ? "#1b1b1e" : "#66b4db",
+                    color: "#fff",
+                    border: "none",
+                    borderRadius: "4px",
+                    cursor: "pointer",
+                    padding: "4px 12px",
+                  }}
+                  >
                     <i className="bi bi-search"></i>
                   </button>
                 </div>
