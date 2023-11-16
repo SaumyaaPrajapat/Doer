@@ -54,14 +54,13 @@ const FirstPage = () => {
     color: "#fff",
     border: "2px solid transparent",
     transition: "border 0.3s",
-    fontWeight: "600",
+    fontWeight: "500",
     fontSize: "1rem",
   };
 
   const buttonHoverStyle = {
     border: "2px solid #fff",
   };
-
   return (
     <div className="containerStyle">
       <nav className="navbar navbar-expand-lg navbar-light" style={{ top: 0 }}>
@@ -69,7 +68,7 @@ const FirstPage = () => {
           <Link to="/" className="navbar-brand">
             <img
               src={Logo}
-              style={{ height: "150%", marginLeft: "40%" }}
+              style={{ height: "150%", marginLeft: "15%" }}
               alt="Logo"
             />
           </Link>
@@ -111,7 +110,7 @@ const FirstPage = () => {
         </div>
       </nav>
       <div className="groupedSectionStyle">
-        <div>
+        <div className="newBox">
           {/* Div 1 */}
           <div className="tex">
             Chart the course to productivity, with
@@ -152,16 +151,6 @@ const FirstPage = () => {
           </div>
         </div>
       </div>
-      <footer className="footer">
-        <div>
-          <p>&copy; 2023 Doer. All rights reserved</p>
-        </div>
-        <div>
-          <p>
-            <a href="#terms">Terms and Conditions</a>
-          </p>
-        </div>
-      </footer>
     </div>
   );
 };

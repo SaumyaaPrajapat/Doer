@@ -6,13 +6,15 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: auto;
     }
   
 .blurredCardStyle {
     width: 90%;
-    max-width: 850px;
+    max-width: 1000px;
     display: flex;
     flex-direction: row;
+    margin-top: 5% !important;
     border-radius: 36px;
     background: linear-gradient(225deg, #18181b, #1d1d20);
     box-shadow: -5px 5px 8px #0f0f11, 5px -5px 8px #27272b;
@@ -29,9 +31,9 @@
     }
 
 .art {
-    width: 90% !important;
-    margin-top: 20%;
-    margin-left: 5%;
+    width:100% !important;
+    margin-top: 10% !important;
+    margin-left: 10%;
     }
 
 .navbarStyle {
@@ -71,7 +73,7 @@
         display: none;
     }
     .blurredCardStyle{
-        margin-top: 10%;
+        margin-top: 10% !important;
         padding-left: 8%;
         padding-right: 8%;
     }
