@@ -273,3 +273,36 @@
     flex-direction: column;
   }
 }
+@media screen and (min-width: 1300px) and (min-height: 800px) {
+  body {
+    zoom: 1.1;
+    overflow: hidden;
+  }
+
+  .groupedSectionStyle {
+    margin-top: 7.5%;
+  }
+
+  .newBox {
+    width: 60%;
+  }
+
+  .design {
+    margin-top: 4.5%;
+  }
+
+  .tex {
+    font-size: 4rem;
+    margin-top: 4.5%;
+  }
+
+  .otherStyle {
+    font-size: 1.25rem;
+    margin-top: 3;
+  }
+
+  .buttonsView {
+    margin-top: 3%;
+    margin-left: 8%;
+  }
+}
