@@ -14,7 +14,7 @@ const Card = () => {
   const [contentVisible, setContentVisible] = useState(true);
   const [inputValue, setInputValue] = useState("");
   const [listItems, setListItems] = useState([]);
-  const [taskName, setTaskName] = useState("Tittle");
+  const [taskName, setTaskName] = useState("Title");
   const [isEditingTaskName, setIsEditingTaskName] = useState(false);
   const [isTaskNameClicked, setIsTaskNameClicked] = useState(false);
   const { darkMode } = useDarkMode();
@@ -60,8 +60,10 @@ const Card = () => {
       className={` ${darkMode ? "dark-mode" : ""} `}
       style={{
         padding: "1rem",
-        boxShadow: darkMode ? "0 0 5px white" : "0 0 5px black",
-        borderRadius: "5px",
+        boxShadow: darkMode ? "5px 5px 12px #0b0b0c, -5px -5px 12px #2b2b30" : "13px 13px 33px #ababab, -13px -13px 33px #ffffff",
+        borderRadius: "25px",
+        marginLeft:"7rem",
+        marginTop:"2rem", 
       }}
     >
       <div className={`title ${darkMode ? "dark-mode-content" : ""}`}>
@@ -99,7 +101,7 @@ const Card = () => {
               className={`custom-input ${contentVisible ? "enlarged" : ""}`}
             />
             <button onClick={handleAddItem} className="custom-button">
-              Add
+              +
             </button>
           </div>
         </div>

@@ -19,6 +19,7 @@
   min-height: 200px;
   transition: height 0.3s;
   color: var(--card-text-color);
+ 
 }
 
 .card.enlarged {

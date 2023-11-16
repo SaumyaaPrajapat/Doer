@@ -14,13 +14,17 @@
 .doer-text:hover {
   color: #1796b9;
 }
+
+
 .welcome-container {
   display: flex;
   justify-content: center;
 }
+
+
 .welcome-message {
   font-size: 1.8rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
 .search-bar {
   display: flex;
