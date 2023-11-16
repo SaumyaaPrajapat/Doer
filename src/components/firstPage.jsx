@@ -68,7 +68,7 @@ const FirstPage = () => {
           <Link to="/" className="navbar-brand">
             <img
               src={Logo}
-              style={{ height: "150%", marginLeft: "40%" }}
+              style={{ height: "150%", marginLeft: "15%" }}
               alt="Logo"
             />
           </Link>

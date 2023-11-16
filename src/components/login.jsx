@@ -59,7 +59,7 @@ function Login() {
       <nav className="navbar navbar-expand-lg navbar-light" style={{ top: 0 }}>
         <div className="BAR">
           <Link to="/" className="navbar-brand">
-            <img src={Logo} style={{ height: "150%", marginLeft: "40%" }} alt="Logo" />
+            <img src={Logo} style={{ height: "150%", marginLeft: "10%" }} alt="Logo" />
           </Link>
           <div className="d-flex" style={{ marginTop: "1rem" }}>
             <ul className="navbar-nav" style={{ display: "flex", flexDirection: "row"}}>
