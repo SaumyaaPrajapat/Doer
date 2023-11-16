@@ -164,7 +164,7 @@
 
   &::after {
     content: '';
-    border-radius: 50%;
+    border-radius: 50% !important;
     width: 60%;
     height: 60%;
     position: absolute;
