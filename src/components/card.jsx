@@ -4,10 +4,8 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { useDarkMode } from "./DarkModeContext";
 import "./card.css";
-import { BiBookmark } from "react-icons/bi";
-import { BiCalendarCheck } from "react-icons/bi";
-import { BiBell } from "react-icons/bi";
-import { Dropdown } from "react-bootstrap";
+import { BsFillTrashFill } from "react-icons/bs";
+import Dropdown from "react-bootstrap/Dropdown";
 
 const Card = () => {
   const [contentVisible, setContentVisible] = useState(true);
@@ -40,6 +38,11 @@ const Card = () => {
 
     if (!isTaskNameClicked) {
       setIsTaskNameClicked(true);
+
+      setTimeout(() => {
+        document.title = originalTitle;
+        setIsEditingTaskName(false);
+      }, 30000);
     }
   };
 
@@ -85,6 +88,10 @@ const Card = () => {
 
     const updatedCompletedTasks = completedTasks.filter((taskIndex) => taskIndex !== index);
     setCompletedTasks(updatedCompletedTasks);
+  };
+
+  const handlePriorityChange = (newPriority) => {
+    setPriority(newPriority);
   };
 
   return (
@@ -195,27 +202,29 @@ const Card = () => {
           </div>
         </div>
       )}
-
-      {/* Priority Dropdown */}
-      <div className="btn-group" style={{ marginRight: "8px" }}>
-        
+      
+      <div className="d-flex justify-content-end">
+        <button type="button" className={`btn ${darkMode ? "dark-mode-content" : ""}`}>
+          Due
+        </button>
+        <button type="button" className={`btn ${darkMode ? "dark-mode-content" : ""}`}>
+          Reminder
+        </button>
         <Dropdown>
-          <Dropdown.Toggle variant="light" className={`btn ${darkMode ? "dark-mode-content" : ""}`}>
-            <BiBookmark />
+          <Dropdown.Toggle variant={`btn ${darkMode ? "dark-mode-content" : ""}`} id="dropdown-basic">
+            Priority
           </Dropdown.Toggle>
+
           <Dropdown.Menu>
-            <Dropdown.Item onClick={() => setPriority("High")}>High</Dropdown.Item>
-            <Dropdown.Item onClick={() => setPriority("Medium")}>Medium</Dropdown.Item>
-            <Dropdown.Item onClick={() => setPriority("Low")}>Low</Dropdown.Item>
+            <Dropdown.Item onClick={() => handlePriorityChange("High")}>High</Dropdown.Item>
+            <Dropdown.Item onClick={() => handlePriorityChange("Medium")}>Medium</Dropdown.Item>
+            <Dropdown.Item onClick={() => handlePriorityChange("Low")}>Low</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
+        <button type="button" className={`btn ${darkMode ? "dark-mode-content" : ""}`}>
+          <BsFillTrashFill />
+        </button>
       </div>
-      <button type="button" className={`btn ${darkMode ? "dark-mode-content" : ""}`}>
-        <BiCalendarCheck />
-      </button>
-      <button type="button" className={`btn ${darkMode ? "dark-mode-content" : ""}`}>
-        <BiBell />
-      </button>
     </div>
   );
 };

@@ -82,7 +82,6 @@
 }
 
 
-
 .content ul {
   list-style: none;
   padding: 0;
@@ -96,21 +95,13 @@
 
 
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin: 8px 0;
+.btn{
+  padding: 15px;
+  padding-top: 20px;
+  padding-bottom: 1px;
+  border: none;
 }
 
-.buttons button {
-  border: none;
-  border-radius: 5px;
-  margin-right: 5px;
-  padding: 4px 14px; /* Increase padding for better touch areas */
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
 
 /* Media query for responsiveness */
 @media screen and (max-width: 600px) {
@@ -124,34 +115,6 @@
   }
 }
 
-.today-button {
-  background-color: #aa9be8;
-  color: white;
-}
-
-.today-button:hover {
-  background-color: #c0b3f5;
-}
-
-.priority-button {
-  background-color: #fd7d93;
-  color: white;
-}
-
-.priority-button:hover {
-  background-color: #f49baa;
-  color: white;
-}
-
-.remainder-button {
-  background-color: #fcb204;
-  color: white;
-  padding: 4px 8px;
-}
-
-.remainder-button:hover {
-  background-color: #ffd100;
-}
 
 @media (max-width: 768px) {
   .card {
@@ -196,3 +159,6 @@
     margin: 10px 0; /* Add some space between elements */
   }
 }
+
+
+
