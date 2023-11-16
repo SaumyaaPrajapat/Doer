@@ -39,40 +39,61 @@ function Signup() {
         console.log(err);
       });
   };
-  const buttonContainerStyle = {
-    display: "flex",
-    flexDirection: "row",
-  };
+  const [isHoveredSignUp, setIsHoveredSignUp] = useState(false);
+  const [isHoveredLogin, setIsHoveredLogin] = useState(false);
+  
   const buttonStyle = {
-    background: "transparency",
-    color: "#FFF",
-    marginLeft: "10px",
-    fontWeight: "400",
-    fontSize: "18px"
+    marginRight: "10px",
+    color: "#fff",
+    border: "2px solid transparent",
+    transition: "border 0.3s",
+    fontWeight: "500",
+    fontSize: "1rem",
+  };
+  const buttonHoverStyle = {
+    border: "2px solid #fff",
   };
   return (
     <div className="cardStyle">
-      <div className="navbarStyle">
-        <div>
-          <img src={Logo} className="logoStyle" alt="Logo" />
-        </div>
-        <div style={buttonContainerStyle}>
-          <Link
-            to="/register"
-            className="btn btn-outline rounded-10"
-            style={buttonStyle}
-          >
-            Get Started
+      <nav className="navbar navbar-expand-lg navbar-light" style={{ top: 0 }}>
+        <div className="BAR">
+          <Link to="/" className="navbar-brand">
+            <img src={Logo} style={{ height: "150%", marginLeft: "40%" }} alt="Logo" />
           </Link>
-          <Link
-            to="/login"
-            className="btn btn-size-10 rounded-10"
-            style={buttonStyle}
-          >
-            Login
-          </Link>
+          <div className="d-flex" style={{ marginTop: "1rem" }}>
+            <ul className="navbar-nav" style={{ display: "flex", flexDirection: "row"}}>
+              <li className="nav">
+                <Link
+                  to="/register"
+                  className="nav-link btn btn-outline rounded-10"
+                  style={{
+                    ...buttonStyle,
+                    ...(isHoveredSignUp ? buttonHoverStyle : {}),
+                  }}
+                  onMouseEnter={() => setIsHoveredSignUp(true)}
+                  onMouseLeave={() => setIsHoveredSignUp(false)}
+                >
+                  Get Started
+                </Link>
+              </li>
+              <li className="nav">
+                <Link
+                  to="/login"
+                  className="nav-link btn btn-size-10 rounded-10"
+                  style={{
+                    ...buttonStyle,
+                    ...(isHoveredLogin ? buttonHoverStyle : {}),
+                  }}
+                  onMouseEnter={() => setIsHoveredLogin(true)}
+                  onMouseLeave={() => setIsHoveredLogin(false)}
+                >
+                  Login
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </nav>
       <div className="blurredCardStyle rounded-4">
           <div>
             <img src={imageArt} alt="" className="art"/>

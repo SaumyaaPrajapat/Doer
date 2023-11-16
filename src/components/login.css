@@ -10,6 +10,7 @@
     min-height: 100vh; 
     display: flex;
     flex-direction: column;
+    overflow: auto;
   }
 .navbarStyle {
     display: flex; 
@@ -58,6 +59,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 20% !important;
   }
   .inputStyle{
     width: 130% !important;
