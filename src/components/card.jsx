@@ -6,6 +6,7 @@ import { useDarkMode } from "./DarkModeContext";
 import "./card.css";
 import { BsFillTrashFill } from "react-icons/bs";
 import Dropdown from "react-bootstrap/Dropdown";
+import { BsX } from "react-icons/bs";
 
 const Card = () => {
   const [contentVisible, setContentVisible] = useState(true);
@@ -172,7 +173,7 @@ const Card = () => {
                   }}
                   disabled={completedTasks.includes(index)}
                 />
-                <button type="button" onClick={() => handleDeleteTask(index)} style={{ height: "15px", marginLeft: "0px", }}>-</button>
+                <button type="button" onClick={() => handleDeleteTask(index)} style={{ height: "30px", marginLeft: "0px",backgroundColor:"transparent", }}><BsX /></button>
               </li>
             ))}
           </ul>
