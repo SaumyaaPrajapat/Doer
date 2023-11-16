@@ -28,29 +28,27 @@ const Card = () => {
       setInputValue("");
     }
   };
- 
+
   const startEditingTaskName = () => {
     setIsEditingTaskName(true);
-   
+
     const originalTitle = document.title;
-  
+
     document.title = `${taskName} - Doer`;
-  
+
     if (!isTaskNameClicked) {
       setIsTaskNameClicked(true);
-  
+
       // Set a timeout to revert the title after 40 seconds
       setTimeout(() => {
         document.title = originalTitle;
       }, 30000);
     }
   };
-  
 
   const handleTaskNameChange = (e) => {
-    setTaskName(e.currentTarget.textContent); 
+    setTaskName(e.currentTarget.textContent);
     setIsEditingTaskName(false);
-  
   };
 
   const toggleContent = () => {
@@ -67,7 +65,7 @@ const Card = () => {
       }}
     >
       <div className={`title ${darkMode ? "dark-mode-content" : ""}`}>
-      <div
+        <div
           onClick={startEditingTaskName}
           className={isEditingTaskName ? "editable" : ""}
         >
@@ -108,7 +106,7 @@ const Card = () => {
       )}
       <div className="buttons">
         <button className="today-button">
-          <SlCalender /> Today
+          <SlCalender /> Due
         </button>
         <div class="dropdown">
           <button
@@ -142,10 +140,7 @@ const Card = () => {
           <BsFillAlarmFill /> Reminder
         </button>
       </div>
-      <div className="end">
-        <button>Cancel</button>
-        <button>Add Task</button>
-      </div>
+
       <div className="bottom">
         <BiEditAlt title="Edit" />
         <BiCommentEdit title="Comment on tasks" />

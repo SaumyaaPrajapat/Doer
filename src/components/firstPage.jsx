@@ -16,15 +16,17 @@ const Clock = () => {
   }, []);
 
   const hoursStyle = {
-    transform: `rotate(${(time.getHours() % 12) * 30 + time.getMinutes() / 2}deg)`,
+    transform: ` rotate(${
+      (time.getHours() % 12) * 30 + time.getMinutes() / 2
+    }deg)`,
   };
 
   const minutesStyle = {
-    transform: `rotate(${time.getMinutes() * 6}deg)`,
+    transform: ` rotate(${time.getMinutes() * 6}deg)`,
   };
 
   const secondsStyle = {
-    transform: `rotate(${time.getSeconds() * 6}deg)`,
+    transform: ` rotate(${time.getSeconds() * 6}deg)`,
   };
 
   return (
@@ -46,7 +48,7 @@ const Clock = () => {
 const FirstPage = () => {
   const [isHoveredSignUp, setIsHoveredSignUp] = useState(false);
   const [isHoveredLogin, setIsHoveredLogin] = useState(false);
-  
+
   const buttonStyle = {
     marginRight: "10px",
     color: "#fff",
@@ -64,10 +66,17 @@ const FirstPage = () => {
       <nav className="navbar navbar-expand-lg navbar-light" style={{ top: 0 }}>
         <div className="BAR">
           <Link to="/" className="navbar-brand">
-            <img src={Logo} style={{ height: "150%", marginLeft: "40%" }} alt="Logo" />
+            <img
+              src={Logo}
+              style={{ height: "150%", marginLeft: "40%" }}
+              alt="Logo"
+            />
           </Link>
           <div className="d-flex" style={{ marginTop: "1rem" }}>
-            <ul className="navbar-nav" style={{ display: "flex", flexDirection: "row"}}>
+            <ul
+              className="navbar-nav"
+              style={{ display: "flex", flexDirection: "row" }}
+            >
               <li className="nav">
                 <Link
                   to="/register"
@@ -103,8 +112,9 @@ const FirstPage = () => {
       <div className="groupedSectionStyle">
         <div className="newBox">
           {/* Div 1 */}
-          <div className="tex">Chart the course to productivity, with
-          <span className="textbox"> Doer.</span>
+          <div className="tex">
+            Chart the course to productivity, with
+            <span className="textbox"> Doer.</span>
           </div>
           <div className="otherStyle">
             Doer is your centralized hub for tasks, streamlining teamwork and
@@ -120,15 +130,14 @@ const FirstPage = () => {
                   style={{
                     backgroundColor: "#67BBD3",
                     color: "black",
-                  }}>
+                  }}
+                >
                   Try Doer for free
                 </button>
               </Link>
             </div>
             <div>
-              <button
-                type="button"
-                className="btn-custom rounded-5">
+              <button type="button" className="btn-custom rounded-5">
                 How it works
               </button>
             </div>
