@@ -13,12 +13,13 @@
   box-shadow: var(--card-box-shadow);
   padding: var(--card-padding);
   text-align: center;
-  width: 380px;
+  width: 600px ;
   margin-top: 2rem;
   margin: 10px;
   min-height: 200px;
   transition: height 0.3s;
   color: var(--card-text-color);
+ 
 }
 
 .card.enlarged {
@@ -38,13 +39,14 @@
 }
 
 .title {
-  color: #333;
   font-size: 20px;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+
 .arrowIconStyles {
   cursor: pointer;
   display: flex;
@@ -79,13 +81,7 @@
   text-align: left;
 }
 
-.content li:nth-child(odd) {
-  background-color: #f3f3f3;
-}
 
-.content li:nth-child(even) {
-  background-color: #e0e0e0;
-}
 .content ul {
   list-style: none;
   padding: 0;
@@ -97,30 +93,15 @@
   margin-bottom: 10px; /* Add some vertical spacing between list items */
 }
 
-.content li::before {
-  content: "\2022"; /* Unicode character for a bullet (•) */
-  position: absolute; /* Position the bullet absolutely within the li element */
-  left: 0; /* Align the bullet to the left of the li */
-  top: 50%; /* Vertically center the bullet */
-  transform: translateY(-50%); /* Adjust to center vertically */
-  color: #333;
-}
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin: 8px 0;
-}
 
-.buttons button {
+.btn{
+  padding: 15px;
+  padding-top: 20px;
+  padding-bottom: 1px;
   border: none;
-  border-radius: 5px;
-  margin-right: 5px;
-  padding: 4px 14px; /* Increase padding for better touch areas */
-  cursor: pointer;
-  transition: background-color 0.3s;
 }
+
 
 /* Media query for responsiveness */
 @media screen and (max-width: 600px) {
@@ -134,34 +115,6 @@
   }
 }
 
-.today-button {
-  background-color: #aa9be8;
-  color: white;
-}
-
-.today-button:hover {
-  background-color: #c0b3f5;
-}
-
-.priority-button {
-  background-color: #fd7d93;
-  color: white;
-}
-
-.priority-button:hover {
-  background-color: #f49baa;
-  color: white;
-}
-
-.remainder-button {
-  background-color: #fcb204;
-  color: white;
-  padding: 4px 8px;
-}
-
-.remainder-button:hover {
-  background-color: #ffd100;
-}
 
 @media (max-width: 768px) {
   .card {
@@ -206,3 +159,6 @@
     margin: 10px 0; /* Add some space between elements */
   }
 }
+
+
+
