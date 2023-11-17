@@ -62,18 +62,17 @@ const App = () => {
                       color: darkMode ? "#ccc" : "#000",
                       outline: "none",
                       borderRadius: "4px",
-                      boxShadow: darkMode ? "inset 2px 3px 8px rgb(5, 5, 5)" : "inset 2px 3px 8px #c2c2c2",
+                      boxShadow: darkMode
+                        ? "inset 2px 3px 8px rgb(5, 5, 5)"
+                        : "inset 2px 3px 8px #c2c2c2",
                     }}
                   />
-                  <button type="submit" className="search-button"
-                  style={{
-                    backgroundColor: darkMode ? "#1b1b1e" : "#66b4db",
-                    color: "#fff",
-                    border: "none",
-                    borderRadius: "4px",
-                    cursor: "pointer",
-                    padding: "4px 12px",
-                  }}
+                  <button
+                    type="submit"
+                    className="search-button"
+                    style={{
+                      backgroundColor: darkMode ? "#1b1b1e" : "#66b4db",
+                    }}
                   >
                     <i className="bi bi-search"></i>
                   </button>

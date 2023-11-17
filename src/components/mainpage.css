@@ -1,4 +1,3 @@
-/* Add this to your CSS */
 body,
 html {
   height: 100%;
@@ -9,14 +8,12 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* 100% of the viewport height */
+  height: 100vh;
 }
 
 .main {
   text-align: center;
 }
-
-/* Your existing styles for .main go here */
 
 .custom-btn {
   background-color: #67bbd3;
