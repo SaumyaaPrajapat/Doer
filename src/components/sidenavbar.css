@@ -1,5 +1,5 @@
 * {
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
 
 .container-fluid {
@@ -17,7 +17,7 @@
   flex-direction: column; /* Change flex-direction to column to align items vertically */
   align-items: flex-start; /* Align items to the start of the flex container */
   min-height: 100vh;
-  border-top-right-radius: 0px ;
+  border-top-right-radius: 0px;
   margin-left: 0%;
   transition: background-color 0.3s;
 }
@@ -29,13 +29,11 @@
 
 ul {
   margin: 10px; /* Adjust margin for better spacing */
-  padding: 10px;
   list-style-type: none;
-
 }
 
 .side-navbar a {
-  padding: 20px 10px; /* Adjust padding for better spacing */
+  padding: 15px 5px; /* Adjust padding for better spacing */
   transition: color 0.3s;
   margin-top: 1cm;
   margin-left: -1cm;

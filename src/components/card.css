@@ -13,15 +13,17 @@
   box-shadow: var(--card-box-shadow);
   padding: var(--card-padding);
   text-align: center;
-  width: 600px ;
+  width: 380px;
   margin-top: 2rem;
   margin: 10px;
   min-height: 200px;
   transition: height 0.3s;
   color: var(--card-text-color);
- 
 }
-
+.cards {
+  margin-left: 25px;
+  width: 400px;
+}
 .card.enlarged {
   transform: scale(1.2);
 }
@@ -45,8 +47,12 @@
   justify-content: space-between;
   align-items: center;
 }
-
-
+.due-date {
+  font-size: 16px;
+  pointer-events: none;
+  color: #5e5e5eda;
+  padding: 5px; /* Add padding for better visual appearance */
+}
 .arrowIconStyles {
   cursor: pointer;
   display: flex;
@@ -81,27 +87,26 @@
   text-align: left;
 }
 
-
-.content ul {
-  list-style: none;
-  padding: 0;
-}
-
 .content li {
   position: relative; /* Make the li element a positioned container */
   padding-left: 20px; /* Create some spacing between the circle and text */
   margin-bottom: 10px; /* Add some vertical spacing between list items */
 }
+.content li::before {
+  content: "\2022"; /* Unicode character for a bullet (•) */
+  position: absolute; /* Position the bullet absolutely within the li element */
+  left: 0; /* Align the bullet to the left of the li */
+  top: 50%; /* Vertically center the bullet */
+  transform: translateY(-50%); /* Adjust to center vertically */
+  color: #333;
+}
 
-
-
-.btn{
+.btn {
   padding: 15px;
   padding-top: 20px;
   padding-bottom: 1px;
   border: none;
 }
-
 
 /* Media query for responsiveness */
 @media screen and (max-width: 600px) {
@@ -114,7 +119,6 @@
     margin: 5px 0; /* Add some space between buttons */
   }
 }
-
 
 @media (max-width: 768px) {
   .card {
@@ -135,6 +139,27 @@
   border-radius: 5px;
   width: 60%; /* Make the input take the full width */
   box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+/* Styles for the custom scrollbar */
+.custom-input::-webkit-scrollbar {
+  width: 3px; /* Width of the scrollbar */
+}
+
+.custom-input::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color of the track (the area behind the scrollbar) */
+}
+
+.custom-input::-webkit-scrollbar-thumb {
+  background-color: #a8a8a8; /* Color of the thumb (the draggable handle) */
+  border-radius: 6px; /* Radius of the thumb corners */
+}
+
+.custom-input::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Color of the thumb on hover */
+}
+
+.custom-input::placeholder {
+  font-size: 12px; /* Adjust the font size as needed */
 }
 
 .custom-button {
@@ -159,6 +184,3 @@
     margin: 10px 0; /* Add some space between elements */
   }
 }
-
-
-
