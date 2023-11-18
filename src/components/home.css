@@ -23,12 +23,7 @@
   flex-direction: row;
 }
 
-/* home.css */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three cards in a row by default */
-  gap: 10px; /* Adjust spacing between cards */
-}
+
 
 .horizontal-card {
   padding: 10px;
@@ -43,8 +38,3 @@
   color: #ffc107;
 }
 
-@media (max-width: 768px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
-}

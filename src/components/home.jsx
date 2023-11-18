@@ -10,13 +10,13 @@ import SideNavbar from "./sidenavbar";
 import Card from "./card";
 import { useDarkMode } from "./DarkModeContext";
 const App = () => {
-  const [cards, setCards] = useState([]);
+  // const [cards, setCards] = useState([]);
   const { darkMode, toggleDarkMode } = useDarkMode();
 
-  const addCard = () => {
-    const newCard = <Card key={cards.length} />;
-    setCards([...cards, newCard]);
-  };
+  // const addCard = () => {
+  //   const newCard = <Card key={cards.length} />;
+  //   setCards([...cards, newCard]);
+  // };
 
   return (
     <div className={darkMode ? "dark-mode" : ""}>
@@ -51,9 +51,9 @@ const App = () => {
                   <i className="bi-sun-fill dark-mode-icon"></i>
                 )}
               </div>
-              <div className="icon-container" onClick={addCard}>
+              {/* <div className="icon-container" onClick={addCard}>
                 <i className="bi-plus-circle-fill add-icon"></i>
-              </div>
+              </div> */}
               <form className="search-bar">
                 <div className="input-group">
                   <span className="input-group-text">
@@ -85,12 +85,9 @@ const App = () => {
               darkMode ? "dark-mode-content" : ""
             }`}
           >
-            <div className="card-grid">
-              {cards.map((card, index) => (
-                <div key={index} className="horizontal-card">
-                  {card}
-                </div>
-              ))}
+            <div>
+             
+              <Card/>
             </div>
           </div>
         </div>
