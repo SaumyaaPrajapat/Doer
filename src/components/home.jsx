@@ -21,7 +21,7 @@ const App = () => {
       <div
         className={`navigation ${darkMode ? "dark-mode-content" : ""}`}
         style={{
-          backgroundColor: darkMode ? "black" : "#ccc",
+          backgroundColor: darkMode ? "#1b1b1e" : "#F9F5F6",
         }}
       >
         <nav className="navbar navbar-expand-lg custom-navbar">

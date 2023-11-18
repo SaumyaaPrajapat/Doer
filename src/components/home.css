@@ -1,8 +1,16 @@
+*{font-family: 'Poppins';}
+
+
 .navigation {
   position: fixed;
   min-width: 100%;
   z-index: 10;
 }
+
+.dark-mode .navigation{
+  box-shadow: -5px 5px 8px #0f0f11, 5px -5px 8px #27272b;
+}
+
 .logo-image {
   max-width: 40px;
   margin-left: 10px;
@@ -10,17 +18,34 @@
 }
 .doer-text {
   margin-right: 160px;
+  font-weight: bold;
+  font-size: larger;
 }
+
 .doer-text:hover {
   color: #1796b9;
+  transition: 0.7s;
 }
+
+
 .welcome-container {
   display: flex;
   justify-content: center;
 }
+
+.dark-mode .doer-text{
+  color: white;
+}
+
+.dark-mode .doer-text:hover{
+  color: #67bbd3;
+  transition: 0.7s;
+}
+
 .welcome-message {
   font-size: 1.8rem;
   font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
 .search-bar {
   display: flex;
@@ -29,11 +54,25 @@
 .input-group {
   display: flex;
 }
+
+
+
 .search-input {
   padding: 8px;
-  border: 1px solid #ccc;
   border-radius: 4px;
 }
+
+.dark-mode .search-input{
+  background-color: #1b1b1e;
+  color: white;
+}
+
+.dark-mode .search-button{
+  background-color: #000000;
+  color: white;
+}
+
+
 .search-button {
   background-color: #67bbd3;
   color: #fff;
@@ -42,9 +81,13 @@
   cursor: pointer;
   padding: 4px 12px;
 }
+
+
 .search-button i {
   margin-right: 8px;
 }
+
+
 @media (max-width: 768px) {
   .search-input {
     display: none; /* Hide the input field */

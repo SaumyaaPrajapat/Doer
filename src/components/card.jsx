@@ -28,7 +28,7 @@ const Card = () => {
   const handleAddTask = () => {
     if (taskName.trim() !== "") {
       const newTask = { id: tasks.length + 1, taskName, description };
-      setTasks([...tasks, newTask]);
+      setTasks([newTask,...tasks]);
       setTaskName("");
       setDescription("");
     }
@@ -78,7 +78,7 @@ const Card = () => {
       <div className="task-cards">
         {tasks.map((task) => (
           <div className="task-card" key={task.id}>
-            <p>{task.taskName}</p>
+            <p><h4>{task.taskName}</h4></p>
             <p>{task.description}</p>
             <div className="task-buttons">
               <button onClick={() => handleOpenUpdateModal(task.id)}>Update</button>
