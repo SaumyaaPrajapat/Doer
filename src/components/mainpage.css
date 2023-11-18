@@ -1,5 +1,18 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 .main {
-  margin-left: 15rem;
+  text-align: center;
 }
 
 .custom-btn {
@@ -14,7 +27,8 @@
 }
 
 .custom-btn:hover {
-  background-color: #3e98c7;
+  background-color: #171717;
+  border: none;
   border-color: #3e98c7;
 }
 

@@ -1,6 +1,4 @@
-// Home.jsx
 import React, { useState } from "react";
-
 import "./home.css";
 import logo from "./logo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -23,23 +21,20 @@ const App = () => {
       <div
         className={`navigation ${darkMode ? "dark-mode-content" : ""}`}
         style={{
-          backgroundColor: darkMode ? "black" : "#ccc",
+          backgroundColor: darkMode ? "#1b1b1e" : "white",
         }}
       >
         <nav className="navbar navbar-expand-lg custom-navbar">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
               <img className="logo-image" src={logo} alt="Logo" />
-              Doer
+              <span className="doer-text">Doer</span>
             </a>
 
             <div
               className={`welcome-container ${
                 darkMode ? "dark-mode-content" : ""
               }`}
-              style={{
-                fontSize: "2.5rem",
-              }}
             >
               <div className="welcome-message">Welcome back, user!</div>
             </div>
@@ -56,14 +51,31 @@ const App = () => {
               </div> */}
               <form className="search-bar">
                 <div className="input-group">
-                  <span className="input-group-text">
-                    <i className="bi bi-search"></i>
-                  </span>
                   <input
-                    type="search"
-                    className="form-control me-2"
+                    type="text"
+                    className="search-input"
                     placeholder="Search"
+                    style={{
+                      padding: "8px",
+                      border: "0px solid #ccc",
+                      backgroundColor: darkMode ? "#1b1b1e" : "white",
+                      color: darkMode ? "#ccc" : "#000",
+                      outline: "none",
+                      borderRadius: "4px",
+                      boxShadow: darkMode
+                        ? "inset 2px 3px 8px rgb(5, 5, 5)"
+                        : "inset 2px 3px 8px #c2c2c2",
+                    }}
                   />
+                  <button
+                    type="submit"
+                    className="search-button"
+                    style={{
+                      backgroundColor: darkMode ? "#1b1b1e" : "#66b4db",
+                    }}
+                  >
+                    <i className="bi bi-search"></i>
+                  </button>
                 </div>
               </form>
             </div>
