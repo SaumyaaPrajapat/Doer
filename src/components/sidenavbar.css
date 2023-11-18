@@ -1,48 +1,35 @@
-* {
-  font-family: "Poppins";
-}
-
 .container-fluid {
   width: 100%;
   height: 100%;
 }
-
 .row {
   margin: 0;
   padding: 0;
 }
-
 .side-navbar {
   display: flex;
-  flex-direction: column; /* Change flex-direction to column to align items vertically */
-  align-items: flex-start; /* Align items to the start of the flex container */
+  flex-direction: column;
+  margin: 0;
   min-height: 100vh;
-  border-top-right-radius: 0px;
-  margin-left: 0%;
-  transition: background-color 0.3s;
+  color: #212529;
+  flex: 1 0 auto;
 }
-
-.dark-mode {
-  background-color: #1b1b1e;
-  color: #fff;
-}
-
 ul {
-  margin: 10px; /* Adjust margin for better spacing */
+  margin: -25px;
+  margin-right: 10px;
+  padding: 0;
   list-style-type: none;
 }
-
 .side-navbar a {
-  padding: 15px 5px; /* Adjust padding for better spacing */
-  transition: color 0.3s;
-  margin-top: 1cm;
-  margin-left: -1cm;
+  padding: 15px 0px;
+  transition: color 0.3s; /* Add a smooth transition effect for the color change */
 }
-
 .side-navbar a:hover {
-  border-radius: 10%;
+  padding: 10px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #edeeef;
 }
-
 .bi-envelope {
   color: #2b89e0;
 }
