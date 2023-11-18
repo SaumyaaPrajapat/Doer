@@ -8,7 +8,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { BsX } from "react-icons/bs";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import addNotification from "react-push-notification";
+//import addNotification from "react-push-notification";
 import logo from "./img/Logo.png";
 import "./card.css";
 
@@ -45,7 +45,7 @@ const Card = () => {
   const handleTimeChange = (time) => {
     setSelectedTime(time);
     // Call clickTONotify when the time is changed
-    clickTONotify();
+    // clickTONotify();
   };
 
   const handleInputChange = (e) => {
@@ -100,32 +100,32 @@ const Card = () => {
     setPriority(newPriority);
   };
 
-  const clickTONotify = () => {
-    const currentTime = new Date();
-    const timeToNotify = new Date(selectedTime);
-    timeToNotify.setFullYear(
-      currentTime.getFullYear(),
-      currentTime.getMonth(),
-      currentTime.getDate()
-    );
+  // const clickTONotify = () => {
+  //   const currentTime = new Date();
+  //   const timeToNotify = new Date(selectedTime);
+  //   timeToNotify.setFullYear(
+  //     currentTime.getFullYear(),
+  //     currentTime.getMonth(),
+  //     currentTime.getDate()
+  //   );
 
-    const timeDifference = timeToNotify - currentTime;
+  //   const timeDifference = timeToNotify - currentTime;
 
-    if (timeDifference > 0) {
-      setTimeout(() => {
-        // Send a notification after the calculated time difference
-        addNotification({
-          title: "Doer",
-          message: "It's time to complete your task!",
-          duration: 4000,
-          icon: logo,
-          native: true,
-          onClick: () =>
-            (window.location = "https://to-do-list-xi-beige.vercel.app/"),
-        });
-      }, timeDifference);
-    }
-  };
+  //   if (timeDifference > 0) {
+  //     setTimeout(() => {
+  //       // Send a notification after the calculated time difference
+  //       addNotification({
+  //         title: "Doer",
+  //         message: "It's time to complete your task!",
+  //         duration: 4000,
+  //         icon: logo,
+  //         native: true,
+  //         onClick: () =>
+  //           (window.location = "https://to-do-list-xi-beige.vercel.app/"),
+  //       });
+  //     }, timeDifference);
+  //   }
+  // };
 
   return (
     <div
@@ -321,7 +321,7 @@ const Card = () => {
             <div className="due-button-container">
               <button
                 type="button"
-                onClick={clickTONotify}
+                //onClick={clickTONotify}
                 className={`btn ${darkMode ? "dark-mode-content" : ""}`}
               >
                 Reminder
