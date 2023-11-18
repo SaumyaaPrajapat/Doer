@@ -4,7 +4,7 @@ import "./mainpage.css";
 
 const MainPage = () => {
   return (
-    <div className="main">
+    <div>
       <div className="button-container">
         <button type="button" className="custom-btn">
           All tasks

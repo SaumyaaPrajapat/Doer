@@ -1,6 +1,4 @@
-// Home.jsx
 import React, { useState } from "react";
-
 import "./home.css";
 import logo from "./logo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -30,16 +28,13 @@ const App = () => {
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
               <img className="logo-image" src={logo} alt="Logo" />
-              Doer
+              <span className="doer-text">Doer</span>
             </a>
 
             <div
               className={`welcome-container ${
                 darkMode ? "dark-mode-content" : ""
               }`}
-              style={{
-                fontSize: "2.5rem",
-              }}
             >
               <div className="welcome-message">Welcome back, user!</div>
             </div>
@@ -56,14 +51,14 @@ const App = () => {
               </div> */}
               <form className="search-bar">
                 <div className="input-group">
-                  <span className="input-group-text">
-                    <i className="bi bi-search"></i>
-                  </span>
                   <input
-                    type="search"
-                    className="form-control me-2"
+                    type="text"
+                    className="search-input"
                     placeholder="Search"
                   />
+                  <button type="submit" className="search-button">
+                    <i className="bi bi-search"></i>
+                  </button>
                 </div>
               </form>
             </div>
@@ -71,14 +66,14 @@ const App = () => {
         </nav>
       </div>
       <div className="page-container">
-        <div className="side-content">
+        {/* <div className="side-content">
           <SideNavbar />
-        </div>
+        </div> */}
         <div>
           <div
             className={`main-content ${darkMode ? "dark-mode-content" : ""}`}
           >
-            <MainPage />
+            {/* <MainPage /> */}
           </div>
           <div
             className={`second-main-content ${
