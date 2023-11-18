@@ -8,10 +8,14 @@ import SideNavbar from "./sidenavbar";
 import Card from "./card";
 import { useDarkMode } from "./DarkModeContext";
 const App = () => {
- 
+  // const [cards, setCards] = useState([]);
   const { darkMode, toggleDarkMode } = useDarkMode();
 
-  
+  // const addCard = () => {
+  //   const newCard = <Card key={cards.length} />;
+  //   setCards([...cards, newCard]);
+  // };
+
   return (
     <div className={darkMode ? "dark-mode" : ""}>
       <div
@@ -62,22 +66,22 @@ const App = () => {
         </nav>
       </div>
       <div className="page-container">
-        <div className="side-content">
+        {/* <div className="side-content">
           <SideNavbar />
-        </div>
+        </div> */}
         <div>
           <div
             className={`main-content ${darkMode ? "dark-mode-content" : ""}`}
           >
-            <MainPage />
+            {/* <MainPage /> */}
           </div>
           <div
             className={`second-main-content ${
               darkMode ? "dark-mode-content" : ""
             }`}
           >
-            <div >
-            <Card/>
+            <div>
+             <Card/>
             </div>
           </div>
         </div>
