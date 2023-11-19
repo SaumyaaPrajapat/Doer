@@ -173,7 +173,7 @@ const Card = () => {
   return (
     <div className="cad">
       <div className="card-menu">
-        <div className="container">
+        <div className="container1">
               <input
                 type="text"
                 placeholder="Enter Task"

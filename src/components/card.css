@@ -1,5 +1,5 @@
 .DateTime{
-  margin-top: 15rem;
+  margin-top: 17rem;
   background: #f4f4f4;
   box-shadow: 5px 5px 12px #d3d3d3, -5px -5px 12px #ffffff; 
   border-radius: 15px;
@@ -10,7 +10,8 @@
   position: fixed;
   width: 14rem;
   height: fit-content;
-  margin-left: -1.7rem;
+  margin-left: 2rem;
+  
 }
 .DateTime p {
   margin: 0; 
@@ -37,11 +38,14 @@ body.dark-mode {
   justify-content: center;
   align-items: center;
   margin-bottom: 17rem;
+  width: fit-content;
+
+
 }
-.container{
+.container1{
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: fit-content;
   
 }
 .light-mode {
@@ -129,8 +133,8 @@ body.dark-mode {
   border-radius: 8px;
   outline: none;  
   position: fixed;
-  margin-top: -25rem;
-  margin-left: 13rem;
+  margin-top: -13rem;
+  margin-left: 2rem;
   background: #f4f4f4;
   box-shadow: 5px 5px 12px #d3d3d3, -5px -5px 12px #ffffff; 
   width: 14rem;
@@ -143,8 +147,8 @@ body.dark-mode {
   border-radius: 8px;
   outline: none;
   position: fixed;
-  margin-top: -15rem;
-  margin-left: 13rem;
+  margin-top: -9rem;
+  margin-left: 2rem;
   width: 14rem;
   background: #f4f4f4;
   box-shadow: 5px 5px 12px #d3d3d3, -5px -5px 12px #ffffff; 
@@ -161,7 +165,8 @@ body.dark-mode {
   z-index: 0;
   margin-right: 10%;
   position: fixed;
-  margin-left: -2rem;
+  margin-left: 2rem;
+  margin-bottom: 3rem;
 }
 .dark-mode .design1{
   background: #1b1b1e;
@@ -278,8 +283,8 @@ body.dark-mode {
   font-weight: 500;
   cursor: pointer;
   position: fixed;
-  margin-left: -0.7rem;
-  margin-top: -5rem;
+  margin-left: 2rem;
+  margin-top: -4rem;
   height: 3rem;
   width: 14rem;
 }
@@ -292,9 +297,10 @@ body.dark-mode {
   display:grid;
   grid-template-columns: repeat(3, 1fr); 
   column-gap: 1cm;
-  margin-top: 1rem;
-  margin-left: 16rem;
+  margin-top: 2rem;
+  margin-left: 18rem;
   height: fit-content;
+  position: relative;
 }
 
 .task-card {
