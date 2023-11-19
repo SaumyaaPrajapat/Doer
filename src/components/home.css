@@ -5,6 +5,7 @@
   position: fixed;
   min-width: 100%;
   z-index: 10;
+  box-shadow: -5px 5px 8px #c6c6c7, 5px -5px 8px #afafb1;
 }
 
 .dark-mode .navigation{

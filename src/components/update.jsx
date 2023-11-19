@@ -20,7 +20,7 @@ const Update = ({ onClose, onUpdate, taskId }) => {
   return (
     <div className="update-modal-overlay">
       <div className="update-modal">
-        <h3>Update Your Task</h3>
+        <h3 className="updatetext">Update Your Task</h3>
         <input
           type="text"
           className="todo-input"
@@ -35,7 +35,7 @@ const Update = ({ onClose, onUpdate, taskId }) => {
           onChange={(e) => setUpdatedDescription(e.target.value)}
         />
         <div className="btns2">
-          <button className="btn" style={{ color: "blue" }} onClick={handleUpdate}>
+          <button className="btn"  onClick={handleUpdate}>
             Update
           </button>
           <button className="btns" onClick={handleClose}>

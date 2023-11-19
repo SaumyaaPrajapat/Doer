@@ -116,16 +116,14 @@ body.dark-mode {
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  outline: none;
-  transition: box-shadow 0.3s ease;
+  outline: none;  
   position: fixed;
   margin-top: -10cm;
   margin-left: 15rem;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
-.inputs:focus {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+
 
 .input-2 {
   margin: 8px;
@@ -133,16 +131,14 @@ body.dark-mode {
   border: 1px solid #ccc;
   border-radius: 8px;
   outline: none;
-  transition: box-shadow 0.3s ease;
   position: fixed;
   margin-top: -5cm;
   margin-left: 15rem;
   width: 14rem;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
-.input-2:focus {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+
 
 .buttons {
   display: flex;
