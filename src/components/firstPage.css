@@ -3,7 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+.nav{
+  height: 2rem;
+  margin-top: 2rem;
+}
 .groupedSectionStyle {
   margin-top: 5%;
   display: flex;
