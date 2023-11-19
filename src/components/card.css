@@ -160,7 +160,7 @@ body.dark-mode {
   background: #f4f4f4;
   box-shadow: 5px 5px 12px #d3d3d3, -5px -5px 12px #ffffff; 
   width: 14rem;
-  height: 14rem;
+  height: 14rem; 
   margin-top: 3%;
   z-index: 0;
   margin-right: 10%;
@@ -297,7 +297,7 @@ body.dark-mode {
   display:grid;
   grid-template-columns: repeat(3, 1fr); 
   column-gap: 1cm;
-  margin-top: 2rem;
+  margin-top: 3rem;
   margin-left: 18rem;
   height: fit-content;
   position: relative;
