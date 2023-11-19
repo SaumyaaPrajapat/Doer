@@ -161,7 +161,7 @@ const Card = () => {
             <p><h4 style={{fontWeight:"bold"}}>{task.taskName}</h4></p>
             <p>{task.description}</p>
             <div className="task-buttons">
-                <button onClick={() => handleOpenUpdateModal(task.id)}>
+                <button style={{backgroundColor:"#7DCE13"}} onClick={() => handleOpenUpdateModal(task.id)}>
                   Update
                 </button>
               

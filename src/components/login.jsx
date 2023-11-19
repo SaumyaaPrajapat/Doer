@@ -31,6 +31,7 @@ function Login() {
       if (data && data.others && data.others._id) {
         console.log("Logged in Successfully");
         sessionStorage.setItem("id", data.others._id);
+        sessionStorage.setItem("name", data.others.name);
         dispatch(authActions.login());
         navigate("/home");
         window.location.reload();

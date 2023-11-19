@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./home.css";
 import logo from "./logo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -10,6 +10,19 @@ import { useDarkMode } from "./DarkModeContext";
 const App = () => {
   // const [cards, setCards] = useState([]);
   const { darkMode, toggleDarkMode } = useDarkMode();
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    const storedName = sessionStorage.getItem("name");
+    if (storedName) {
+      setUserName(capitalizeFirstLetter(storedName));
+    }
+  }, []); // Empty dependency array ensures this runs only once on mount
+
+  // Function to capitalize the first letter of a string
+  const capitalizeFirstLetter = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
 
   // const addCard = () => {
   //   const newCard = <Card key={cards.length} />;
@@ -36,7 +49,7 @@ const App = () => {
                 darkMode ? "dark-mode-content" : ""
               }`}
             >
-              <div className="welcome-message">Welcome back, user!</div>
+              <div className="welcome-message">{userName || "user"}'s To Do List</div>
             </div>
             <div className="left-nav">
               <div className="icon-container" onClick={toggleDarkMode}>
