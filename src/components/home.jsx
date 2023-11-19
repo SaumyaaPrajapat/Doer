@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./home.css";
 import logo from "./logo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,7 +8,13 @@ import SideNavbar from "./sidenavbar";
 import Card from "./card";
 import { useDarkMode } from "./DarkModeContext";
 const App = () => {
+  // const [cards, setCards] = useState([]);
   const { darkMode, toggleDarkMode } = useDarkMode();
+
+  // const addCard = () => {
+  //   const newCard = <Card key={cards.length} />;
+  //   setCards([...cards, newCard]);
+  // };
 
   return (
     <div className={darkMode ? "dark-mode" : ""}>
