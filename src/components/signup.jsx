@@ -25,7 +25,7 @@ function Signup() {
     }
     setError("");
     axios
-      .post("http://localhost:4001/register", { name, email, password })
+      .post("https://to-do-list-backend-kappa.vercel.app/register", { name, email, password })
       .then((result) => {
         setSuccessMessage("Registered successfully. Login to Start!");
         console.log(result);

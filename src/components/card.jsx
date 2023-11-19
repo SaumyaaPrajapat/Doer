@@ -20,7 +20,7 @@ const Card = () => {
   const handleUpdate = async (taskId, updatedTaskName, updatedDescription) => {
     try {
       const response = await axios.put(
-        `http://localhost:4001/updateTask/${taskId}`,
+        `https://to-do-list-backend-kappa.vercel.app/updateTask/${taskId}`,
         {
           title: updatedTaskName,
           description: updatedDescription,
@@ -53,7 +53,7 @@ const Card = () => {
   const handleAddTask = async () => {
     if (taskName.trim() !== "") {
       await axios
-        .post("http://localhost:4001/addTask", {
+        .post("https://to-do-list-backend-kappa.vercel.app/addTask", {
           title: taskName,
           description: description,
           id: id,
@@ -77,7 +77,7 @@ const Card = () => {
     if (confirmDelete) {
       try {
         const response = await axios.delete(
-          `http://localhost:4001/deleteTask/${taskid}`,
+          `https://to-do-list-backend-kappa.vercel.app/deleteTask/${taskid}`,
           {
             data: { id: id },
           }
@@ -107,7 +107,7 @@ const Card = () => {
     console.log("ID:", id); // Log the id
     const fetch = async () => {
       await axios
-        .get(`http://localhost:4001/getTasks/${id}`)
+        .get(`https://to-do-list-backend-kappa.vercel.app/getTasks/${id}`)
         .then((response) => {
           setTasks(
             response.data.lists.map((item) => ({
