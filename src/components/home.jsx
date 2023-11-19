@@ -81,7 +81,7 @@ const App = () => {
             }`}
           >
             <div>
-             <Card/>
+              <Card />
             </div>
           </div>
         </div>
