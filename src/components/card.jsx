@@ -1,9 +1,50 @@
-import React, { useEffect, useState } from "react";
+import React, {useState, useEffect} from "react";
 import "./card.css";
 import Update from "./update.jsx";
 import "./update.css";
 import axios from "axios";
-import { async } from "q";
+import DateDisplay from './DateDisplay';
+
+
+const Clock = () => {
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const intervalID = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(intervalID);
+  }, []);
+
+  const hoursStyle = {
+    transform: ` rotate(${
+      (time.getHours() % 12) * 30 + time.getMinutes() / 2
+    }deg)`,
+  };
+
+  const minutesStyle = {
+    transform: ` rotate(${time.getMinutes() * 6}deg)`,
+  };
+
+  const secondsStyle = {
+    transform: ` rotate(${time.getSeconds() * 6}deg)`,
+  };
+  return (
+    <div className="clock1">
+      <div className="hand hours" style={hoursStyle}></div>
+      <div className="hand minutes" style={minutesStyle}></div>
+      <div className="hand seconds" style={secondsStyle}></div>
+      <div className="point"></div>
+      <div className="marker">
+        <span className="marker__1"></span>
+        <span className="marker__2"></span>
+        <span className="marker__3"></span>
+        <span className="marker__4"></span>
+      </div>
+    </div>
+  );
+};
 
 let id = sessionStorage.getItem("id");
 const Card = () => {
@@ -133,26 +174,34 @@ const Card = () => {
     <div className="cad">
       <div className="card-menu">
         <div className="container">
-          <input
-            type="text"
-            placeholder="TaskName"
-            className="inputs"
-            value={taskName}
-            onChange={(e) => setTaskName(e.target.value)}
-            onClick={show}
-          />
-          <textarea
-            id="textarea"
-            type="text"
-            placeholder="Description"
-            className="input-2"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-          <div className="buttons">
-            <button onClick={handleAddTask}>Add Task</button>
-          </div>
+              <input
+                type="text"
+                placeholder="Enter Task"
+                className="inputs"
+                value={taskName}
+                onChange={(e) => setTaskName(e.target.value)}
+                onClick={show}
+              />
+              <textarea
+                id="textarea"
+                type="text"
+                placeholder="Description"
+                className="input-2"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+              <div className="buttons">
+                <button onClick={handleAddTask}>+</button>
+              </div>
         </div>
+      </div>
+      <div>
+        <DateDisplay /> {/* Include DateDisplay component here */}
+      </div>
+      <div>
+          <div className="design1">
+            <Clock />
+          </div>
       </div>
 
       <div className="task-cards">

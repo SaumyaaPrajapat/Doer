@@ -7,11 +7,12 @@ import MainPage from "./mainpage";
 import SideNavbar from "./sidenavbar";
 import Card from "./card";
 import { useDarkMode } from "./DarkModeContext";
+import { Link } from "react-router-dom";
 const App = () => {
   // const [cards, setCards] = useState([]);
   const { darkMode, toggleDarkMode } = useDarkMode();
   const [userName, setUserName] = useState("");
-
+  
   useEffect(() => {
     const storedName = sessionStorage.getItem("name");
     if (storedName) {
@@ -62,18 +63,12 @@ const App = () => {
               {/* <div className="icon-container" onClick={addCard}>
                 <i className="bi-plus-circle-fill add-icon"></i>
               </div> */}
-              <form className="search-bar">
-                <div className="input-group">
-                  <input
-                    type="text"
-                    className="search-input"
-                    placeholder="Search"
-                  />
-                  <button type="submit" className="search-button">
-                    <i className="bi bi-search"></i>
-                  </button>
-                </div>
-              </form>
+              <div style={{marginTop:"2%"}}>
+                {/* Link to the home page */}
+                <Link to="/" className="buttons1" >
+                  Log Out
+                </Link>
+              </div>
             </div>
           </div>
         </nav>
