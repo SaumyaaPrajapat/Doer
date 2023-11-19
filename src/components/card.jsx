@@ -82,7 +82,7 @@ const Card = () => {
     if (confirmDelete) {
       try {
         const response = await axios
-          .delete(`https://to-do-list-backend-kappa.vercel.app/getTasks/${taskid}`, {
+          .delete(`https://to-do-list-backend-kappa.vercel.app/deleteTask/${taskid}`, {
             data: { id: id },
           })
           .then((response) => {
