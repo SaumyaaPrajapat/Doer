@@ -128,15 +128,13 @@ app.put("/updateTask/:id", async (req, res) => {
 });
 
 //delete task
+//delete task
 app.delete("/deleteTask/:id", async (req, res) => {
   try {
     const { id } = req.body;
 
-    // Convert id to a valid ObjectId
-    const userId = mongoose.Types.ObjectId(id);
-
-    // Find the user based on the provided id
-    const existingUser = await userModel.findByIdAndUpdate(userId, {
+    //Find the user based on the provided email
+    const existingUser = await userModel.findByIdAndUpdate(id, {
       $pull: { list: req.params.id },
     });
 
@@ -152,6 +150,31 @@ app.delete("/deleteTask/:id", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+// app.delete("/deleteTask/:id", async (req, res) => {
+//   try {
+//     const { id } = req.body;
+
+//     // Convert id to a valid ObjectId
+//     //const userId = mongoose.Types.ObjectId(id);
+
+//     // Find the user based on the provided id
+//     const existingUser = await userModel.findByIdAndUpdate(id, {
+//       $pull: { list: req.params.id },
+//     });
+
+//     if (existingUser) {
+//       await List.findByIdAndDelete(req.params.id).then(() =>
+//         res.status(200).json({ message: "Deleted" })
+//       );
+//     } else {
+//       res.status(404).json({ error: "User not found" });
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: "Internal Server Error" });
+//   }
+// });
 
 //getTasks
 //getTasks

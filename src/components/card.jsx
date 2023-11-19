@@ -76,16 +76,19 @@ const Card = () => {
 
     if (confirmDelete) {
       try {
-        const response = await axios.delete(
-          `https://to-do-list-backend-kappa.vercel.app/deleteTask/${taskid}`,
-          {
+        const response = await axios
+          .delete(`https://to-do-list-backend-kappa.vercel.app/getTasks/${taskid}`, {
             data: { id: id },
-          }
-        );
+          })
+          .then((response) => {
+            console.log(response.data);
+            // Optionally, you can display a success message
+            alert("Task deleted successfully");
+          });
 
-        console.log(response.data);
-        // Optionally, you can display a success message
-        alert("Task deleted successfully");
+        // console.log(response.data);
+        // // Optionally, you can display a success message
+        // alert("Task deleted successfully");
       } catch (error) {
         console.error("Error deleting task:", error);
 
