@@ -52,20 +52,25 @@ const Card = () => {
 
   const handleAddTask = async () => {
     if (taskName.trim() !== "") {
-      await axios
-        .post("https://to-do-list-backend-kappa.vercel.app/addTask", {
+      try {
+        await axios.post("https://to-do-list-backend-kappa.vercel.app/addTask", {
           title: taskName,
           description: description,
           id: id,
-        })
-        .then((response) => {
-          console.log(response);
         });
 
-      const newTask = { id: tasks.length + 1, taskName, description };
-      setTasks([...tasks, newTask]);
-      setTaskName("");
-      setDescription("");
+        const newTask = { id: tasks.length + 1, taskName, description };
+        setTasks([...tasks, newTask]);
+        setTaskName("");
+        setDescription("");
+
+        // Display a notification
+        alert("Task added successfully");
+      } catch (error) {
+        console.error("Error adding task:", error);
+        // Handle error and display an error notification
+        alert("Error adding task. Please try again.");
+      }
     }
   };
 
