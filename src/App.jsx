@@ -5,8 +5,16 @@ import Login from "./components/login";
 import FirstPage from "./components/firstPage";
 import Home from "./components/home";
 import { DarkModeProvider } from "./components/DarkModeContext";
-
+import React,{useEffect} from "react";
+import { useDispatch } from "react-redux/es/exports";
+import { authActions } from "./store";
 function App() {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    const id = sessionStorage.getItem("id");
+    dispatch(authActions.login());
+    
+  }, []);
   return (
     <DarkModeProvider>
       <BrowserRouter>

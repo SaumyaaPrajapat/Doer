@@ -5,38 +5,48 @@ import imageArt from "./img/imageart.png";
 import Logo from "./img/Logo.png";
 import { Link } from "react-router-dom";
 import "./login.css";
-
+import { useDispatch } from "react-redux/es/exports";
+import { authActions } from "../store";
 function Login() {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    //in axios.post the link should be there of mongodb
-    axios
-      .post("http://localhost:4001/login", {
+
+    try {
+      const response = await axios.post("http://localhost:4001/login", {
         email,
         password,
-      })
-      //https://to-do-list-backend-kappa.vercel.app/login http://localhost:3000/home
-      .then((result) => {
-        console.log(result);
-        if (result.data.message === "Success") {
-          console.log("Logined Sucessfully");
-          navigate("/home"); //navigate to home page}
-        }
-      })
-      .catch((err) => {
-        if (err.response && err.response.data) {
-          setError(err.response.data.error); // Set the error message from the server response
-        } else {
-          setError("Login failed. Please try again.");
-        }
-        console.log(err);
       });
+
+      const data = response.data;
+
+      console.log("Login response:", data);
+
+      // Check for success or any specific criteria in your response
+      if (data && data.others && data.others._id) {
+        console.log("Logged in Successfully");
+        sessionStorage.setItem("id", data.others._id);
+        dispatch(authActions.login());
+        navigate("/home");
+        window.location.reload();
+      } else {
+        setError("Login failed. Please try again.");
+      }
+    } catch (err) {
+      if (err.response && err.response.data) {
+        setError(err.response.data.error);
+      } else {
+        setError("Login failed. Please try again.");
+      }
+      console.error(err);
+    }
   };
+
   const [isHoveredSignUp, setIsHoveredSignUp] = useState(false);
   const [isHoveredLogin, setIsHoveredLogin] = useState(false);
 

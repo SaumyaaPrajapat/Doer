@@ -22,15 +22,12 @@ app.post("/login", async (req, res) => {
     if (!user) {
       return res.status(401).json({ error: "User Does Not Exist" });
     }
-    const userData = {
-      name: user.name,
-      email: user.email,
-      list: user.list,
-    };
+
     const passwordMatch = await bcrypt.compare(password, user.password);
 
     if (passwordMatch) {
-      return res.status(200).json({ message: "Success" });
+      const { password, ...others } = user._doc;
+      return res.status(200).json({ others });
     } else {
       return res
         .status(401)
@@ -74,12 +71,13 @@ app.post("/register", async (req, res) => {
   }
 });
 
+//add task
 app.post("/addTask", async (req, res) => {
   try {
-    const { title, description, email } = req.body;
+    const { title, description, id } = req.body;
 
     // Find the user based on the provided email
-    const existingUser = await userModel.findOne({ email });
+    const existingUser = await userModel.findById(id);
 
     if (existingUser) {
       // Create a new list
@@ -99,6 +97,77 @@ app.post("/addTask", async (req, res) => {
       res.status(200).json({ list: newList });
     } else {
       res.status(404).json({ error: "User not found" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+//update task
+// Update task
+app.put("/updateTask/:id", async (req, res) => {
+  try {
+    const { title, description } = req.body;
+
+    const updatedList = await List.findByIdAndUpdate(
+      req.params.id,
+      { title, description },
+      { new: true } // This option ensures that you get the updated document
+    );
+
+    if (updatedList) {
+      res.status(200).json({ updatedList });
+    } else {
+      res.status(404).json({ error: "Task not found" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+//delete task
+app.delete("/deleteTask/:id", async (req, res) => {
+  try {
+    const { id } = req.body;
+
+    // Convert id to a valid ObjectId
+    const userId = mongoose.Types.ObjectId(id);
+
+    // Find the user based on the provided id
+    const existingUser = await userModel.findByIdAndUpdate(userId, {
+      $pull: { list: req.params.id },
+    });
+
+    if (existingUser) {
+      await List.findByIdAndDelete(req.params.id).then(() =>
+        res.status(200).json({ message: "Deleted" })
+      );
+    } else {
+      res.status(404).json({ error: "User not found" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+//getTasks
+//getTasks
+app.get("/getTasks/:id", async (req, res) => {
+  try {
+    // Check if req.params.id is not null
+    if (!req.params.id) {
+      return res.status(400).json({ error: "Invalid user ID" });
+    }
+
+    const lists = await List.find({ user: req.params.id }).sort({ _id: -1 });
+
+    if (lists.length > 0) {
+      res.status(200).json({ lists });
+    } else {
+      res.status(404).json({ message: "No tasks found for this user" });
     }
   } catch (error) {
     console.error(error);

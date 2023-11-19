@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./home.css";
 import logo from "./logo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,10 +8,9 @@ import SideNavbar from "./sidenavbar";
 import Card from "./card";
 import { useDarkMode } from "./DarkModeContext";
 const App = () => {
- 
+
   const { darkMode, toggleDarkMode } = useDarkMode();
 
-  
   return (
     <div className={darkMode ? "dark-mode" : ""}>
       <div
@@ -76,8 +75,8 @@ const App = () => {
               darkMode ? "dark-mode-content" : ""
             }`}
           >
-            <div >
-            <Card/>
+            <div>
+              <Card />
             </div>
           </div>
         </div>
