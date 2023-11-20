@@ -38,6 +38,7 @@ body.dark-mode {
   align-items: center;
   margin-bottom: 17rem;
   width: fit-content;
+  min-height: 3%;
   
 }
 .container1{
@@ -300,6 +301,7 @@ body.dark-mode {
   margin-left: 18rem;
   height: fit-content;
   position: relative;
+  
 }
 
 .task-card {
