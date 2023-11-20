@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Logo from "./img/Logo.png";
 import "./firstPage.css";
 
-const Clock = () => {
+const ClockNew = () => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -146,7 +146,7 @@ const FirstPage = () => {
         <div className="design">
           <div className="checkmarkStyle">
             <div className="wrapper">
-              <Clock />
+              <ClockNew />
             </div>
           </div>
         </div>
