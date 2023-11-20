@@ -1,5 +1,5 @@
 .DateTime{
-  margin-top: 17rem;
+  margin-top: 17%;
   background: #f4f4f4;
   box-shadow: 5px 5px 12px #d3d3d3, -5px -5px 12px #ffffff; 
   border-radius: 15px;
@@ -11,7 +11,6 @@
   width: 14rem;
   height: fit-content;
   margin-left: 2rem;
-  
 }
 .DateTime p {
   margin: 0; 
@@ -23,11 +22,11 @@
 }
 .cad
 {
-  width:100%;
+  width:auto;
   height: 100vh;
   display: flex;
   justify-content: center;
-  margin-top: 5rem; 
+  margin-top: 5%; 
 }
 body.dark-mode {
   background-color: #000000 !important;
@@ -39,13 +38,13 @@ body.dark-mode {
   align-items: center;
   margin-bottom: 17rem;
   width: fit-content;
-
-
+  
 }
 .container1{
   display: flex;
   flex-direction: column;
   width: fit-content;
+  overflow: scroll;
   
 }
 .light-mode {
@@ -70,8 +69,7 @@ body.dark-mode {
 /* Add more styles as needed */
 
 .inputs {
-  margin-top: -2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1% !important;
   border-radius: 7px;
   padding: 0.3rem;
   outline:none;
@@ -118,6 +116,8 @@ body.dark-mode {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: fit-content;
+  margin-top: 3%;
 }
 
 .container {
@@ -133,7 +133,6 @@ body.dark-mode {
   border-radius: 8px;
   outline: none;  
   position: fixed;
-  margin-top: -13rem;
   margin-left: 2rem;
   background: #f4f4f4;
   box-shadow: 5px 5px 12px #d3d3d3, -5px -5px 12px #ffffff; 
@@ -147,7 +146,7 @@ body.dark-mode {
   border-radius: 8px;
   outline: none;
   position: fixed;
-  margin-top: -9rem;
+  margin-top: 6%;
   margin-left: 2rem;
   width: 14rem;
   background: #f4f4f4;
@@ -155,7 +154,7 @@ body.dark-mode {
 }
 
 .design1 {
-  margin-top: 27rem !important;
+  margin-top: 30%!important;
   border-radius: 20px;
   background: #f4f4f4;
   box-shadow: 5px 5px 12px #d3d3d3, -5px -5px 12px #ffffff; 
@@ -284,9 +283,9 @@ body.dark-mode {
   cursor: pointer;
   position: fixed;
   margin-left: 2rem;
-  margin-top: -4rem;
-  height: 3rem;
-  width: 14rem;
+  margin-top: 12%;
+  height: 1.5em;
+  width: 7em;
 }
 .dark-mode .buttons button{
   box-shadow: -5px 5px 8px #0f0f11, 5px -5px 8px #27272b;
@@ -297,7 +296,7 @@ body.dark-mode {
   display:grid;
   grid-template-columns: repeat(3, 1fr); 
   column-gap: 1cm;
-  margin-top: 3rem;
+  margin-top: 4%;
   margin-left: 18rem;
   height: fit-content;
   position: relative;
