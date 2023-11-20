@@ -193,16 +193,17 @@ const Card = () => {
               <div className="buttons">
                 <button onClick={handleAddTask}>+</button>
               </div>
+              <div>
+                <DateDisplay /> {/* Include DateDisplay component here */}
+              </div>
+              <div>
+                  <div className="design1">
+                    <Clock />
+                  </div>
+              </div>
         </div>
       </div>
-      <div>
-        <DateDisplay /> {/* Include DateDisplay component here */}
-      </div>
-      <div>
-          <div className="design1">
-            <Clock />
-          </div>
-      </div>
+        
 
       <div className="task-cards">
         {tasks.map((task) => (
