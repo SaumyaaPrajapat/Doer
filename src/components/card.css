@@ -38,7 +38,8 @@ body.dark-mode {
   align-items: center;
   margin-bottom: 17rem;
   width: fit-content;
-  min-height: 3%;
+  margin-top: 3em;
+
   
 }
 .container1{
@@ -46,6 +47,7 @@ body.dark-mode {
   flex-direction: column;
   width: fit-content;
   overflow: scroll;
+  
   
 }
 .light-mode {
@@ -108,7 +110,6 @@ body.dark-mode {
 .card {
   width: 100%;
   margin: 0rem auto;
-  padding: 1rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
@@ -118,10 +119,10 @@ body.dark-mode {
   justify-content: center;
   align-items: center;
   height: fit-content;
-  margin-top: 3%;
+  
 }
 
-.container {
+.container{
   display: flex;
   flex-direction: column;
   margin-left: 2rem;
@@ -297,10 +298,11 @@ body.dark-mode {
   display:grid;
   grid-template-columns: repeat(3, 1fr); 
   column-gap: 1cm;
-  margin-top: 4%;
+  margin-top: 5%;
   margin-left: 18rem;
   height: fit-content;
   position: relative;
+
   
 }
 
