@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 mongoose.connect(
-  "mongodb+srv://saniyaswapnilmehta:54321@cluster0.ox96hsl.mongodb.net/todo?retryWrites=true&w=majority"
+  ""
 );
 
 app.post("/login", async (req, res) => {

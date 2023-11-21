@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/login";
 import FirstPage from "./components/firstPage";
 import Home from "./components/home";
-import { DarkModeProvider } from "./components/DarkModeContext";
+
 import React,{useEffect} from "react";
 import { useDispatch } from "react-redux/es/exports";
 import { authActions } from "./store";
@@ -16,7 +16,7 @@ function App() {
     
   }, []);
   return (
-    <DarkModeProvider>
+   
       <BrowserRouter>
         <Routes>
           <Route path="/register" element={<Signup />}></Route>
@@ -25,7 +25,7 @@ function App() {
           <Route path="/home" element={<Home />}></Route>
         </Routes>
       </BrowserRouter>
-    </DarkModeProvider>
+  
   );
 }
 
