@@ -10,7 +10,8 @@ app.use(express.json());
 app.use(cors());
 
 mongoose.connect(
-  ""
+  
+  "mongodb+srv://priyaanukanksha:Anu123@cluster0.3jf2rdy.mongodb.net/todolist?retryWrites=true&w=majority"
 );
 
 app.post("/login", async (req, res) => {
