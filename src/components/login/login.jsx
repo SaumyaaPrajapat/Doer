@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import imageArt from "./img/imageart.png";
-import Logo from "./img/Logo.png";
+import imageArt from "../img/imageart.png";
+import Logo from "../img/Logo.png";
 import { Link } from "react-router-dom";
 import "./login.css";
 import { useDispatch } from "react-redux/es/exports";
-import { authActions } from "../store";
+import { authActions } from "../../store";
 function Login() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
