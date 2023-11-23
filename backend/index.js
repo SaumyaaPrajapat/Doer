@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://doer-sigma.vercel.app"],
+    origin: ["https://doer-sigma.vercel.app/"],
     methods: ["POST", "GET"],
     credentials: true,
   })
