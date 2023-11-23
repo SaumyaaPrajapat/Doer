@@ -14,7 +14,6 @@ function Signup() {
   const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
 
-  axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     e.preventDefault();
     //in axios.post the link should be there of mongodb
