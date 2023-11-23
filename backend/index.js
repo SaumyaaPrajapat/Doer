@@ -7,13 +7,7 @@ const List = require("./model/list");
 
 const app = express();
 app.use(express.json());
-app.use(
-  cors({
-    origin: ["https://doer-sigma.vercel.app/"],
-    methods: ["POST", "GET"],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 mongoose.connect(
   "mongodb+srv://priyaanukanksha:Anu123@cluster0.3jf2rdy.mongodb.net/todo?retryWrites=true&w=majority"
