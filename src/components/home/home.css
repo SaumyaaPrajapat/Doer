@@ -15,28 +15,3 @@
   z-index: 9;
   margin-top: 66px;
 }
-.main-content {
-  margin-top: 80px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-}
-@media (max-width: 768px) {
-  .main-content {
-    position: absolute; /* Change to relative or remove it */
-    margin-bottom: 0;
-    margin-left: 70px;
-    margin-right: auto; /* Center the element horizontally */
-    display: flex;
-    justify-content: center;
-    text-align: center; /* Center the text inside the element */
-  }
-}
-@media (max-width: 600px) {
-  .main-content {
-    margin-left: 20px;
-    margin-right: auto; /* Center the element horizontally */
-  }
-}

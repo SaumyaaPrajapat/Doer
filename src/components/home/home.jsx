@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./home.css";
 import Navbar from "../navbar/navbar";
+import SideNavbar from "../sidenavbar/sidenavbar";
 
 const App = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <div>
       <div className="nav-container">
-        <Navbar />
+        <Navbar onToggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
       </div>
       <div className="page-container">
-        {/* <div className="side-content">
-          <SideNavbar />
-        </div> */}
+        {/* Conditionally render SideNavbar based on isSidebarOpen */}
+        {isSidebarOpen && (
+          <div className="side-content">
+            {isSidebarOpen && <SideNavbar onClose={toggleSidebar} />}
+          </div>
+        )}
         <div>
           <div className="main-content">{/* <MainPage /> */}</div>
           <div className="second-main-content">
