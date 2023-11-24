@@ -1,0 +1,15 @@
+.DateTime {
+  background: #f4f4f4;
+  box-shadow: 5px 5px 12px #d3d3d3, -5px -5px 12px #ffffff;
+  border-radius: 15px;
+  font-size: 140%;
+  font-weight: 700;
+  transition: 0.3;
+  padding: 1rem;
+  width: 14rem;
+  height: fit-content;
+}
+.DateTime p {
+  margin: 0;
+  padding: 0;
+}

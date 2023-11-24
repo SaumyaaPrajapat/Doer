@@ -39,7 +39,6 @@
 
 .icon-container {
   margin-right: 10px;
-  color: #67bbd3;
   cursor: pointer;
   font-size: 23px;
 }
@@ -49,10 +48,11 @@
   text-decoration: none;
   border-radius: 5px;
   border: none;
-  padding: 8px;
+  padding: 9px;
   color: white;
   margin-left: 1rem;
   position: relative;
+  margin-right: 10px;
 }
 
 .left-nav {
@@ -80,6 +80,12 @@
 
 .bi-box-arrow-right {
   margin-right: 10px;
+}
+
+.icon-toggle {
+  color: #67bbd3;
+  cursor: pointer;
+  font-size: 23px;
 }
 @media (max-width: 960px) {
   .doer-text {
@@ -117,7 +123,7 @@
 @media (max-width: 600px) {
   .doer-text {
     margin-right: 0;
-    font-size: 0.9rem;
+    display: none;
   }
   .welcome-message {
     justify-content: center;
