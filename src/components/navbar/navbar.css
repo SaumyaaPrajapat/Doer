@@ -4,7 +4,17 @@
   z-index: 10;
   box-shadow: -5px 5px 8px #c6c6c7, 5px -5px 8px #afafb1;
 }
+/* dark mode styling */
+.dark-mode {
+  background-color: #000; 
+  color: #fff; 
+}
+.dark-mode .search-input {
+  background-color: #000; 
+  color: #fff; 
 
+}
+/* dark mode styling ends */
 .logo-image {
   max-width: 40px;
   margin-left: 10px;

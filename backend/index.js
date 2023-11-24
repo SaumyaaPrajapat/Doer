@@ -71,7 +71,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
-//add task
+// add task
 app.post("/addTask", async (req, res) => {
   try {
     const { title, description, id } = req.body;
@@ -104,8 +104,7 @@ app.post("/addTask", async (req, res) => {
   }
 });
 
-//update task
-// Update task
+// update task
 app.put("/updateTask/:id", async (req, res) => {
   try {
     const { title, description } = req.body;
@@ -127,21 +126,25 @@ app.put("/updateTask/:id", async (req, res) => {
   }
 });
 
-//delete task
-//delete task
+// delete task
 app.delete("/deleteTask/:id", async (req, res) => {
   try {
-    const { id } = req.body;
+    const id = req.params.id;
 
-    //Find the user based on the provided email
-    const existingUser = await userModel.findByIdAndUpdate(id, {
-      $pull: { list: req.params.id },
-    });
+    // Find the user based on the provided ID
+    const existingUser = await userModel.findById(id);
 
     if (existingUser) {
-      await List.findByIdAndDelete(req.params.id).then(() =>
-        res.status(200).json({ message: "Deleted" })
-      );
+      const taskIndex = existingUser.list.indexOf(id);
+
+      if (taskIndex !== -1) {
+        existingUser.list.splice(taskIndex, 1);
+        await existingUser.save();
+        await List.findByIdAndDelete(id);
+        res.status(200).json({ message: "Deleted" });
+      } else {
+        res.status(404).json({ error: "Task not found in user's list" });
+      }
     } else {
       res.status(404).json({ error: "User not found" });
     }
@@ -151,33 +154,7 @@ app.delete("/deleteTask/:id", async (req, res) => {
   }
 });
 
-// app.delete("/deleteTask/:id", async (req, res) => {
-//   try {
-//     const { id } = req.body;
-
-//     // Convert id to a valid ObjectId
-//     //const userId = mongoose.Types.ObjectId(id);
-
-//     // Find the user based on the provided id
-//     const existingUser = await userModel.findByIdAndUpdate(id, {
-//       $pull: { list: req.params.id },
-//     });
-
-//     if (existingUser) {
-//       await List.findByIdAndDelete(req.params.id).then(() =>
-//         res.status(200).json({ message: "Deleted" })
-//       );
-//     } else {
-//       res.status(404).json({ error: "User not found" });
-//     }
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: "Internal Server Error" });
-//   }
-// });
-
-//getTasks
-//getTasks
+// getTasks
 app.get("/getTasks/:id", async (req, res) => {
   try {
     // Check if req.params.id is not null
@@ -198,6 +175,6 @@ app.get("/getTasks/:id", async (req, res) => {
   }
 });
 
-app.listen(4001, () => {
+app.listen(4000, () => {
   console.log("Server is connected and running");
 });

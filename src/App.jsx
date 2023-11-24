@@ -8,6 +8,7 @@ import Home from "./components/home/home";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux/es/exports";
 import { authActions } from "./store";
+import { DarkModeProvider } from "./components/navbar/DarkModeContext";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -15,6 +16,7 @@ function App() {
     dispatch(authActions.login());
   }, []);
   return (
+    <DarkModeProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/register" element={<Signup />}></Route>
@@ -23,6 +25,7 @@ function App() {
         <Route path="/home" element={<Home />}></Route>
       </Routes>
     </BrowserRouter>
+    </DarkModeProvider>
   );
 }
 
