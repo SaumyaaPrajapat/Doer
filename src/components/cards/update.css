@@ -1,42 +1,43 @@
+/* Common styles */
+.common-styles {
+  border-radius: 10px;
+  color: black;
+}
+
+/* Input styles */
 .todo-input {
   margin-top: 0.5rem;
-  margin-bottom: 0rem;
+  margin-bottom: 1rem;
   width: 100%;
-  padding: 0rem;
+  padding: 0.5rem;
   text-align: center;
   height: 20%;
-  margin-bottom: 1rem;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.3);
-  color: white;
+  background-color: #ffffff;
+ /* Include common styles */
 }
 
+/* Todo styles */
 .todo {
   width: 100%;
-  padding: 0rem;
+  padding: 1rem;
   text-align: left;
-  padding-left: 1rem;
-  padding-top: 1rem;
-  padding-right: 1rem;
   border-radius: 10px;
   height: 40%;
-  background-color: rgba(0, 0, 0, 0.3);
-  color: white;
+  background-color: #ffffff;
+/* Include common styles */
 }
 
-.btns2 {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1.5rem;
-}
-
-.btn {
+/* Buttons styles */
+.btn, .btns {
   padding: 4px 12px;
   border: none;
   border-radius: 10px;
-  background-color: #5bafc6;
   cursor: pointer;
   color: white;
+}
+
+.btn {
+  background-color: #5bafc6;
 }
 
 .btn:hover {
@@ -45,18 +46,12 @@
 }
 
 .btns {
-  padding: 4px 12px;
-  border: none;
-  border-radius: 10px;
   background-color: rgb(253, 36, 36);
-  cursor: pointer;
-  color: white;
 }
 
-/* Update.css */
+/* Update.css styles */
 .update-modal-overlay {
   position: fixed;
-  flex-direction: column;
   top: 0;
   left: 0;
   width: 100%;
@@ -68,17 +63,23 @@
 }
 
 .update-modal {
-  background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0);
-  background-color: rgba(0, 0, 0);
-  border: 2px solid #ffffff;
-  width: 35%;
-  height: 55%;
+  background-color: #ffffff;
+  border: 2px solid black;
+  width: 80%; /* Adjusted for responsiveness */
+  height: auto; /* Adjusted for responsiveness */
   z-index: 15;
 }
 
 .updatetext {
-  color: white;
+  color: black;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+  .update-modal {
+    width: 90%;
+  }
 }
