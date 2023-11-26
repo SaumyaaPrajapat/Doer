@@ -6,13 +6,12 @@
 }
 /* dark mode styling */
 .dark-mode {
-  background-color: #000; 
-  color: #fff; 
+  background-color: #000;
+  color: #fff;
 }
 .dark-mode .search-input {
-  background-color: #000; 
-  color: #fff; 
-
+  background-color: #000;
+  color: #fff;
 }
 /* dark mode styling ends */
 .logo-image {

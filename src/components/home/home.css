@@ -4,6 +4,7 @@
 
 .nav-container {
   display: flex;
+  z-index: 8;
 }
 .page-container {
   display: flex;
@@ -13,9 +14,4 @@
 .side-content {
   position: fixed;
   z-index: 9;
-  margin-top: 66px;
 }
-/* .second-main-content{
-  display: flex;
-  justify-content: center;
-} */
