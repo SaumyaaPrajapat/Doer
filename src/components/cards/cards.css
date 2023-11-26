@@ -114,6 +114,17 @@
   background: rgb(255, 0, 81);
   background: linear-gradient(0deg, rgb(255, 0, 68) 0%, rgb(251, 193, 2) 100%);
 }
+.buttons-container {
+  display: flex;
+  justify-content: space-between; /* Adjust as needed */
+  margin: 15px; /* Adjust as needed */
+}
+
+.add-task-button,
+.close-button {
+  /* Add any additional styling for your buttons here */
+  padding: 10px; /* Adjust as needed */
+}
 
 /* small card buttons */
 .button-container {

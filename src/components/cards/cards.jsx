@@ -19,13 +19,49 @@ const Card = () => {
   const [description, setDescription] = useState("");
   const [isAnimatedVisible, setAnimatedVisible] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [editingIndex, setEditingIndex] = useState(null); // Add editingIndex state
+  // Add editingIndex state
+  const [isUpdatePopupOpen, setUpdatePopupOpen] = useState(false);
+
+  const [selectedTaskId, setSelectedTaskId] = useState(null);
+  const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
+  const handleUpdate = async (taskId, updatedTaskName, updatedDescription) => {
+    try {
+      const response = await axios.put(
+        `https://doer-1wlq-cleveranu.vercel.app/updateTask/${taskId}`,
+        {
+          title: updatedTaskName,
+          description: updatedDescription,
+        }
+      );
+
+      if (response.data.updatedList) {
+        const updatedTasks = tasks.map((task) =>
+          task.id === taskId
+            ? {
+                ...task,
+                taskName: response.data.updatedList.title,
+                description: response.data.updatedList.description,
+              }
+            : task
+        );
+
+        setTasks(updatedTasks);
+        handleCloseUpdateModal(); // Close the modal after updating
+      } else {
+        // Handle case where the server did not return an updated list
+        console.error("Error updating task. Please try again.");
+      }
+    } catch (error) {
+      // Handle any errors that occur during the update request
+      console.error("Error updating task:", error);
+    }
+  };
+
 
   const showPopup = (index) => {
     setPopupOpen(true);
     setAnimatedVisible(false);
-    setEditingIndex(index);
-
+   
     // Check if the task at the given index exists before accessing its properties
     if (index !== null && tasks[index]) {
       setTaskName(tasks[index].taskName);
@@ -36,12 +72,22 @@ const Card = () => {
       setDescription("");
     }
   };
-
+  const handleOpenUpdateModal = (taskId) => {
+    setSelectedTaskId(taskId);
+    setIsUpdateModalOpen(true);
+  };
+  const handleCloseUpdateModal = () => {
+    setSelectedTaskId(null);
+    setIsUpdateModalOpen(false);
+  };
   const hidePopup = () => {
     setPopupOpen(false);
-    setEditingIndex(null); // Reset editing index when hiding the popup
+    
   };
-
+  const closePopup = () => {
+    setPopupOpen(false);
+ 
+  };
   //add task
   const handleAddTask = async () => {
     if (taskName.trim() !== "") {
@@ -90,7 +136,8 @@ const Card = () => {
       }
     }
   };
-
+ 
+ 
   useEffect(() => {
     console.log("ID:", id); // Log the id
     const fetch = async () => {
@@ -134,8 +181,13 @@ const Card = () => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
-            <div className="buttons">
-              <button onClick={handleAddTask}>Add Task</button>
+            <div className="buttons-container">
+              <button className="add-task-button" onClick={handleAddTask}>
+                Add Task
+              </button>
+              <button className="close-button" onClick={closePopup}>
+                Close
+              </button>
             </div>
           </div>
         </div>
@@ -153,7 +205,7 @@ const Card = () => {
               <h3>{task.taskName}</h3>
               <p>{task.description}</p>
               <div className="button-container">
-                <button title="Update" onClick={() => showPopup(index)}>
+                <button title="Update" onClick={() => handleOpenUpdateModal(task.id)}>
                   <FaRegEdit />
                 </button>
                 <button title="Complete">
@@ -168,6 +220,14 @@ const Card = () => {
               </div>
             </div>
           ))}
+         
+            {isUpdateModalOpen && (
+              <Update
+                taskId={selectedTaskId}
+                onClose={handleCloseUpdateModal}
+                onUpdate={handleUpdate}
+              />
+          )}
         </div>
       </div>
     </div>
