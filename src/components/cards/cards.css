@@ -19,6 +19,12 @@
   top: 60%; /* Adjust the percentage to control the vertical position */
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+}
+
+.animated.visible {
+  opacity: 1;
 }
 
 .custom-btn {
@@ -168,7 +174,7 @@
 }
 
 .button-container button:hover {
-  background-color: #98b9ce;
+  background-color: #5eaee3;
 }
 
 /* cards -task cards */
@@ -240,7 +246,7 @@
   }
 
   .popup-content {
-    width: 90%;
+    width: 80%;
   }
 }
 

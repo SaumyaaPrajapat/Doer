@@ -20,42 +20,8 @@ const Card = () => {
   const [isAnimatedVisible, setAnimatedVisible] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
   // Add editingIndex state
-  const [isUpdatePopupOpen, setUpdatePopupOpen] = useState(false);
-
   const [selectedTaskId, setSelectedTaskId] = useState(null);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
-  const handleUpdate = async (taskId, updatedTaskName, updatedDescription) => {
-    try {
-      const response = await axios.put(
-        `https://doer-1wlq-cleveranu.vercel.app/updateTask/${taskId}`,
-        {
-          title: updatedTaskName,
-          description: updatedDescription,
-        }
-      );
-
-      if (response.data.updatedList) {
-        const updatedTasks = tasks.map((task) =>
-          task.id === taskId
-            ? {
-                ...task,
-                taskName: response.data.updatedList.title,
-                description: response.data.updatedList.description,
-              }
-            : task
-        );
-
-        setTasks(updatedTasks);
-        handleCloseUpdateModal(); // Close the modal after updating
-      } else {
-        // Handle case where the server did not return an updated list
-        console.error("Error updating task. Please try again.");
-      }
-    } catch (error) {
-      // Handle any errors that occur during the update request
-      console.error("Error updating task:", error);
-    }
-  };
 
   const showPopup = (index) => {
     setPopupOpen(true);
@@ -71,25 +37,41 @@ const Card = () => {
       setDescription("");
     }
   };
-  const handleOpenUpdateModal = (taskId) => {
+  const handleOpenUpdateModal = (taskId, taskName, description) => {
     setSelectedTaskId(taskId);
+    setTaskName(taskName);
+    setDescription(description);
     setIsUpdateModalOpen(true);
+
+    console.log("State after opening modal:", taskId, taskName, description);
   };
+
   const handleCloseUpdateModal = () => {
     setSelectedTaskId(null);
+    setTaskName("");
+    setDescription("");
     setIsUpdateModalOpen(false);
+
+    console.log(
+      "State after closing modal:",
+      selectedTaskId,
+      taskName,
+      description
+    );
   };
+
   const hidePopup = () => {
     setPopupOpen(false);
   };
   const closePopup = () => {
     setPopupOpen(false);
   };
+
   //add task
   const handleAddTask = async () => {
     if (taskName.trim() !== "") {
       try {
-        await axios.post("https://doer-1wlq-cleveranu.vercel.app/addTask", {
+        await axios.post("https://doer-i896.vercel.app/addTask", {
           title: taskName,
           description: description,
           id: id,
@@ -111,24 +93,60 @@ const Card = () => {
     }
   };
 
+  //update task
+  const handleUpdate = async (taskId, updatedTaskName, updatedDescription) => {
+    try {
+      const response = await axios.put(
+        `https://doer-i896.vercel.app/updateTask/${taskId}`,
+        {
+          title: updatedTaskName,
+          description: updatedDescription,
+        }
+      );
+
+      if (response.data.updatedList) {
+        const updatedTasks = tasks.map((task) =>
+          task.id === taskId
+            ? {
+                ...task,
+                taskName: response.data.updatedList.title,
+                description: response.data.updatedList.description,
+              }
+            : task
+        );
+        setTasks(updatedTasks);
+        handleCloseUpdateModal(); // Close the modal after updating
+        // Display a notification
+        toast.success("Task updated successfully");
+      } else {
+        // Handle case where the server did not return an updated list
+        console.error("Error updating task. Please try again.");
+      }
+    } catch (error) {
+      // Handle any errors that occur during the update request
+      console.error("Error updating task:", error);
+      toast.error("Error updating task. Please try again.");
+    }
+  };
+
   //delete task
   const handleDeleteTask = async (taskid) => {
     const confirmDelete = window.confirm(
-      "Are you sure you want to delete this task?"
+      "Well done, this task will now be deleted"
     );
 
     if (confirmDelete) {
       try {
-        const response = await axios.delete(
-          `https://doer-1wlq-cleveranu.vercel.app/deleteTask/${taskid}`,
-          {
-            data: { id: id },
-          }
-        );
-        console.log(response.data);
-        toast.success("Task deleted successfully");
+        const response = await axios
+          .delete(`https://doer-i896.vercel.app/deleteTask/${taskid}`)
+          .then((response) => {
+            console.log(response.data);
+            // Optionally, you can display a success message
+            toast.success("Task deleted successfully");
+          });
       } catch (error) {
         console.error("Error deleting task:", error);
+
         toast.error("Error deleting task. Please try again.");
       }
     }
@@ -138,7 +156,7 @@ const Card = () => {
     console.log("ID:", id); // Log the id
     const fetch = async () => {
       await axios
-        .get(`https://doer-1wlq-cleveranu.vercel.app/getTasks/${id}`)
+        .get(`https://doer-i896.vercel.app/getTasks/${id}`)
         .then((response) => {
           setTasks(
             response.data.lists.map((item) => ({
@@ -213,7 +231,13 @@ const Card = () => {
               <div className="button-container">
                 <button
                   title="Update"
-                  onClick={() => handleOpenUpdateModal(task.id)}
+                  onClick={() =>
+                    handleOpenUpdateModal(
+                      task.id,
+                      task.taskName,
+                      task.description
+                    )
+                  }
                 >
                   <FaRegEdit />
                 </button>
@@ -235,6 +259,8 @@ const Card = () => {
               taskId={selectedTaskId}
               onClose={handleCloseUpdateModal}
               onUpdate={handleUpdate}
+              taskName={taskName}
+              description={description}
             />
           )}
         </div>

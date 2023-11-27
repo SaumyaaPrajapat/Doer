@@ -135,16 +135,10 @@ app.delete("/deleteTask/:id", async (req, res) => {
     const existingUser = await userModel.findById(id);
 
     if (existingUser) {
-      const taskIndex = existingUser.list.indexOf(id);
-
-      if (taskIndex !== -1) {
-        existingUser.list.splice(taskIndex, 1);
-        await existingUser.save();
-        await List.findByIdAndDelete(id);
-        res.status(200).json({ message: "Deleted" });
-      } else {
-        res.status(404).json({ error: "Task not found in user's list" });
-      }
+      // Find the task related to the user and delete it
+      await Task.findByIdAndDelete(id).then(() =>
+        res.status(200).json({ message: "Deleted" })
+      );
     } else {
       res.status(404).json({ error: "User not found" });
     }

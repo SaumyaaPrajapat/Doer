@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./update.css";
 
-const Update = ({ onClose, onUpdate, taskId }) => {
-  const [updatedTaskName, setUpdatedTaskName] = useState("");
-  const [updatedDescription, setUpdatedDescription] = useState("");
+const Update = ({ onClose, onUpdate, taskId, taskName, description }) => {
+  const [updatedTaskName, setUpdatedTaskName] = useState(taskName);
+  const [updatedDescription, setUpdatedDescription] = useState(description);
 
   const handleUpdate = () => {
     onUpdate(taskId, updatedTaskName, updatedDescription);

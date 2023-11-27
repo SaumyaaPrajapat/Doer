@@ -18,13 +18,10 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "https://doer-1wlq-cleveranu.vercel.app/login",
-        {
-          email,
-          password,
-        }
-      );
+      const response = await axios.post("https://doer-i896.vercel.app/login", {
+        email,
+        password,
+      });
 
       const data = response.data;
 
