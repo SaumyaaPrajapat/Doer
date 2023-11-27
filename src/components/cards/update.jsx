@@ -6,7 +6,6 @@ const Update = ({ onClose, onUpdate, taskId }) => {
   const [updatedDescription, setUpdatedDescription] = useState("");
 
   const handleUpdate = () => {
-   
     onUpdate(taskId, updatedTaskName, updatedDescription);
 
     // Close the modal
@@ -18,8 +17,8 @@ const Update = ({ onClose, onUpdate, taskId }) => {
   };
 
   return (
-    <div className="update-modal-overlay">
-      <div className="update-modal">
+    <div className="update-overlay">
+      <div className="update-content">
         <h3 className="updatetext">Update Your Task</h3>
         <input
           type="text"
@@ -35,7 +34,7 @@ const Update = ({ onClose, onUpdate, taskId }) => {
           onChange={(e) => setUpdatedDescription(e.target.value)}
         />
         <div className="btns2">
-          <button className="btn"  onClick={handleUpdate}>
+          <button className="btn" onClick={handleUpdate}>
             Update
           </button>
           <button className="btns" onClick={handleClose}>
@@ -48,5 +47,3 @@ const Update = ({ onClose, onUpdate, taskId }) => {
 };
 
 export default Update;
-
-

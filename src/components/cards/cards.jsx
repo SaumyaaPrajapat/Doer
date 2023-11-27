@@ -57,11 +57,10 @@ const Card = () => {
     }
   };
 
-
   const showPopup = (index) => {
     setPopupOpen(true);
     setAnimatedVisible(false);
-   
+
     // Check if the task at the given index exists before accessing its properties
     if (index !== null && tasks[index]) {
       setTaskName(tasks[index].taskName);
@@ -82,11 +81,9 @@ const Card = () => {
   };
   const hidePopup = () => {
     setPopupOpen(false);
-    
   };
   const closePopup = () => {
     setPopupOpen(false);
- 
   };
   //add task
   const handleAddTask = async () => {
@@ -136,8 +133,7 @@ const Card = () => {
       }
     }
   };
- 
- 
+
   useEffect(() => {
     console.log("ID:", id); // Log the id
     const fetch = async () => {
@@ -156,6 +152,15 @@ const Card = () => {
     fetch();
   }, [handleAddTask, id]);
 
+  useEffect(() => {
+    // Check if tasks array is empty
+    if (tasks.length === 0) {
+      setAnimatedVisible(true); // Show the image if there are no tasks
+    } else {
+      setAnimatedVisible(false); // Hide the image if there are tasks
+    }
+  }, [tasks]);
+
   return (
     <div>
       <ToastContainer />
@@ -166,6 +171,7 @@ const Card = () => {
       {isPopupOpen && (
         <div className="popup-overlay">
           <div className="popup-content">
+            <h3 className="addtext">Add Your Task</h3>
             <input
               type="text"
               placeholder="Enter Task"
@@ -181,11 +187,11 @@ const Card = () => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
-            <div className="buttons-container">
-              <button className="add-task-button" onClick={handleAddTask}>
+            <div className="btns2">
+              <button className="btn" onClick={handleAddTask}>
                 Add Task
               </button>
-              <button className="close-button" onClick={closePopup}>
+              <button className="btns" onClick={closePopup}>
                 Close
               </button>
             </div>
@@ -205,7 +211,10 @@ const Card = () => {
               <h3>{task.taskName}</h3>
               <p>{task.description}</p>
               <div className="button-container">
-                <button title="Update" onClick={() => handleOpenUpdateModal(task.id)}>
+                <button
+                  title="Update"
+                  onClick={() => handleOpenUpdateModal(task.id)}
+                >
                   <FaRegEdit />
                 </button>
                 <button title="Complete">
@@ -220,13 +229,13 @@ const Card = () => {
               </div>
             </div>
           ))}
-         
-            {isUpdateModalOpen && (
-              <Update
-                taskId={selectedTaskId}
-                onClose={handleCloseUpdateModal}
-                onUpdate={handleUpdate}
-              />
+
+          {isUpdateModalOpen && (
+            <Update
+              taskId={selectedTaskId}
+              onClose={handleCloseUpdateModal}
+              onUpdate={handleUpdate}
+            />
           )}
         </div>
       </div>
