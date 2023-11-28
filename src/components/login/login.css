@@ -55,16 +55,13 @@
   display: flex;
   align-items: center;
   position: relative;
-}
-.showpass input {
-  padding-right: 60px; /* Adjust based on the size of your icon */
-}
-.showpass button {
-  position: absolute;
-  right: 30px; /* Adjust based on your needs */
   background: none;
   border: none;
   color: #ffffff4e;
+}
+.eyeicon {
+  display: flex;
+  align-items: center;
 }
 @media screen and (max-width: 600px) {
   .art {
@@ -85,5 +82,8 @@
   }
   .buttonStyle {
     font-size: 85% !important;
+  }
+  .navbar-brand {
+    margin-right: 0;
   }
 }

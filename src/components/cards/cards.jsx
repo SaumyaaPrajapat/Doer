@@ -22,6 +22,7 @@ const Card = () => {
   // Add editingIndex state
   const [selectedTaskId, setSelectedTaskId] = useState(null);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
+  const [completedTaskId, setCompletedTaskId] = useState(null);
 
   const showPopup = (index) => {
     setPopupOpen(true);
@@ -129,6 +130,25 @@ const Card = () => {
     }
   };
 
+  //complete task
+  const handleCompleteTask = async (taskid) => {
+    try {
+      // Send a request to the server to mark the task as complete
+      const response = await axios.put(
+        `https://doer-1wlq-cleveranu.vercel.app/updateTask/${taskid}`,
+        {
+          isTaskComplete: true,
+        }
+      );
+      setCompletedTaskId(taskid);
+      // Optionally, you can display a success message
+      toast.success("Task completed");
+    } catch (error) {
+      console.error("Error completing task:", error);
+      toast.error("Error in task completion");
+    }
+  };
+
   //delete task
   const handleDeleteTask = async (taskid) => {
     const confirmDelete = window.confirm(
@@ -233,7 +253,7 @@ const Card = () => {
               <h3>{task.taskName}</h3>
               <p>{task.description}</p>
               <div className="button-container">
-                {!task.isTaskComplete && (
+                {!task.isTaskComplete && task.id !== completedTaskId && (
                   <button
                     title="Update"
                     onClick={() =>
@@ -247,7 +267,10 @@ const Card = () => {
                     <FaRegEdit />
                   </button>
                 )}
-                <button title="Complete">
+                <button
+                  onClick={(e) => handleCompleteTask(task.id)}
+                  title="Complete"
+                >
                   <GrCompliance />
                 </button>
                 <button

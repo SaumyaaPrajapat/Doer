@@ -93,6 +93,7 @@
   background-size: 100%;
   background-position: center;
   overflow: auto;
+  padding-bottom: 50px;
 }
 .BAR {
   margin-left: 0;

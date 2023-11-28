@@ -97,7 +97,7 @@ function Login() {
               <li className="nav">
                 <Link
                   to="/register"
-                  className="nav-link btn btn-outline rounded-10"
+                  className="getstarted nav-link btn btn-outline rounded-10"
                   style={{
                     ...buttonStyle,
                     ...(isHoveredSignUp ? buttonHoverStyle : {}),
@@ -147,7 +147,6 @@ function Login() {
               <div>
                 <input
                   type="email"
-                  //placeholder="Enter E-mail"
                   autoComplete="off"
                   name="email"
                   className="inputStyle form-control rounded-3"
@@ -169,9 +168,14 @@ function Login() {
                   className="inputStyle form-control rounded-3"
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <button onClick={(event) => handleShowPassword(event)}>
-                  {showPassword ? <FiEye /> : <FiEyeOff />}
-                </button>
+                <div className="eyeicon">
+                  <button
+                    className="passbut"
+                    onClick={(event) => handleShowPassword(event)}
+                  >
+                    {showPassword ? <FiEye /> : <FiEyeOff />}
+                  </button>
+                </div>
               </div>
             </div>
             {error && <p className="text-danger">{error}</p>}
