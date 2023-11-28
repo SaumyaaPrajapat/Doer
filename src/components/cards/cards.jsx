@@ -143,7 +143,7 @@ const Card = () => {
           .then((response) => {
             console.log(response.data);
             // Optionally, you can display a success message
-            alert("Task deleted successfully");
+            toast.success("Task deleted successfully");
           });
 
         // console.log(response.data);
