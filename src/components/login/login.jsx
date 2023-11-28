@@ -7,12 +7,20 @@ import { Link } from "react-router-dom";
 import "./login.css";
 import { useDispatch } from "react-redux/es/exports";
 import { authActions } from "../../store";
+import { FiEye, FiEyeOff } from "react-icons/fi";
+
 function Login() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleShowPassword = (event) => {
+    event.preventDefault();
+    setShowPassword(!showPassword);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -151,13 +159,17 @@ function Login() {
                   <strong>Password</strong>
                 </label>
               </div>
-              <input
-                type="password"
-                //placeholder="Enter Password"
-                name="password"
-                className="inputStyle form-control rounded-3"
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <div className="showpass">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  className="inputStyle form-control rounded-3"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <button onClick={(event) => handleShowPassword(event)}>
+                  {showPassword ? <FiEye /> : <FiEyeOff />}
+                </button>
+              </div>
             </div>
             {error && <p className="text-danger">{error}</p>}
             <div className="d-flex justify-content-center">

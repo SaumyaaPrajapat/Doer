@@ -1,84 +1,82 @@
 .cardStyle {
-    font-family: "Poppins";
-    background-color: #1B1B1E;
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    }
-  
+  font-family: "Poppins";
+  background-color: #1b1b1e;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
 .blurredCardStyle {
-    width: 90%;
-    max-width: 1000px;
-    display: flex;
-    flex-direction: row;
-    margin-top: 5% !important;
-    border-radius: 36px;
-    background: linear-gradient(225deg, #18181b, #1d1d20);
-    box-shadow: -5px 5px 8px #0f0f11, 5px -5px 8px #27272b;
-    }
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 5% !important;
+  border-radius: 36px;
+  background: linear-gradient(225deg, #18181b, #1d1d20);
+  box-shadow: -5px 5px 8px #0f0f11, 5px -5px 8px #27272b;
+}
 
 .inputStyle {
-    background: linear-gradient(225deg, #18181b, #1d1d20);
-    box-shadow: inset 2px 3px 8px rgb(5, 5, 5);
-    padding: 8px 10px;
-    border-radius: 5px;
-    border: 0;
-    color: #DCDADB;
-    width: 95%;
-    }
+  background: linear-gradient(225deg, #18181b, #1d1d20);
+  box-shadow: inset 2px 3px 8px rgb(5, 5, 5);
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 0;
+  color: #dcdadb;
+  width: 95%;
+}
 
 .art {
-    width:100% !important;
-    margin-top: 10% !important;
-    margin-left: 10%;
-    }
+  width: 100% !important;
+  margin-top: 10% !important;
+  margin-left: 10%;
+}
 
 .navbarStyle {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 45px !important;
-    margin-left: 2% !important;
-    padding: 0;
-    
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 45px !important;
+  margin-left: 2% !important;
+  padding: 0;
 }
 
 .logoStyle {
-    width: auto;
+  width: auto;
 }
 
 .buttonContainerStyle {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 .cardNew {
-    width: 90%;
-    padding-top: 5%;
-    padding-right: 2%;
+  width: 90%;
+  padding-top: 5%;
+  padding-right: 2%;
 }
 
 .buttonStyle {
-    background: transparent;
-    color: #FFF;
-    margin-left: 10px;
-    font-weight: 400;
-    font-size: 18px;
+  background: transparent;
+  color: #fff;
+  margin-left: 10px;
+  font-weight: 400;
+  font-size: 18px;
 }
 
 @media (max-width: 600px) {
-    .art{
-        display: none;
-    }
-    .blurredCardStyle{
-        margin-top: 10% !important;
-        padding-left: 8%;
-        padding-right: 8%;
-    }
-    .inputStyle{
-        width: 10% !important;
-    }
+  .art {
+    display: none;
+  }
+  .blurredCardStyle {
+    margin-top: 10% !important;
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+  .inputStyle {
+    width: 10% !important;
+  }
 }
-  

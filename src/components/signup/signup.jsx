@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import imageArt from "../img/imageart.png";
 import Logo from "../img/Logo.png";
 import "./signup.css";
+import { FiEye, FiEyeOff } from "react-icons/fi";
+
 function Signup() {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
@@ -13,6 +15,18 @@ function Signup() {
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const handleShowPassword = (event) => {
+    event.preventDefault();
+    setShowPassword(!showPassword);
+  };
+
+  const handleShowConfirmPassword = (event) => {
+    event.preventDefault();
+    setShowConfirmPassword(!showConfirmPassword);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -159,14 +173,19 @@ function Signup() {
                   Password
                 </label>
               </div>
-              <input
-                type="password"
-                //placeholder="Enter Password"
-                name="password"
-                className="inputStyle form-control rounded-3"
-                required
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <div className="showpass">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  //placeholder="Enter Password"
+                  name="password"
+                  className="inputStyle form-control rounded-3"
+                  required
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <button onClick={(event) => handleShowPassword(event)}>
+                  {showPassword ? <FiEye /> : <FiEyeOff />}
+                </button>
+              </div>
             </div>
             <div className="mb-3">
               <div className="mb-1">
@@ -177,14 +196,19 @@ function Signup() {
                   Confirm Password
                 </label>
               </div>
-              <input
-                type="password"
-                //placeholder="Confirm Password"
-                name="confirmp"
-                className="inputStyle form-control rounded-3"
-                required
-                onChange={(e) => setConfPass(e.target.value)}
-              />
+              <div className="showpass">
+                <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  //placeholder="Confirm Password"
+                  name="confirmp"
+                  className="inputStyle form-control rounded-3"
+                  required
+                  onChange={(e) => setConfPass(e.target.value)}
+                />
+                <button onClick={(event) => handleShowConfirmPassword(event)}>
+                  {showConfirmPassword ? <FiEye /> : <FiEyeOff />}
+                </button>
+              </div>
             </div>
             <div className="mb-3">
               {error && (
@@ -217,7 +241,10 @@ function Signup() {
             style={{ color: "#DCDADB" }}
           >
             Already have an account?&nbsp;
-            <Link to="/login" style={{ color: "#67BBD3" }}>
+            <Link
+              to="/login"
+              style={{ color: "#67BBD3", textDecoration: "none" }}
+            >
               Login
             </Link>
           </p>

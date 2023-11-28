@@ -134,9 +134,9 @@ const Card = () => {
     const confirmDelete = window.confirm(
       "Well done, this task will now be deleted"
     );
-
     if (confirmDelete) {
       try {
+        console.log(taskid);
         const response = await axios
           .delete(`https://doer-i896.vercel.app/deleteTask/${taskid}`)
           .then((response) => {
@@ -146,8 +146,7 @@ const Card = () => {
           });
       } catch (error) {
         console.error("Error deleting task:", error);
-
-        toast.error("Error deleting task. Please try again.");
+        toast.error(`Error deleting task: ${error.message}. Please try again.`);
       }
     }
   };
