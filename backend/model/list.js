@@ -9,5 +9,5 @@ const listSchema = new mongoose.Schema({
   },
 });
 
-const list = mongoose.model("List", listSchema);
-module.exports = list;
+const List = mongoose.model("List", listSchema);
+module.exports = List;

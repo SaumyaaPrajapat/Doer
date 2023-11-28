@@ -13,6 +13,7 @@ mongoose.connect(
   "mongodb+srv://priyaanukanksha:Anu123@cluster0.3jf2rdy.mongodb.net/todo?retryWrites=true&w=majority"
 );
 
+//login
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -38,6 +39,7 @@ app.post("/login", async (req, res) => {
   }
 });
 
+//register
 app.post("/register", async (req, res) => {
   try {
     // Check if the email is already registered
@@ -126,17 +128,18 @@ app.put("/updateTask/:id", async (req, res) => {
   }
 });
 
-// delete task
-app.delete("/deleteTask/:id", async (req, res) => {
+//delete task
+app.delete("/getTasks/:id", async (req, res) => {
   try {
-    const id = req.params.id;
+    const { id } = req.body;
 
-    // Find the user based on the provided ID
-    const existingUser = await userModel.findById(id);
+    //Find the user based on the provided email
+    const existingUser = await userModel.findByIdAndUpdate(id, {
+      $pull: { list: req.params.id },
+    });
 
     if (existingUser) {
-      // Find the task related to the user and delete it
-      await Task.findByIdAndDelete(id).then(() =>
+      await List.findByIdAndDelete(req.params.id).then(() =>
         res.status(200).json({ message: "Deleted" })
       );
     } else {
@@ -169,6 +172,6 @@ app.get("/getTasks/:id", async (req, res) => {
   }
 });
 
-app.listen(4000, () => {
+app.listen(4001, () => {
   console.log("Server is connected and running");
 });

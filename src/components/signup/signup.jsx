@@ -38,7 +38,11 @@ function Signup() {
     }
     setError("");
     axios
-      .post("https://doer-i896.vercel.app/register", { name, email, password })
+      .post("https://doer-1wlq-cleveranu.vercel.app/register", {
+        name,
+        email,
+        password,
+      })
       .then((result) => {
         setSuccessMessage("Registered successfully. Login to Start!");
         console.log(result);

@@ -71,7 +71,7 @@ const Card = () => {
   const handleAddTask = async () => {
     if (taskName.trim() !== "") {
       try {
-        await axios.post("https://doer-i896.vercel.app/addTask", {
+        await axios.post("https://doer-1wlq-cleveranu.vercel.app/addTask", {
           title: taskName,
           description: description,
           id: id,
@@ -97,7 +97,7 @@ const Card = () => {
   const handleUpdate = async (taskId, updatedTaskName, updatedDescription) => {
     try {
       const response = await axios.put(
-        `https://doer-i896.vercel.app/updateTask/${taskId}`,
+        `https://doer-1wlq-cleveranu.vercel.app/updateTask/${taskId}`,
         {
           title: updatedTaskName,
           description: updatedDescription,
@@ -136,17 +136,22 @@ const Card = () => {
     );
     if (confirmDelete) {
       try {
-        console.log(taskid);
         const response = await axios
-          .delete(`https://doer-i896.vercel.app/deleteTask/${taskid}`)
+          .delete(`https://doer-1wlq-cleveranu.vercel.app/getTasks/${taskid}`, {
+            data: { id: id },
+          })
           .then((response) => {
             console.log(response.data);
             // Optionally, you can display a success message
-            toast.success("Task deleted successfully");
+            alert("Task deleted successfully");
           });
+
+        // console.log(response.data);
+        // // Optionally, you can display a success message
+        // alert("Task deleted successfully");
       } catch (error) {
         console.error("Error deleting task:", error);
-        toast.error(`Error deleting task: ${error.message}. Please try again.`);
+        toast.error("Error in task deletion");
       }
     }
   };
@@ -155,7 +160,7 @@ const Card = () => {
     console.log("ID:", id); // Log the id
     const fetch = async () => {
       await axios
-        .get(`https://doer-i896.vercel.app/getTasks/${id}`)
+        .get(`https://doer-1wlq-cleveranu.vercel.app/getTasks/${id}`)
         .then((response) => {
           setTasks(
             response.data.lists.map((item) => ({
@@ -228,18 +233,20 @@ const Card = () => {
               <h3>{task.taskName}</h3>
               <p>{task.description}</p>
               <div className="button-container">
-                <button
-                  title="Update"
-                  onClick={() =>
-                    handleOpenUpdateModal(
-                      task.id,
-                      task.taskName,
-                      task.description
-                    )
-                  }
-                >
-                  <FaRegEdit />
-                </button>
+                {!task.isTaskComplete && (
+                  <button
+                    title="Update"
+                    onClick={() =>
+                      handleOpenUpdateModal(
+                        task.id,
+                        task.taskName,
+                        task.description
+                      )
+                    }
+                  >
+                    <FaRegEdit />
+                  </button>
+                )}
                 <button title="Complete">
                   <GrCompliance />
                 </button>

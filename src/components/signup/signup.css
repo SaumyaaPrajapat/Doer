@@ -67,6 +67,22 @@
   font-size: 18px;
 }
 
+.showpass {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.showpass input {
+  padding-right: 60px; /* Adjust based on the size of your icon */
+}
+.showpass button {
+  position: absolute;
+  right: 30px; /* Adjust based on your needs */
+  background: none;
+  border: none;
+  color: #ffffff4e;
+}
+
 @media (max-width: 600px) {
   .art {
     display: none;
