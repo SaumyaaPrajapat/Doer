@@ -130,28 +130,32 @@ const Card = () => {
   };
 
   //complete task
-  const handleCompleteTask = async (taskid) => {
+  const handleCompleteTask = async (taskId) => {
     try {
       // Send a request to the server to mark the task as complete
       const response = await axios.put(
-        `https://doer-1wlq-cleveranu.vercel.app/updateTask/${taskid}`,
+        `https://doer-1wlq-cleveranu.vercel.app/updateTask/${taskId}`,
         {
           done: true,
         }
       );
 
-      // Update the local state
-      setTasks(
-        tasks.map((task) =>
-          task.id === taskid ? { ...task, done: true } : task
-        )
-      );
+      // Check the response from the server
+      console.log(response.data.updatedList.done);
+      if (response.data) {
+        // Update the local state
+        setTasks(
+          tasks.map((task) =>
+            task.id === taskId ? { ...task, done: true } : task
+          )
+        );
 
-      // Update the task in local storage
-      localStorage.setItem(taskid, JSON.stringify({ done: true }));
+        // Update the task in local storage
+        localStorage.setItem(taskId, JSON.stringify({ done: true }));
 
-      // Optionally, you can display a success message
-      toast.success("Task completed successfully");
+        // Optionally, you can display a success message
+        toast.success("Task completed successfully");
+      }
     } catch (error) {
       console.error("Error completing task:", error);
       toast.error("Error in task completion");

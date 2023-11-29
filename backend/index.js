@@ -128,22 +128,22 @@ app.put("/updateTask/:id", async (req, res) => {
   }
 });
 
+//complete task
 app.put("/updateTask/:id", async (req, res) => {
   try {
     const { done } = req.body;
 
-    // Find the task by id and update its done field
-    const task = await Task.findByIdAndUpdate(
+    const updatedTask = await Task.findByIdAndUpdate(
       req.params.id,
-      { done },
-      { new: true } // This option ensures that the updated document is returned
+      { done: done },
+      { new: true } // This option ensures that you get the updated document
     );
 
-    if (!task) {
-      return res.status(404).json({ error: "Task not found" });
+    if (updatedTask) {
+      res.status(200).json({ task: updatedTask });
+    } else {
+      res.status(404).json({ error: "Task not found" });
     }
-
-    res.json(task);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
