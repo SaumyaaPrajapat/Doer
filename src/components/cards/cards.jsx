@@ -22,7 +22,6 @@ const Card = () => {
   // Add editingIndex state
   const [selectedTaskId, setSelectedTaskId] = useState(null);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
-  const [completedTaskId, setCompletedTaskId] = useState(null);
 
   const showPopup = (index) => {
     setPopupOpen(true);
@@ -137,12 +136,22 @@ const Card = () => {
       const response = await axios.put(
         `https://doer-1wlq-cleveranu.vercel.app/updateTask/${taskid}`,
         {
-          isTaskComplete: true,
+          done: true,
         }
       );
-      setCompletedTaskId(taskid);
+
+      // Update the local state
+      setTasks(
+        tasks.map((task) =>
+          task.id === taskid ? { ...task, done: true } : task
+        )
+      );
+
+      // Update the task in local storage
+      localStorage.setItem(taskid, JSON.stringify({ done: true }));
+
       // Optionally, you can display a success message
-      toast.success("Task completed");
+      toast.success("Task completed successfully");
     } catch (error) {
       console.error("Error completing task:", error);
       toast.error("Error in task completion");
@@ -203,6 +212,17 @@ const Card = () => {
     }
   }, [tasks]);
 
+  // When the application loads
+  useEffect(() => {
+    // Fetch the tasks from local storage
+    const storedTasks = Object.keys(localStorage).map((key) =>
+      JSON.parse(localStorage.getItem(key))
+    );
+
+    // Use the stored tasks to set the initial state
+    setTasks(storedTasks);
+  }, []);
+
   return (
     <div>
       <ToastContainer />
@@ -253,13 +273,13 @@ const Card = () => {
               <h3>{task.taskName}</h3>
               <p>{task.description}</p>
               <div className="button-container">
-                {!task.isTaskComplete && task.id !== completedTaskId && (
+                {!task.done && (
                   <button
                     title="Update"
                     onClick={() =>
                       handleOpenUpdateModal(
                         task.id,
-                        task.taskName,
+                        task.title,
                         task.description
                       )
                     }

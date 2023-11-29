@@ -136,15 +136,8 @@ app.put("/updateTask/:id", async (req, res) => {
     // Find the task by id and update its isTaskComplete field
     const task = await Task.findByIdAndUpdate(
       req.params.id,
-      { isTaskComplete },
-      { new: true } // This option ensures that the updated document is returned
-    );
-
-    if (!task) {
-      return res.status(404).json({ error: "Task not found" });
-    }
-
-    res.json(task);
+      { done: true } // This option ensures that the updated document is returned
+    ).then((task) => res.json(task));
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
