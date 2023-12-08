@@ -129,39 +129,6 @@ const Card = () => {
     }
   };
 
-  //complete task
-  const handleCompleteTask = async (taskId) => {
-    try {
-      // Send a request to the server to mark the task as complete
-      const response = await axios.put(
-        `https://doer-1wlq-cleveranu.vercel.app/updateTask/${taskId}`,
-        {
-          done: true,
-        }
-      );
-
-      // Check the response from the server
-      console.log(response.data.updatedList.done);
-      if (response.data) {
-        // Update the local state
-        setTasks(
-          tasks.map((task) =>
-            task.id === taskId ? { ...task, done: true } : task
-          )
-        );
-
-        // Update the task in local storage
-        localStorage.setItem(taskId, JSON.stringify({ done: true }));
-
-        // Optionally, you can display a success message
-        toast.success("Task completed successfully");
-      }
-    } catch (error) {
-      console.error("Error completing task:", error);
-      toast.error("Error in task completion");
-    }
-  };
-
   //delete task
   const handleDeleteTask = async (taskid) => {
     const confirmDelete = window.confirm(
@@ -200,6 +167,7 @@ const Card = () => {
               id: item._id,
               taskName: item.title,
               description: item.description,
+              done: item.done,
             }))
           );
         });
@@ -291,10 +259,7 @@ const Card = () => {
                     <FaRegEdit />
                   </button>
                 )}
-                <button
-                  onClick={(e) => handleCompleteTask(task.id)}
-                  title="Complete"
-                >
+                <button title="Complete">
                   <GrCompliance />
                 </button>
                 <button

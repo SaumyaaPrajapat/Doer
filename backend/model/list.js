@@ -6,6 +6,7 @@ const listSchema = new mongoose.Schema({
   done: {
     type: Boolean,
     default: false,
+    required: true,
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,

@@ -1,5 +1,4 @@
-import React, { useState, useEffect,useContext } from "react";
-
+import React, { useState, useEffect, useContext } from "react";
 import SideNavbar from "../sidenavbar/sidenavbar";
 import "./navbar.css";
 import logo from "../img/blogo.png";
@@ -12,7 +11,7 @@ import { authActions } from "../../store";
 
 const Navbar = (props) => {
   const [userName, setUserName] = useState("");
-  const { darkMode, toggleDarkMode } = useDarkMode(); 
+  const { darkMode, toggleDarkMode } = useDarkMode();
   const { onToggleSidebar, isSidebarOpen } = props;
 
   useEffect(() => {
@@ -27,7 +26,6 @@ const Navbar = (props) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
- 
   const dispatch = useDispatch();
   const logout = () => {
     sessionStorage.clear("id");
@@ -36,7 +34,11 @@ const Navbar = (props) => {
 
   return (
     <div className={`navigation ${darkMode ? "dark-mode" : ""}`}>
-   <nav className={`navbar navbar-expand-lg custom-navbar ${darkMode ? "dark-mode" : ""}`}>
+      <nav
+        className={`navbar navbar-expand-lg custom-navbar ${
+          darkMode ? "dark-mode" : ""
+        }`}
+      >
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             <img className="logo-image" src={logo} alt="Logo" />
@@ -49,7 +51,7 @@ const Navbar = (props) => {
             </div>
           </div>
           <div className="left-nav">
-          <div className="icon-container" onClick={toggleDarkMode}>
+            <div className="icon-container" onClick={toggleDarkMode}>
               {darkMode ? (
                 <i className="bi-moon-fill dark-mode-icon"></i>
               ) : (

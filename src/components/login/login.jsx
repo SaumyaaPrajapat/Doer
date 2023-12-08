@@ -89,7 +89,7 @@ function Login() {
               alt="Logo"
             />
           </Link>
-          <div className="d-flex" style={{ marginTop: "1rem" }}>
+          <div className="d-flex" style={{ marginTop: "0.5rem" }}>
             <ul
               className="navbar-nav"
               style={{ display: "flex", flexDirection: "row" }}
@@ -141,7 +141,7 @@ function Login() {
             <div className="mb-3">
               <div className="mb-1" style={{ color: "#DCDADB" }}>
                 <label className="formLabel" htmlFor="email">
-                  <strong>E-mail</strong>
+                  <strong>Email</strong>
                 </label>
               </div>
               <div>

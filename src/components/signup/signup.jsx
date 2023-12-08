@@ -77,11 +77,11 @@ function Signup() {
           <Link to="/" className="navbar-brand">
             <img
               src={Logo}
-              style={{ height: "150%", marginLeft: "15%" }}
+              style={{ height: "150%", marginLeft: "10%" }}
               alt="Logo"
             />
           </Link>
-          <div className="d-flex" style={{ marginTop: "1rem" }}>
+          <div className="d-flex" style={{ marginTop: "0.5rem" }}>
             <ul
               className="navbar-nav"
               style={{ display: "flex", flexDirection: "row" }}
@@ -155,7 +155,7 @@ function Signup() {
                   htmlFor="email"
                   style={{ color: "#DCDADB", fontWeight: "550" }}
                 >
-                  E-Mail
+                  Email
                 </label>
               </div>
               <input
