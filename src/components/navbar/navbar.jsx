@@ -26,6 +26,11 @@ const Navbar = (props) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
+  // Function to get the first letter of the name
+  const getFirstLetter = (str) => {
+    return str.charAt(0).toUpperCase();
+  };
+
   const dispatch = useDispatch();
   const logout = () => {
     sessionStorage.clear("id");
@@ -58,18 +63,9 @@ const Navbar = (props) => {
                 <i className="bi-sun-fill dark-mode-icon"></i>
               )}
             </div>
-            <form className="search-bar">
-              <div className="input-group">
-                <input
-                  type="text"
-                  className="search-input"
-                  placeholder="Search"
-                />
-                <button type="submit" className="search-button">
-                  <i className="bi bi-search"></i>
-                </button>
-              </div>
-            </form>
+            <div className="userc" onClick={onToggleSidebar}>
+              <span>{getFirstLetter(userName) || "."}</span>
+            </div>
             <div style={{ marginTop: "2%" }}>
               <Link to="/" onClick={logout} className="buttons1">
                 <i className="bi-box-arrow-right" />

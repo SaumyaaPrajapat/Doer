@@ -40,6 +40,7 @@ function Login() {
         console.log("Logged in Successfully");
         sessionStorage.setItem("id", data.others._id);
         sessionStorage.setItem("name", data.others.name);
+        sessionStorage.setItem("email", data.others.email);
         dispatch(authActions.login());
         navigate("/home");
         window.location.reload();
