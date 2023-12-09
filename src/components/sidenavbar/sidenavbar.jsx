@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import DateDisplay from "./DateDisplay";
 import "./sidenavbar.css";
+import Pic from "../img/pic.png";
 import { FaUserCircle } from "react-icons/fa";
 
 const Clock = () => {
@@ -19,17 +20,12 @@ const Clock = () => {
 
 const SideNavbar = ({ onClose }) => {
   const [name, setUserName] = useState("");
-  const [email, setUserEmail] = useState("");
 
   useEffect(() => {
     const storedName = sessionStorage.getItem("name");
-    const storedEmail = sessionStorage.getItem("email");
 
     if (storedName) {
       setUserName(capitalizeFirstLetter(storedName));
-    }
-    if (storedEmail) {
-      setUserEmail(storedEmail);
     }
   }, []);
 
@@ -63,13 +59,10 @@ const SideNavbar = ({ onClose }) => {
             </label>
             <h3 className="pro">{name || "user"}</h3>
           </div>
-          <div className="progroup">
-            <label htmlFor="description" className="form-label">
-              <strong>Email:</strong>
-            </label>
-            <h3 className="pro">{email || "userEmail"}</h3>
-          </div>
         </form>
+      </div>
+      <div className="side-thought">
+        <img src={Pic} style={{ height: "80%", marginTop: "10%" }} alt="Logo" />
       </div>
     </div>
   );
