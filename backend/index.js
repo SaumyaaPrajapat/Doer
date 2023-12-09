@@ -3,8 +3,6 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const userModel = require("./model/signups");
 const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const nodemailer = require("nodemailer");
 const List = require("./model/list");
 
 const app = express();
@@ -176,68 +174,4 @@ app.get("/getTasks/:id", async (req, res) => {
 
 app.listen(4001, () => {
   console.log("Server is connected and running");
-});
-
-app.post("/forgotpass", async (req, res) => {
-  try {
-    const { email } = req.body;
-    const user = await userModel.findOne({ email });
-
-    if (!user) {
-      return res.status(404).send({ status: "User not found" });
-    }
-
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "1d",
-    });
-
-    const resetLink = `https://doer-sigma.vercel.app/resetpass/${user._id}/${token}`;
-
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: "projects.p112000@gmail.com",
-        pass: "project_112000#asweb",
-      },
-    });
-
-    const mailOptions = {
-      from: "projects.p112000@gmail.com",
-      to: user.email,
-      subject: "Reset Password Link",
-      html: (
-        <p>
-          Click the following link to reset your password:{" "}
-          <a href="${resetLink}">${resetLink}</a>
-        </p>
-      ),
-    };
-
-    await transporter.sendMail(mailOptions);
-
-    return res.status(200).send({ status: "Success" });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).send({ status: "Internal Server Error" });
-  }
-});
-
-app.post("/resetpass/:id/:token", (req, res) => {
-  const { id, token } = req.params;
-  const { password } = req.body;
-  jwt.verify(token, "jwt_secret_key", (err, decoded) => {
-    if (err) {
-      return res.json({ Status: "Error with token" });
-    } else {
-      bcrypt
-        .hash(password, 10)
-        .then((hash) => {
-          userModel
-            .findByIdAndUpdate({ _id: id }, { password: hash })
-            .then((u) => res.send({ Status: "Success" }))
-            .catch((err) => res.send({ Status: err }));
-        })
-        .catch((err) => res.send({ Status: err }));
-    }
-  });
 });
