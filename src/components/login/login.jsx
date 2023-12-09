@@ -26,7 +26,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("https://doerback.vercel.app/login", {
+      const response = await axios.post("https://doer-back.vercel.app/login", {
         email,
         password,
       });
