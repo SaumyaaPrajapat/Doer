@@ -259,9 +259,6 @@ const Card = () => {
                     <FaRegEdit />
                   </button>
                 )}
-                <button title="Complete">
-                  <GrCompliance />
-                </button>
                 <button
                   onClick={() => handleDeleteTask(task.id)}
                   title="Delete"

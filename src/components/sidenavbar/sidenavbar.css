@@ -12,6 +12,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+  overflow-y: auto;
 }
 
 .side-navbar-container.closed {
@@ -30,7 +31,7 @@
 
 .side-date {
   position: absolute;
-  top: 410px;
+  top: 350px;
   justify-content: center;
   align-items: center;
 }
@@ -38,7 +39,7 @@
 .side-clock {
   border-radius: 20px;
   background: #f4f4f4;
-  top: 310px;
+  top: 250px;
   box-shadow: 5px 5px 12px #d3d3d3, -5px -5px 12px #ffffff;
   width: 14rem;
   height: 5rem;
@@ -65,7 +66,7 @@
   background: #f4f4f4;
   box-shadow: 5px 5px 12px #d3d3d3, -5px -5px 12px #ffffff;
   width: 14rem;
-  height: 15rem;
+  height: 11rem;
   z-index: 0;
   margin-right: 12%;
   position: absolute;
@@ -73,6 +74,12 @@
   margin-bottom: 3rem;
   font-family: sans-serif;
   text-align: center;
+  padding-left: 10px;
+  transition: 0.3s;
+}
+
+.procontainer:hover .pro {
+  overflow: visible;
 }
 
 .circle-container {
@@ -114,6 +121,9 @@
   font-size: 1.1rem;
   color: #438fb5;
   max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   transition: 0.3s;
 }
 
@@ -125,16 +135,51 @@
   background-color: #0185ad;
 }
 
-@media (max-width: 600px) {
-  .procontainer {
-    height: 14rem;
-    top: 32px;
-  }
-  .side-date {
-    top: 360px;
-  }
+.side-thought {
+  border-radius: 20px;
+  background: #6fcbf930;
+  top: 500px;
+  box-shadow: 5px 5px 12px #d3d3d3, -5px -5px 12px #ffffff;
+  width: 14rem;
+  height: 11rem;
+  z-index: 0;
+  margin-right: 12%;
+  position: absolute;
+  margin-left: 2rem;
+  margin-bottom: 3rem;
+  font-family: sans-serif;
+  text-align: center;
+}
 
-  .side-clock {
-    top: 267px;
-  }
+/* For Webkit browsers (Chrome, Safari) */
+.side-navbar-container::-webkit-scrollbar {
+  width: 2px;
+}
+
+.side-navbar-container::-webkit-scrollbar-thumb {
+  background-color: #e5e5e5;
+  border-radius: 5px;
+}
+
+.side-navbar-container::-webkit-scrollbar-track {
+  background-color: #f4f4f4;
+}
+
+/* For Firefox */
+.side-navbar-container {
+  scrollbar-width: thin;
+  scrollbar-color: #e5e5e5 #f4f4f4;
+}
+
+/* For Internet Explorer and Edge */
+.side-navbar-container {
+  -ms-overflow-style: none;
+}
+
+.side-navbar-container::-ms-scrollbar-thumb {
+  background-color: #e5e5e5;
+}
+
+.side-navbar-container::-ms-scrollbar-track {
+  background-color: #f4f4f4;
 }
