@@ -30,7 +30,7 @@
 
 .side-date {
   position: absolute;
-  top: 150px;
+  top: 410px;
   justify-content: center;
   align-items: center;
 }
@@ -38,7 +38,7 @@
 .side-clock {
   border-radius: 20px;
   background: #f4f4f4;
-  top: 50px;
+  top: 310px;
   box-shadow: 5px 5px 12px #d3d3d3, -5px -5px 12px #ffffff;
   width: 14rem;
   height: 5rem;
@@ -56,4 +56,85 @@
   text-align: center;
   margin-top: 20px;
   font-weight: 500;
+}
+
+.procontainer {
+  padding-top: 1rem;
+  top: 50px;
+  border-radius: 20px;
+  background: #f4f4f4;
+  box-shadow: 5px 5px 12px #d3d3d3, -5px -5px 12px #ffffff;
+  width: 14rem;
+  height: 15rem;
+  z-index: 0;
+  margin-right: 12%;
+  position: absolute;
+  margin-left: 2rem;
+  margin-bottom: 3rem;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.circle-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile {
+  color: #049fcf;
+  height: 60px;
+  width: 60px;
+}
+
+.proform {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.progroup {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pro {
+  padding: 0.15rem 0.75rem;
+  font-size: 1.1rem;
+  color: #438fb5;
+  max-width: 100%;
+  transition: 0.3s;
+}
+
+.progroup {
+  margin-bottom: 1rem;
+}
+
+.pro-btn:hover {
+  background-color: #0185ad;
+}
+
+@media (max-width: 600px) {
+  .procontainer {
+    height: 14rem;
+    top: 32px;
+  }
+  .side-date {
+    top: 360px;
+  }
+
+  .side-clock {
+    top: 267px;
+  }
 }
