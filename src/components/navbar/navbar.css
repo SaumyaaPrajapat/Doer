@@ -1,0 +1,150 @@
+.navigation {
+  position: fixed;
+  min-width: 100%;
+  z-index: 10;
+  background-color: #fff;
+  box-shadow: -5px 5px 8px #c6c6c7, 5px -5px 8px #afafb1;
+}
+/* dark mode styling */
+.dark-mode {
+  background-color: #000;
+  color: #fff;
+}
+.dark-mode .search-input {
+  background-color: #000;
+  color: #fff;
+}
+/* dark mode styling ends */
+.logo-image {
+  max-width: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.doer-text {
+  margin-right: 160px;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.doer-text:hover {
+  color: #1796b9;
+  transition: 0.7s;
+}
+
+.welcome-container {
+  display: flex;
+  justify-content: center;
+}
+
+.welcome-message {
+  justify-content: center;
+  font-size: 1.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.dark-mode-icon {
+  color: #ffc107;
+}
+
+.icon-container {
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 23px;
+}
+
+.buttons1 {
+  background-color: rgb(225, 63, 63);
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  padding: 9px;
+  color: white;
+  margin-left: 1rem;
+  position: relative;
+  margin-right: 10px;
+}
+
+.left-nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.input-group {
+  display: flex;
+}
+.search-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  width: 180px;
+  border-radius: 5px;
+}
+.search-button {
+  background-color: #67bbd3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 4px 12px;
+}
+
+.bi-box-arrow-right {
+  margin-right: 10px;
+}
+
+.icon-toggle {
+  color: #67bbd3;
+  cursor: pointer;
+  font-size: 23px;
+}
+@media (max-width: 960px) {
+  .doer-text {
+    margin-right: 0;
+    font-size: 1.2rem;
+  }
+  .welcome-message {
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  .search-input {
+    display: none; /* Hide the input field */
+  }
+  .search-button {
+    background-color: transparent;
+    border: none;
+  }
+  .search-button i {
+    color: #67bbd3;
+  }
+  .buttons1 {
+    margin-left: 0;
+    background-color: transparent;
+  }
+  .bi-box-arrow-right {
+    margin-right: 0;
+    padding: 4px 12px;
+    color: rgb(225, 63, 63);
+  }
+  .logout-text {
+    display: none; /* Hide the text */
+  }
+}
+
+@media (max-width: 600px) {
+  .doer-text {
+    margin-right: 0;
+    display: none;
+  }
+  .welcome-message {
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+  .logo-image {
+    width: 30px;
+    margin-left: 0;
+    margin-right: 5px;
+  }
+  .bi-box-arrow-right {
+    padding: 0;
+  }
+}

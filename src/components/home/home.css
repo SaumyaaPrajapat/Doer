@@ -1,0 +1,17 @@
+* {
+  font-family: "Poppins";
+}
+
+.nav-container {
+  display: flex;
+  z-index: 8;
+}
+.page-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.side-content {
+  position: fixed;
+  z-index: 9;
+}
