@@ -38,7 +38,7 @@ function Signup() {
     }
     setError("");
     axios
-      .post("https://doer-1wlq-cleveranu.vercel.app/register", {
+      .post("https://doerback.vercel.app/register", {
         name,
         email,
         password,

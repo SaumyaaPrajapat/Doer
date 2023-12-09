@@ -71,7 +71,7 @@ const Card = () => {
   const handleAddTask = async () => {
     if (taskName.trim() !== "") {
       try {
-        await axios.post("https://doer-1wlq-cleveranu.vercel.app/addTask", {
+        await axios.post("https://doerback.vercel.app/addTask", {
           title: taskName,
           description: description,
           id: id,
@@ -97,7 +97,7 @@ const Card = () => {
   const handleUpdate = async (taskId, updatedTaskName, updatedDescription) => {
     try {
       const response = await axios.put(
-        `https://doer-1wlq-cleveranu.vercel.app/updateTask/${taskId}`,
+        `https://doerback.vercel.app/updateTask/${taskId}`,
         {
           title: updatedTaskName,
           description: updatedDescription,
@@ -137,7 +137,7 @@ const Card = () => {
     if (confirmDelete) {
       try {
         const response = await axios
-          .delete(`https://doer-1wlq-cleveranu.vercel.app/getTasks/${taskid}`, {
+          .delete(`https://doerback.vercel.app/getTasks/${taskid}`, {
             data: { id: id },
           })
           .then((response) => {
@@ -160,7 +160,7 @@ const Card = () => {
     console.log("ID:", id); // Log the id
     const fetch = async () => {
       await axios
-        .get(`https://doer-1wlq-cleveranu.vercel.app/getTasks/${id}`)
+        .get(`https://doerback.vercel.app/getTasks/${id}`)
         .then((response) => {
           setTasks(
             response.data.lists.map((item) => ({
