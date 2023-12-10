@@ -81,3 +81,94 @@
     width: 80%;
   }
 }
+/* Existing styles for light mode */
+
+.update-overlay {
+  /* Add your existing styles for light mode */
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.update-content {
+  /* Add your existing styles for light mode */
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.updatetext {
+  /* Add your existing styles for light mode */
+  color: black;
+}
+
+.todo-input,
+.todo {
+  /* Add your existing styles for light mode */
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.btn,
+.btns {
+  /* Add your existing styles for light mode */
+  padding: 8px 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+.btn {
+  background-color: #3498db;
+}
+
+.btns {
+  background-color: rgb(253, 57, 57);
+}
+
+/* Dark mode styling for Update component */
+.dark-mode .update-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.dark-mode .update-content {
+  background: #121212;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.dark-mode .updatetext {
+  color: #ffffff;
+}
+
+
+.dark-mode .btn,
+.dark-mode .btns {
+  color: #ffffff;
+}
+
+.dark-mode .btn {
+  background-color: #67bbd3;
+}
+
+.dark-mode .btns {
+  background-color: rgb(230, 3, 3);
+}
+
+/* Additional styling can be added as needed */
+.dark-mode .todo-input,
+.dark-mode .todo {
+  /* Adjust dark mode styles as needed */
+  background-color: #121212;
+  color: #ffffff;
+  border: 1px solid #555; /* Example border color for dark mode */
+}

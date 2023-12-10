@@ -1,22 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 import "./home.css";
 import Navbar from "../navbar/navbar";
 import SideNavbar from "../sidenavbar/sidenavbar";
 import Cards from "../cards/cards";
-const App = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+import { DarkModeProvider, useDarkMode } from "../navbar/DarkModeContext";
+
+const AppContent = () => {
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
   return (
-    <div>
+    <div className={isDarkMode ? "dark-mode" : ""}>
       <div className="nav-container">
-        <Navbar onToggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
+        <Navbar
+          onToggleSidebar={toggleSidebar}
+          onToggleDarkMode={toggleDarkMode}
+          isSidebarOpen={isSidebarOpen}
+          isDarkMode={isDarkMode}
+        />
       </div>
       <div className="page-container">
-        {/* Conditionally render SideNavbar based on isSidebarOpen */}
         {isSidebarOpen && (
           <div className="side-content">
             {isSidebarOpen && <SideNavbar onClose={toggleSidebar} />}
@@ -25,9 +32,10 @@ const App = () => {
         <div>
           <div className="main-content">
             <div className="second-main-content">
-              <div>
-                <Cards />
-              </div>
+            <div className={`${isDarkMode ? 'dark-mode' : ''}`}>
+  <Cards />
+</div>
+
             </div>
           </div>
         </div>
@@ -36,4 +44,6 @@ const App = () => {
   );
 };
 
-export default App;
+
+
+export default AppContent;

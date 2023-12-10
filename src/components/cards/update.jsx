@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./update.css";
+import { useDarkMode } from "../navbar/DarkModeContext";
 
 const Update = ({ onClose, onUpdate, taskId, taskName, description }) => {
   const [updatedTaskName, setUpdatedTaskName] = useState(taskName);
   const [updatedDescription, setUpdatedDescription] = useState(description);
-
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   const handleUpdate = () => {
     onUpdate(taskId, updatedTaskName, updatedDescription);
 
@@ -17,27 +18,35 @@ const Update = ({ onClose, onUpdate, taskId, taskName, description }) => {
   };
 
   return (
-    <div className="update-overlay">
-      <div className="update-content">
-        <h3 className="updatetext">Update Your Task</h3>
+    <div className={`update-overlay ${isDarkMode ? "dark-mode" : ""}`}>
+      <div className={`update-content ${isDarkMode ? "dark-mode" : ""}`}>
+        <h3 className={`updatetext ${isDarkMode ? "dark-mode" : ""}`}>
+          Update Your Task
+        </h3>
         <input
           type="text"
-          className="todo-input"
+          className={`todo-input ${isDarkMode ? "dark-mode" : ""}`}
           placeholder="TaskName"
           value={updatedTaskName}
           onChange={(e) => setUpdatedTaskName(e.target.value)}
         />
         <textarea
-          className="todo"
+          className={`todo ${isDarkMode ? "dark-mode" : ""}`}
           placeholder="Description"
           value={updatedDescription}
           onChange={(e) => setUpdatedDescription(e.target.value)}
         />
         <div className="btns2">
-          <button className="btn" onClick={handleUpdate}>
+          <button
+            className={`btn ${isDarkMode ? "dark-mode" : ""}`}
+            onClick={handleUpdate}
+          >
             Update
           </button>
-          <button className="btns" onClick={handleClose}>
+          <button
+            className={`btns ${isDarkMode ? "dark-mode" : ""}`}
+            onClick={handleClose}
+          >
             Close
           </button>
         </div>

@@ -10,6 +10,7 @@
   z-index: 3;
 }
 
+
 .animated {
   display: flex;
   flex-direction: column;
@@ -210,6 +211,7 @@
   overflow: auto;
 }
 
+
 .task-card h3 {
   margin-bottom: 15px;
 }
@@ -284,4 +286,116 @@
   .task-card {
     width: 400px;
   }
+}
+/* Dark mode styling for addtask */
+.dark-mode .addtask {
+  background-color: #121212;
+  color: #ffffff;
+
+}
+
+/* Dark mode styling for animated */
+.dark-mode .animated {
+  background-color: #121212;
+  color: #ffffff;
+
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+}
+
+.dark-mode .addtext {
+  color: #ffffff; 
+}
+.dark-mode .animated.visible {
+  opacity: 1;
+}
+
+
+.inputs,
+.input-2 {
+
+  border: 1px solid #ccc;
+  padding: 8px;
+
+}
+
+.dark-mode .inputs,
+.dark-mode .input-2 {
+ 
+  background-color: #121212;
+  color: #ffffff;
+  border: 1px solid #555;
+ 
+}
+
+.dark-mode {
+  background-color: #121212; /* Set the background color for dark mode */
+  color: #ffffff; /* Set the text color for dark mode */
+}
+.dark-mode .popup-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode styling for popup-content */
+.dark-mode .popup-content {
+  background: #121212;
+  color: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Dark mode styling for custom-btn */
+.dark-mode .custom-btn {
+  background-color: transparent;
+  color: #ffffff;
+  
+}
+
+/* Dark mode styling for btn-9 */
+.dark-mode .btn-9:after {
+  background-color: rgb(103, 187, 211);
+  background-image: linear-gradient(315deg, rgb(103, 187, 211) 0%, #b621fe 74%);
+}
+
+/* Dark mode styling for button-container button */
+.dark-mode .button-container button {
+  background-color: #3498db;
+  color: #ffffff;
+}
+
+.dark-mode .button-container button:hover {
+  background-color: #5eaee3;
+}
+
+/* Dark mode styling for task-cards-container */
+.dark-mode .task-cards-container {
+  background-color: #121212 ;
+  color: #ffffff;
+  box-shadow: 5px 5px 12px #000000, -5px -5px 12px #000000;
+}
+
+/* Dark mode styling for task-cards */
+.dark-mode .task-cards {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  justify-content: center;
+  margin-top: 10rem;
+  background-color: #121212;
+  box-shadow: 5px 5px 12px #000000, -5px -5px 12px #000000;
+}
+
+/* Dark mode styling for task-card */
+.dark-mode .task-card {
+  background: #121212;
+  color: #ffffff;
+  box-shadow: 5px 5px 12px #000000, -5px -5px 12px #000000;
+}
+
+
+
+
+.container.dark-mode {
+  background-color: #000000 !important;
+  color: #ffffff;
 }

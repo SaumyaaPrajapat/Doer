@@ -6,14 +6,45 @@
   box-shadow: -5px 5px 8px #c6c6c7, 5px -5px 8px #afafb1;
 }
 /* dark mode styling */
-.dark-mode {
+
+/* Dark mode styling */
+.dark-mode .navigation {
   background-color: #000;
   color: #fff;
+
 }
+
 .dark-mode .search-input {
   background-color: #000;
   color: #fff;
 }
+
+.dark-mode .welcome-container {
+  background-color: #000; /* Adjust as needed */
+  color: #fff; /* Adjust as needed */
+}
+
+.dark-mode .doer-text {
+  color: #fff; /* Text color for dark mode */
+  margin-right: 160px; /* Adjust as needed */
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Dark mode styling for .doer-text on hover */
+.dark-mode .doer-text:hover {
+  color: #1796b9; /* Adjust as needed */
+  transition: 0.7s;
+}
+.dark-mode .userc {
+  background-color: #049fcf;
+}
+
+.dark-mode .icon-toggle {
+  color: #049fcf;
+}
+/* Dark mode styling ends */
+
 /* dark mode styling ends */
 .logo-image {
   max-width: 40px;

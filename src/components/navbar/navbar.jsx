@@ -49,8 +49,7 @@ const Navbar = (props) => {
             <img className="logo-image" src={logo} alt="Logo" />
             <span className="doer-text">Doer</span>
           </a>
-
-          <div className="welcome-container">
+          <div className={`welcome-container ${darkMode ? "dark-mode" : ""}`}>
             <div className="welcome-message">
               {userName || "user"}'s To Do List
             </div>

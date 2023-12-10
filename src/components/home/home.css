@@ -15,3 +15,7 @@
   position: fixed;
   z-index: 9;
 }
+.dark-mode {
+  background-color: #222; /* Dark background color */
+  color: #fff; /* Light text color */
+}

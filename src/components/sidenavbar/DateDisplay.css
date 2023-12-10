@@ -4,11 +4,18 @@
   border-radius: 15px;
   font-size: 140%;
   font-weight: 700;
-  transition: 0.3;
+  transition: 0.3s; /* Added 's' to specify seconds for the transition */
   padding: 1rem;
   width: 14rem;
   height: fit-content;
 }
+
+.DateTime.dark-mode {
+  background: #222222; /* Dark background color */
+  box-shadow: 5px 5px 12px #000000, -5px -5px 12px #333333; /* Dark box shadow */
+  color: #ffffff; /* Text color for dark mode */
+}
+
 .DateTime p {
   margin: 0;
   padding: 0;

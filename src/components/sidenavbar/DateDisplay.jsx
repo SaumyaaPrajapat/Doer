@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { useDarkMode } from "../navbar/DarkModeContext";
 import "./DateDisplay.css";
 
 const DateDisplay = () => {
+  const { isDarkMode } = useDarkMode();
+
   const [currentDay, setCurrentDay] = useState("");
   const [currentMonth, setCurrentMonth] = useState("");
   const [currentDate, setCurrentDate] = useState("");
@@ -34,7 +37,7 @@ const DateDisplay = () => {
   }, []); // Empty dependency array ensures the effect runs only once on mount
 
   return (
-    <div className="DateTime">
+    <div className={`DateTime ${isDarkMode ? "dark-mode" : ""}`}>
       <p>{currentDay},</p>
       <p>
         {currentMonth} {currentDate},

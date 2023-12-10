@@ -6,6 +6,7 @@ import "./sidenavbar.css";
 import Pic from "../img/pic.png";
 import { FaUserCircle } from "react-icons/fa";
 
+import { useDarkMode } from "../navbar/DarkModeContext.js";
 const Clock = () => {
   let time = new Date().toLocaleTimeString();
 
@@ -33,16 +34,16 @@ const SideNavbar = ({ onClose }) => {
   const capitalizeFirstLetter = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
-
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   return (
-    <div className="side-navbar-container open">
+    <div className={`side-navbar-container ${isDarkMode ? "dark-mode" : ""} open`}>
       <div className="close-icon" onClick={onClose}>
         <i className="bi bi-x" />
       </div>
-      <div className="side-clock">
+      <div className={`side-clock ${isDarkMode ? "dark-mode" : ""}`}>
         <Clock />
       </div>
-      <div className="side-date">
+      <div className={`side-date ${isDarkMode ? "dark-mode" : ""}`}>
         <DateDisplay />
       </div>
       <div className="procontainer">
@@ -61,7 +62,7 @@ const SideNavbar = ({ onClose }) => {
           </div>
         </form>
       </div>
-      <div className="side-thought">
+      <div className={`side-thought ${isDarkMode ? "dark-mode" : ""}`}>
         <img src={Pic} style={{ height: "80%", marginTop: "10%" }} alt="Logo" />
       </div>
     </div>

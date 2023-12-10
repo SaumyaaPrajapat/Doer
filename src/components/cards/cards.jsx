@@ -7,7 +7,8 @@ import white from "../img/white.png";
 import black from "../img/black.png";
 import { MdDeleteForever } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
-import { GrCompliance } from "react-icons/gr";
+
+import { useDarkMode } from "../navbar/DarkModeContext.js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -18,7 +19,7 @@ const Card = () => {
   const [taskName, setTaskName] = useState("");
   const [description, setDescription] = useState("");
   const [isAnimatedVisible, setAnimatedVisible] = useState(true);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   // Add editingIndex state
   const [selectedTaskId, setSelectedTaskId] = useState(null);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
@@ -59,7 +60,7 @@ const Card = () => {
       description
     );
   };
-
+  
   const hidePopup = () => {
     setPopupOpen(false);
   };
@@ -77,7 +78,7 @@ const Card = () => {
           id: id,
         });
 
-        const newTask = { id: tasks.length + 1, taskName, description };
+        const newTask = { id: tasks.length+1, taskName, description };
         setTasks([...tasks, newTask]);
         setTaskName("");
         setDescription("");
@@ -186,26 +187,37 @@ const Card = () => {
 
   // When the application loads
   useEffect(() => {
-    // Fetch the tasks from local storage
-    const storedTasks = Object.keys(localStorage).map((key) =>
-      JSON.parse(localStorage.getItem(key))
-    );
-
-    // Use the stored tasks to set the initial state
-    setTasks(storedTasks);
-  }, []);
+  
+    const storedTasks = Object.keys(localStorage).map((key) => {
+      try {
+       
+        return JSON.parse(localStorage.getItem(key));
+      } catch (error) {
+        console.error(`Error parsing JSON for key ${key}:`, error);
+        return null; 
+      }
+    });
+  
+  
+    const validTasks = storedTasks.filter((task) => task !== null);
+  
+   
+  
+  }, []); 
+  
 
   return (
-    <div>
+    <div className={`container ${isDarkMode ? "dark-mode" : ""}`}>
       <ToastContainer />
       <div className="addtask" onClick={() => showPopup(null)}>
-        <button className="custom-btn btn-9">+ Create Task</button>
+        <button className="custom-btn btn-9 ">+ Create Task</button>
       </div>
 
       {isPopupOpen && (
-        <div className="popup-overlay">
-          <div className="popup-content">
-            <h3 className="addtext">Add Your Task</h3>
+       <div className={`popup-overlay ${isDarkMode ? "dark-mode" : ""}`}>
+    <div className={`popup-content ${isDarkMode ? "dark-mode" : ""}`}>
+    <h3 className={`addtext ${isDarkMode ? "dark-mode" : ""}`}>Add Your Task</h3>
+
             <input
               type="text"
               placeholder="Enter Task"
@@ -232,16 +244,16 @@ const Card = () => {
           </div>
         </div>
       )}
-      {isAnimatedVisible && (
-        <div className="animated">
-          <img src={isDarkMode ? black : white} alt="no text" />
-        </div>
-      )}
+    {/* //image */}
+       {/* <div className="animated">
+        kkkkkkk
+     </div> */}
+   
 
-      <div className="task-cards-container">
-        <div className="task-cards">
+   <div className={`task-cards-container ${isDarkMode ? "dark-mode" : ""}`}>
+   <div className={`task-cards ${isDarkMode ? "dark-mode" : ""}`}>
           {tasks.map((task, index) => (
-            <div className="task-card" key={index}>
+            <div className="task-card " key={index}>
               <h3>{task.taskName}</h3>
               <p>{task.description}</p>
               <div className="button-container">
