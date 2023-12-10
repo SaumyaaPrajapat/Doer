@@ -138,7 +138,8 @@ const FirstPage = () => {
             </div>
             <div>
               <button type="button" className="btn-custom rounded-5">
-                How it works
+              <a href="https://drive.google.com/file/d/1c11FipSxLGND0o3uIut6pcVksAG4DcmY/view?usp=sharing">How it works</a>
+
               </button>
             </div>
           </div>

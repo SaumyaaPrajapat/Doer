@@ -15,7 +15,15 @@
   position: fixed;
   z-index: 9;
 }
+/* In your CSS file or style block */
 .dark-mode {
-  background-color: #222; /* Dark background color */
-  color: #fff; /* Light text color */
+  background-color: black;
+  color: white;
+  /* Add any other styles for dark mode */
+}
+
+.dark-cards {
+  background-color: darkgray;
+  color: white;
+  /* Add any other styles for dark mode cards */
 }
