@@ -209,10 +209,11 @@ const Card = () => {
   return (
     <div className={`container ${isDarkMode ? "dark-mode" : ""}`}>
       <ToastContainer />
+    
       <div className="addtask" onClick={() => showPopup(null)}>
         <button className="custom-btn btn-9 ">+ Create Task</button>
       </div>
-
+     
       {isPopupOpen && (
        <div className={`popup-overlay ${isDarkMode ? "dark-mode" : ""}`}>
     <div className={`popup-content ${isDarkMode ? "dark-mode" : ""}`}>
@@ -244,10 +245,10 @@ const Card = () => {
           </div>
         </div>
       )}
-    {/* //image */}
-       {/* <div className="animated">
-        kkkkkkk
-     </div> */}
+   { isAnimatedVisible && (
+      <div className="animated">
+       <img src={white} alt="Logo" />
+     </div> )}
    
 
    <div className={`task-cards-container ${isDarkMode ? "dark-mode" : ""}`}>

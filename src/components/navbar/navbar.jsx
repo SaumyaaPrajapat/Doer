@@ -54,14 +54,14 @@ const Navbar = (props) => {
               {userName || "user"}'s To Do List
             </div>
           </div>
-          <div className="left-nav">
-            <div className="icon-container" onClick={toggleDarkMode}>
-              {darkMode ? (
-                <i className="bi-moon-fill dark-mode-icon"></i>
-              ) : (
-                <i className="bi-sun-fill dark-mode-icon"></i>
-              )}
-            </div>
+          <div className={`left-nav ${darkMode ? 'dark-mode' : ''}`}>
+      <div className="icon-container" onClick={toggleDarkMode}>
+        {darkMode ? (
+          <i className="bi bi-moon-fill dark-mode-icon"></i>
+        ) : (
+          <i className="bi bi-sun-fill dark-mode-icon"></i>
+        )}
+      </div>
             <div className="userc" onClick={onToggleSidebar}>
               <span>{getFirstLetter(userName) || "."}</span>
             </div>

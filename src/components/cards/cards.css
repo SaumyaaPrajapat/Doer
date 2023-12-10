@@ -182,9 +182,7 @@
 .task-cards-container {
   display: flex;
   justify-content: center;
-  justify-content: center;
   align-items: center;
-
   margin: auto;
   position: absolute;
   top: 0;
@@ -192,6 +190,7 @@
   right: 0;
   padding-bottom: 20px;
 }
+
 .task-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -279,13 +278,14 @@
 
   .task-cards {
     grid-template-columns: repeat(1, 1fr);
-    margin-top: 11rem;
+    margin-top: 15rem;
     align-items: center;
   }
 
   .task-card {
     width: 400px;
   }
+  
 }
 /* Dark mode styling for addtask */
 .dark-mode .addtask {
@@ -375,23 +375,17 @@
   box-shadow: 5px 5px 12px #000000, -5px -5px 12px #000000;
 }
 
-/* Dark mode styling for task-cards */
 .dark-mode .task-cards {
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  justify-content: center;
-  margin-top: 10rem;
   background-color: #121212;
   box-shadow: 5px 5px 12px #000000, -5px -5px 12px #000000;
-}
-
-/* Dark mode styling for task-card */
-.dark-mode .task-card {
-  background: #121212;
   color: #ffffff;
-  box-shadow: 5px 5px 12px #000000, -5px -5px 12px #000000;
 }
 
+.dark-mode .task-card {
+  background-color: #121212;
+  box-shadow: 5px 5px 12px #000000, -5px -5px 12px #000000;
+  color: #ffffff;
+}
 
 
 
