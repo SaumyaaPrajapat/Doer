@@ -245,10 +245,10 @@ const Card = () => {
           </div>
         </div>
       )}
-   { isAnimatedVisible && (
+   
       <div className="animated">
        <img src={white} alt="Logo" />
-     </div> )}
+     </div> 
    
 
    <div className={`task-cards-container ${isDarkMode ? "dark-mode" : ""}`}>
