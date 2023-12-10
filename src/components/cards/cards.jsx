@@ -213,7 +213,10 @@ const Card = () => {
       <div className="addtask" onClick={() => showPopup(null)}>
         <button className="custom-btn btn-9 ">+ Create Task</button>
       </div>
-     
+       <div className="animated">
+       <img src={white} alt="Logo" />
+     </div> 
+   
       {isPopupOpen && (
        <div className={`popup-overlay ${isDarkMode ? "dark-mode" : ""}`}>
     <div className={`popup-content ${isDarkMode ? "dark-mode" : ""}`}>
