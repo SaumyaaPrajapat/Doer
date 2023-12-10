@@ -60,7 +60,7 @@ const Card = () => {
       description
     );
   };
-  
+
   const hidePopup = () => {
     setPopupOpen(false);
   };
@@ -78,7 +78,7 @@ const Card = () => {
           id: id,
         });
 
-        const newTask = { id: tasks.length+1, taskName, description };
+        const newTask = { id: tasks.length + 1, taskName, description };
         setTasks([...tasks, newTask]);
         setTaskName("");
         setDescription("");
@@ -187,40 +187,40 @@ const Card = () => {
 
   // When the application loads
   useEffect(() => {
-  
     const storedTasks = Object.keys(localStorage).map((key) => {
       try {
-       
         return JSON.parse(localStorage.getItem(key));
       } catch (error) {
         console.error(`Error parsing JSON for key ${key}:`, error);
-        return null; 
+        return null;
       }
     });
-  
-  
+
     const validTasks = storedTasks.filter((task) => task !== null);
-  
-   
-  
-  }, []); 
-  
+  }, []);
 
   return (
-    <div className={`container ${isDarkMode ? "dark-mode" : ""}`}>
-      <ToastContainer />
-    
+    <div
+      className={`container ${isDarkMode ? "dark-mode" : ""}`}
+      style={{ backgroundColor: isDarkMode ? "black" : "initial" }}
+    >   <ToastContainer />
       <div className="addtask" onClick={() => showPopup(null)}>
+     
+
         <button className="custom-btn btn-9 ">+ Create Task</button>
       </div>
-       <div className="animated">
-       <img src={white} alt="Logo" />
-     </div> 
-   
+      {isAnimatedVisible && (
+        <div className="animated">
+          <img src={isDarkMode ? black : white} alt="Logo" />
+        </div>
+      )}
+
       {isPopupOpen && (
-       <div className={`popup-overlay ${isDarkMode ? "dark-mode" : ""}`}>
-    <div className={`popup-content ${isDarkMode ? "dark-mode" : ""}`}>
-    <h3 className={`addtext ${isDarkMode ? "dark-mode" : ""}`}>Add Your Task</h3>
+        <div className={`popup-overlay ${isDarkMode ? "dark-mode" : ""}`}>
+          <div className={`popup-content ${isDarkMode ? "dark-mode" : ""}`}>
+            <h3 className={`addtext ${isDarkMode ? "dark-mode" : ""}`}>
+              Add Your Task
+            </h3>
 
             <input
               type="text"
@@ -248,14 +248,9 @@ const Card = () => {
           </div>
         </div>
       )}
-   
-      <div className="animated">
-       <img src={white} alt="Logo" />
-     </div> 
-   
 
-   <div className={`task-cards-container ${isDarkMode ? "dark-mode" : ""}`}>
-   <div className={`task-cards ${isDarkMode ? "dark-mode" : ""}`}>
+      <div className={`task-cards-container ${isDarkMode ? "dark-mode" : ""}`}>
+        <div className={`task-cards ${isDarkMode ? "dark-mode" : ""}`}>
           {tasks.map((task, index) => (
             <div className="task-card " key={index}>
               <h3>{task.taskName}</h3>
