@@ -203,7 +203,7 @@ const Card = () => {
     <div
       className={`container ${isDarkMode ? "dark-mode" : ""}`}
       style={{
-        backgroundColor: isDarkMode ? "black" : "initial",
+        backgroundColor: isDarkMode ? "#000000" : "initial",
         height: "100vh",
       }}
     >

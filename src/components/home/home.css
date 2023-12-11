@@ -23,13 +23,13 @@ body.dark-mode {
   height: 100% !important;
 }
 .dark-mode {
-  background-color: black;
+  background-color: #000000;
   color: white;
   /* Add any other styles for dark mode */
 }
 
 .dark-cards {
-  background-color: darkgray;
+  background-color: #000000;
   color: white;
   /* Add any other styles for dark mode cards */
 }
