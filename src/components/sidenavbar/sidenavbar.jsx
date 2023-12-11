@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import DateDisplay from "./DateDisplay";
 import "./sidenavbar.css";
-import Pic from "../img/pic.png";
+import Pic from "../img/pic2.png";
 import { FaUserCircle } from "react-icons/fa";
 
 import { useDarkMode } from "../navbar/DarkModeContext.js";
@@ -32,11 +32,20 @@ const SideNavbar = ({ onClose }) => {
 
   // Function to capitalize the first letter of a string
   const capitalizeFirstLetter = (str) => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
+    const words = str.split(" ");
+    const firstWord = words[0];
+
+    if (firstWord) {
+      return firstWord.charAt(0).toUpperCase() + firstWord.slice(1);
+    }
+
+    return str;
   };
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   return (
-    <div className={`side-navbar-container ${isDarkMode ? "dark-mode" : ""} open`}>
+    <div
+      className={`side-navbar-container ${isDarkMode ? "dark-mode" : ""} open`}
+    >
       <div className="close-icon" onClick={onClose}>
         <i className="bi bi-x" />
       </div>

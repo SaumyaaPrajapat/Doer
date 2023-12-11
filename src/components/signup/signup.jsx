@@ -30,10 +30,18 @@ function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //in axios.post the link should be there of mongodb
+
+    const passwordRegex =
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?& _])[A-Za-z\d@$!%*#?& _]{8,}$/;
 
     if (password !== confirmp) {
       setError("Passwords do not match");
+      return;
+    }
+    if (!passwordRegex.test(password)) {
+      setError(
+        "Password must be at least 8 characters and include at least one letter, one number, and one special character"
+      );
       return;
     }
     setError("");

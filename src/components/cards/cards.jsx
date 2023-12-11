@@ -202,11 +202,14 @@ const Card = () => {
   return (
     <div
       className={`container ${isDarkMode ? "dark-mode" : ""}`}
-      style={{ backgroundColor: isDarkMode ? "black" : "initial" }}
-    >   <ToastContainer />
+      style={{
+        backgroundColor: isDarkMode ? "black" : "initial",
+        height: "100vh",
+      }}
+    >
+      {" "}
+      <ToastContainer theme={isDarkMode ? "dark" : "light"} />
       <div className="addtask" onClick={() => showPopup(null)}>
-     
-
         <button className="custom-btn btn-9 ">+ Create Task</button>
       </div>
       {isAnimatedVisible && (
@@ -214,7 +217,6 @@ const Card = () => {
           <img src={isDarkMode ? black : white} alt="Logo" />
         </div>
       )}
-
       {isPopupOpen && (
         <div className={`popup-overlay ${isDarkMode ? "dark-mode" : ""}`}>
           <div className={`popup-content ${isDarkMode ? "dark-mode" : ""}`}>
@@ -248,7 +250,6 @@ const Card = () => {
           </div>
         </div>
       )}
-
       <div className={`task-cards-container ${isDarkMode ? "dark-mode" : ""}`}>
         <div className={`task-cards ${isDarkMode ? "dark-mode" : ""}`}>
           {tasks.map((task, index) => (
@@ -262,7 +263,7 @@ const Card = () => {
                     onClick={() =>
                       handleOpenUpdateModal(
                         task.id,
-                        task.title,
+                        task.taskName,
                         task.description
                       )
                     }

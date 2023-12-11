@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Link } from "react-router-dom";
 import { DarkModeProvider, useDarkMode } from "./DarkModeContext";
+import { CgDarkMode } from "react-icons/cg";
 import { useDispatch } from "react-redux/es/exports";
 import { authActions } from "../../store";
 
@@ -54,14 +55,16 @@ const Navbar = (props) => {
               {userName || "user"}'s To Do List
             </div>
           </div>
-          <div className={`left-nav ${darkMode ? 'dark-mode' : ''}`}>
-      <div className="icon-container" onClick={toggleDarkMode}>
-        {darkMode ? (
-          <i className="bi bi-moon-fill dark-mode-icon"></i>
-        ) : (
-          <i className="bi bi-sun-fill dark-mode-icon"></i>
-        )}
-      </div>
+          <div className={`left-nav ${darkMode ? "dark-mode" : ""}`}>
+            <div
+              className="icon-container"
+              onClick={() => {
+                toggleDarkMode();
+              }}
+            >
+              <CgDarkMode className="dark-mode-icon" />
+            </div>
+
             <div className="userc" onClick={onToggleSidebar}>
               <span>{getFirstLetter(userName) || "."}</span>
             </div>

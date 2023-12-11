@@ -32,10 +32,9 @@ const AppContent = () => {
         <div>
           <div className="main-content">
             <div className="second-main-content">
-            <div className={`${isDarkMode ? 'dark-mode' : ''}`}>
-  <Cards />
-</div>
-
+              <div className={`${isDarkMode ? "dark-mode" : ""}`}>
+                <Cards />
+              </div>
             </div>
           </div>
         </div>
@@ -43,7 +42,5 @@ const AppContent = () => {
     </div>
   );
 };
-
-
 
 export default AppContent;
