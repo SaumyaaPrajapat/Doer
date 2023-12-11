@@ -219,9 +219,9 @@ function Signup() {
                   <div className="eyeicon">
                     <button
                       className="passbut"
-                      onClick={(event) => handleShowPassword(event)}
+                      onClick={(event) => handleShowConfirmPassword(event)}
                     >
-                      {showPassword ? <FiEye /> : <FiEyeOff />}
+                      {showConfirmPassword ? <FiEye /> : <FiEyeOff />}
                     </button>
                   </div>
                 </div>
