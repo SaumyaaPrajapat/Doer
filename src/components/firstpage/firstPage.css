@@ -58,6 +58,10 @@
 .newBox {
   width: 60%;
 }
+.btn-custom a {
+  text-decoration: none;
+  color: inherit;
+}
 .btn-custom {
   background-color: #1b1b1e;
   color: #67bbd3;
@@ -67,7 +71,6 @@
   font-weight: 550;
   border: 1px solid #67bbd3;
   margin-top: 3%;
-  
 }
 .tex {
   color: white;
