@@ -281,7 +281,7 @@
 
 /* Dark mode styling for animated */
 .dark-mode .animated {
-  background-color: #121212;
+  background-color: #000000;
   color: #ffffff;
 }
 
@@ -306,7 +306,7 @@
 }
 
 .dark-mode {
-  background-color: #121212; /* Set the background color for dark mode */
+  background-color: #000000; /* Set the background color for dark mode */
   color: #ffffff; /* Set the text color for dark mode */
 }
 .dark-mode .popup-overlay {
@@ -346,17 +346,17 @@
 
 /* Dark mode styling for task-cards-container */
 .dark-mode .task-cards-container {
-  background-color: #151515;
+  background-color:#000000;
   color: #ffffff;
 }
 
 .dark-mode .task-cards {
-  background-color: #121212;
+  background-color: #000000;
   color: #ffffff;
 }
 
 .dark-mode .task-card {
-  background-color: #121212;
+  background-color: #000000;
   box-shadow: -5px 5px 8px #282828, 5px -5px 8px #323232 !important;
   color: #ffffff;
 }
