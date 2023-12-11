@@ -11,7 +11,7 @@
 .dark-mode .navigation {
   background-color: #000;
   color: #fff;
-
+  box-shadow: -5px 5px 8px #353535, 5px -5px 8px #666667;
 }
 
 .dark-mode .search-input {
@@ -35,9 +35,6 @@
 .dark-mode .doer-text:hover {
   color: #1796b9; /* Adjust as needed */
   transition: 0.7s;
-}
-.dark-mode .userc {
-  background-color: #049fcf;
 }
 
 .dark-mode .icon-toggle {
@@ -147,6 +144,26 @@
   .logout-text {
     display: none; /* Hide the text */
   }
+  .dark-mode .doer-text {
+    margin-right: 0;
+    font-size: 1.2rem;
+  }
+  .dark-mode .welcome-message {
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  .dark-mode .buttons1 {
+    margin-left: 0;
+    background-color: transparent;
+  }
+  .dark-mode .bi-box-arrow-right {
+    margin-right: 0;
+    padding: 4px 12px;
+    color: rgb(225, 63, 63);
+  }
+  .dark-mode .logout-text {
+    display: none; /* Hide the text */
+  }
 }
 
 @media (max-width: 600px) {
@@ -164,6 +181,23 @@
     margin-right: 5px;
   }
   .bi-box-arrow-right {
+    padding: 0;
+  }
+
+  .dark-mode .doer-text {
+    margin-right: 0;
+    display: none;
+  }
+  .dark-mode .welcome-message {
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+  .dark-mode .logo-image {
+    width: 30px;
+    margin-left: 0;
+    margin-right: 5px;
+  }
+  .dark-mode .bi-box-arrow-right {
     padding: 0;
   }
 }

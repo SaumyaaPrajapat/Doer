@@ -184,43 +184,33 @@
   background-color: #f4f4f4;
 }
 
-
-
-
-
-
-
 .dark-mode .side-navbar-container {
-  background-color: #121212;
+  background-color: #070707;
   box-shadow: -5px 5px 8px #000000, 5px -5px 8px #000000;
   color: #ffffff;
 }
 /* Dark mode styles for side-date */
 .dark-mode .side-date {
   color: #ffffff; /* Text color for dark mode */
-  background-color: #2c2c2c; /* Dark background color */
-  border: 1px solid #555555; /* Dark border color */
+  border-radius: 20px;
 }
 
 /* Dark mode styles for side-clock */
 .dark-mode .side-clock {
-  background: #222222; /* Dark background color */
+  background: #1e1e1e; /* Dark background color */
   box-shadow: 5px 5px 12px #000000, -5px -5px 12px #333333; /* Dark box shadow */
   color: #ffffff; /* Text color for dark mode */
 }
 
 /* Dark mode styles for procontainer */
 .dark-mode .procontainer {
-  background: #222222; /* Dark background color */
+  background: #1e1e1e; /* Dark background color */
   box-shadow: 5px 5px 12px #000000, -5px -5px 12px #333333; /* Dark box shadow */
   color: #ffffff; /* Text color for dark mode */
 }
 
 /* Dark mode styles for side-thought */
 .dark-mode .side-thought {
-  background: #111111; /* Dark background color */
+  background: #1e1e1e; /* Dark background color */
   box-shadow: 5px 5px 12px #000000, -5px -5px 12px #333333; /* Dark box shadow */
-  color: #ffffff; /* Text color for dark mode */
 }
-
-
