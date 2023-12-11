@@ -154,27 +154,30 @@ function Login() {
               </div>
             </div>
             <div className="mb-3">
-              <div className="mb-1" style={{ color: "#DCDADB" }}>
+              <div
+                className="mb-1"
+                style={{ color: "#DCDADB", display: "flex", gap: "60px" }}
+              >
                 <label className="formLabel" htmlFor="email">
                   <strong>Password</strong>
                 </label>
-              </div>
-              <div className="showpass">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  className="inputStyle form-control rounded-3"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <div className="eyeicon">
-                  <button
-                    className="passbut"
-                    onClick={(event) => handleShowPassword(event)}
-                  >
-                    {showPassword ? <FiEye /> : <FiEyeOff />}
-                  </button>
+                <div className="showpass">
+                  <div className="eyeicon">
+                    <button
+                      className="passbut"
+                      onClick={(event) => handleShowPassword(event)}
+                    >
+                      {showPassword ? <FiEye /> : <FiEyeOff />}
+                    </button>
+                  </div>
                 </div>
               </div>
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                className="inputStyle form-control rounded-3"
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
             {error && <p className="text-danger">{error}</p>}
             <div className="d-flex justify-content-center">

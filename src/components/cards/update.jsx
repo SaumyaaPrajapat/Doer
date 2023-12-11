@@ -38,7 +38,7 @@ const Update = ({ onClose, onUpdate, taskId, taskName, description }) => {
         />
         <div className="btns2">
           <button
-            className={`btn ${isDarkMode ? "dark-mode" : ""}`}
+            className={`btnu ${isDarkMode ? "dark-mode" : ""}`}
             onClick={handleUpdate}
           >
             Update

@@ -153,8 +153,8 @@
 
 /* small card buttons */
 .button-container {
+  padding-top: 10px;
   gap: 10px;
-
   display: flex;
   justify-content: flex-end;
 }
@@ -202,9 +202,46 @@
   width: 270px;
   text-align: center;
   height: fit-content;
-
   box-shadow: 5px 5px 12px #d3d3d3, -5px -5px 12px #f2f2f2;
-  overflow: auto;
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: 150px;
+  padding-bottom: 20px;
+  /* Customize the scrollbar for Webkit browsers (Chrome, Safari) */
+  scrollbar-width: thin;
+  scrollbar-color: #d3d3d3 #f4f4f4;
+
+  /* For Webkit browsers (Chrome, Safari) */
+  &::-webkit-scrollbar {
+    width: 2px; /* Adjust scrollbar width as needed */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #b7b7b7;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f4f4f4;
+  }
+
+  /* For Firefox */
+  & {
+    scrollbar-width: thin;
+    scrollbar-color: #e5e5e5 #f4f4f4;
+  }
+
+  /* For Internet Explorer and Edge */
+  & {
+    -ms-overflow-style: none;
+  }
+
+  &::-ms-scrollbar-thumb {
+    background-color: #e5e5e5;
+  }
+
+  &::-ms-scrollbar-track {
+    background-color: #f4f4f4;
+  }
 }
 
 .task-card h3 {
@@ -286,6 +323,7 @@
 }
 
 .dark-mode .addtext {
+  background-color: #121212;
   color: #ffffff;
 }
 .dark-mode .animated.visible {
@@ -346,7 +384,7 @@
 
 /* Dark mode styling for task-cards-container */
 .dark-mode .task-cards-container {
-  background-color:#000000;
+  background-color: #000000;
   color: #ffffff;
 }
 

@@ -117,7 +117,7 @@
   padding: 8px;
 }
 
-.btn,
+.btnu,
 .btns {
   /* Add your existing styles for light mode */
   padding: 8px 12px;
@@ -127,7 +127,7 @@
   color: white;
 }
 
-.btn {
+.btnu {
   background-color: #3498db;
 }
 
@@ -149,7 +149,6 @@
 .dark-mode .updatetext {
   color: #ffffff;
 }
-
 
 .dark-mode .btn,
 .dark-mode .btns {

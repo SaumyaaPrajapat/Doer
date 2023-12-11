@@ -20,7 +20,7 @@
   box-shadow: -5px 5px 8px #0f0f11, 5px -5px 8px #27272b;
 }
 
-.inputStyle {
+.inputStyles {
   background: linear-gradient(225deg, #18181b, #1d1d20);
   box-shadow: inset 2px 3px 8px rgb(5, 5, 5);
   padding: 8px 10px;
@@ -76,7 +76,6 @@
   padding-right: 60px; /* Adjust based on the size of your icon */
 }
 .showpass button {
-  position: absolute;
   right: 30px; /* Adjust based on your needs */
   background: none;
   border: none;
@@ -92,7 +91,8 @@
     padding-left: 8%;
     padding-right: 8%;
   }
-  .inputStyle {
-    width: 10% !important;
+  .inputStyles {
+    width: 110% !important;
+    margin-left: -5%;
   }
 }
