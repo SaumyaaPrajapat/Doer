@@ -24,7 +24,14 @@ const Navbar = (props) => {
 
   // Function to capitalize the first letter of a string
   const capitalizeFirstLetter = (str) => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
+    const words = str.split(" ");
+    const firstWord = words[0];
+
+    if (firstWord) {
+      return firstWord.charAt(0).toUpperCase() + firstWord.slice(1);
+    }
+
+    return str;
   };
 
   // Function to get the first letter of the name

@@ -96,7 +96,7 @@
   min-height: 120vh;
   background-size: 100%;
   background-position: center;
-  overflow: auto;
+  overflow: hidden;
   padding-bottom: 50px;
 }
 .BAR {
@@ -276,6 +276,9 @@
     width: 90%;
   }
   .design {
+    display: none;
+  }
+  .wrapper {
     display: none;
   }
   .clock {
