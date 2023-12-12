@@ -4,7 +4,7 @@
 }
 .cardStyle {
   font-family: "Poppins";
-  background-color: #1b1b1e;
+  background-color: #000000;
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -41,10 +41,10 @@
   margin: 125px auto;
   flex-direction: row;
   border-radius: 36px;
-  box-shadow: -5px 5px 8px #0f0f11, 5px -5px 8px #27272b;
+  box-shadow: -5px 5px 8px #000000, 5px -5px 8px #000000;
 }
 .inputStyle {
-  background: linear-gradient(225deg, #18181b, #1d1d20) !important;
+  background: linear-gradient(225deg, #000000, #000000) !important;
   box-shadow: inset 2px 3px 8px rgb(5, 5, 5) !important;
   padding: 8px 10px !important;
   border-radius: 5px !important;
@@ -57,7 +57,7 @@
   position: relative;
   background: none;
   border: none;
-  color: #ffffff4e;
+  color: #000000;
 }
 .eyeicon {
   display: flex;

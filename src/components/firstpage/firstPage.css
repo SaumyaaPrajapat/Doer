@@ -45,7 +45,7 @@
 }
 .design {
   border-radius: 76px;
-  background: #1b1b1e;
+  background: #000000;
   box-shadow: 5px 5px 12px #0b0b0c, -5px -5px 12px #2b2b30;
   max-width: 500px;
   width: 25rem;
@@ -63,7 +63,7 @@
   color: inherit;
 }
 .btn-custom {
-  background-color: #1b1b1e;
+  background-color: #000000;
   color: #67bbd3;
   width: 10rem;
   margin-left: 1.5rem;
@@ -92,7 +92,7 @@
   max-width: 600px;
 }
 .containerStyle {
-  background-color: #1b1b1e;
+  background-color: #000000;
   min-height: 120vh;
   background-size: 100%;
   background-position: center;
@@ -128,7 +128,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  background-color: #1b1b1e; /* Set background color to dark */
+  background-color: #000000; /* Set background color to dark */
 
   .hand {
     position: absolute;
@@ -147,7 +147,7 @@
   .minutes {
     width: 0.4rem;
     height: 7rem;
-    background: #5f5f61;
+    background: #000000;
   }
   .seconds {
     width: 0.2rem;
