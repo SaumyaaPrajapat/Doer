@@ -1,0 +1,17 @@
+.footer {
+  position: relative;
+  margin-top: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #000000;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.footer p {
+  margin: 0;
+  color: #636363;
+}
