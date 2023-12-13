@@ -137,7 +137,7 @@
 
 /* Dark mode styling for Update component */
 .dark-mode .update-overlay {
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .dark-mode .update-content {
