@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../img/Logo.png";
 import "./firstPage.css";
+import Footer from "../footer/footer";
 
 const ClockNew = () => {
   const [time, setTime] = useState(new Date());
@@ -152,6 +153,9 @@ const FirstPage = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );
