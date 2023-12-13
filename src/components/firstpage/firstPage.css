@@ -296,6 +296,9 @@
   .buttonsView {
     flex-direction: column;
   }
+  .containerStyle {
+    padding-bottom: 0;
+  }
 }
 @media screen and (min-width: 1300px) and (min-height: 800px) {
   body {
