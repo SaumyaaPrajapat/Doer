@@ -137,11 +137,11 @@
 
 /* Dark mode styling for Update component */
 .dark-mode .update-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: #000000;
 }
 
 .dark-mode .update-content {
-  background: #121212;
+  background: #000000;
   color: #ffffff;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
@@ -167,7 +167,7 @@
 .dark-mode .todo-input,
 .dark-mode .todo {
   /* Adjust dark mode styles as needed */
-  background-color: #121212;
+  background-color: #000000;
   color: #ffffff;
   border: 1px solid #555; /* Example border color for dark mode */
 }

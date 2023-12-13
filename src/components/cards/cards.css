@@ -312,7 +312,7 @@
 }
 /* Dark mode styling for addtask */
 .dark-mode .addtask {
-  background-color: #121212;
+  background-color: #000000;
   color: #ffffff;
 }
 
@@ -323,7 +323,7 @@
 }
 
 .dark-mode .addtext {
-  background-color: #121212;
+  background-color: #000000;
   color: #ffffff;
 }
 .dark-mode .animated.visible {
@@ -338,7 +338,7 @@
 
 .dark-mode .inputs,
 .dark-mode .input-2 {
-  background-color: #121212;
+  background-color: #000000;
   color: #ffffff;
   border: 1px solid #555;
 }
@@ -353,7 +353,7 @@
 
 /* Dark mode styling for popup-content */
 .dark-mode .popup-content {
-  background: #121212;
+  background: #000000;
   color: #ffffff;
   padding: 40px;
   border-radius: 10px;
