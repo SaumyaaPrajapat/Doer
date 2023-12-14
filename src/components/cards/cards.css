@@ -247,6 +247,9 @@
   height: fit-content;
   box-shadow: 5px 5px 12px #d3d3d3, -5px -5px 12px #f2f2f2;
   overflow-y: auto; /* Enable vertical scrolling */
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
   height: 150px;
   padding-bottom: 20px;
   /* Customize the scrollbar for Webkit browsers (Chrome, Safari) */
@@ -293,6 +296,9 @@
 
 .task-card p {
   margin: 0;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* task card responsive */
