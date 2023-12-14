@@ -1,3 +1,36 @@
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 5px; /* Adjust scrollbar width as needed */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #b7b7b7;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f4f4f4;
+}
+
+/* For Firefox */
+input {
+  scrollbar-width: thin;
+  scrollbar-color: #e5e5e5 #f4f4f4;
+}
+
+/* For Internet Explorer and Edge */
+input {
+  -ms-overflow-style: none;
+}
+
+input::-ms-scrollbar-thumb {
+  background-color: #e5e5e5;
+}
+
+input::-ms-scrollbar-track {
+  background-color: #f4f4f4;
+}
+
 .cardStyle {
   font-family: "Poppins";
   background-color: #000000;

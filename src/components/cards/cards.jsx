@@ -235,7 +235,7 @@ const Card = () => {
               id="textarea"
               type="text"
               placeholder="Description"
-              className="input-2"
+              className="input-2 custom-scrollbar"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />

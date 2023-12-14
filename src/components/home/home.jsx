@@ -14,7 +14,7 @@ const AppContent = () => {
   };
 
   return (
-    <div className={isDarkMode ? "dark-mode" : ""}>
+    <div className={`app-container ${isDarkMode ? "dark-mode" : ""}`}>
       <div className="nav-container">
         <Navbar
           onToggleSidebar={toggleSidebar}
