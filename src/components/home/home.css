@@ -15,7 +15,6 @@
   position: fixed;
   z-index: 9;
 }
-/* In your CSS file or style block */
 
 body.dark-mode {
   background-color: black !important;
@@ -32,4 +31,37 @@ body.dark-mode {
   background-color: #000000;
   color: white;
   /* Add any other styles for dark mode cards */
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+body::-webkit-scrollbar {
+  width: 5px; /* Adjust scrollbar width as needed */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #b7b7b7;
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #f4f4f4;
+}
+
+/* For Firefox */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #e5e5e5 #f4f4f4;
+}
+
+/* For Internet Explorer and Edge */
+body {
+  -ms-overflow-style: none;
+}
+
+body::-ms-scrollbar-thumb {
+  background-color: #e5e5e5;
+}
+
+body::-ms-scrollbar-track {
+  background-color: #f4f4f4;
 }

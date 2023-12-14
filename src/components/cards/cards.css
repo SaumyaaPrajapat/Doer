@@ -110,6 +110,49 @@
   box-sizing: border-box;
   resize: none;
 }
+
+.custom-scrollbar {
+  /* Set a fixed height for the textarea */
+  height: 100px; /* Adjust the height as needed */
+  overflow: auto;
+  /* Customize the scrollbar for Webkit browsers (Chrome, Safari) */
+  scrollbar-width: thin;
+  scrollbar-color: #d3d3d3 #f4f4f4;
+
+  /* For Webkit browsers (Chrome, Safari) */
+  &::-webkit-scrollbar {
+    width: 2px; /* Adjust scrollbar width as needed */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #b7b7b7;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f4f4f4;
+  }
+
+  /* For Firefox */
+  & {
+    scrollbar-width: thin;
+    scrollbar-color: #e5e5e5 #f4f4f4;
+  }
+
+  /* For Internet Explorer and Edge */
+  & {
+    -ms-overflow-style: none;
+  }
+
+  &::-ms-scrollbar-thumb {
+    background-color: #e5e5e5;
+  }
+
+  &::-ms-scrollbar-track {
+    background-color: #f4f4f4;
+  }
+}
+
 .btns2 {
   display: flex;
   justify-content: left; /* Adjust as needed */

@@ -9,6 +9,7 @@
 }
 .groupedSectionStyle {
   margin-top: 5%;
+  margin-bottom: 3%;
   display: flex;
   flex-direction: row;
   width: 100%;

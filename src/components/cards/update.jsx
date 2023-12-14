@@ -31,7 +31,7 @@ const Update = ({ onClose, onUpdate, taskId, taskName, description }) => {
           onChange={(e) => setUpdatedTaskName(e.target.value)}
         />
         <textarea
-          className={`todo ${isDarkMode ? "dark-mode" : ""}`}
+          className={`todo custom-scrollbar ${isDarkMode ? "dark-mode" : ""}`}
           placeholder="Description"
           value={updatedDescription}
           onChange={(e) => setUpdatedDescription(e.target.value)}
