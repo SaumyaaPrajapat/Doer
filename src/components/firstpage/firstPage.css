@@ -137,13 +137,14 @@
     transform-origin: bottom;
     bottom: 8.5rem;
     border-radius: 0.2rem;
+    background: #67bbd3;
     z-index: 2;
   }
 
   .hours {
     width: 0.4rem;
     height: 5rem;
-    background: #67bbd3; /* Change to your desired color */
+    background: #606060; /* Change to your desired color */
   }
 
   .minutes {
