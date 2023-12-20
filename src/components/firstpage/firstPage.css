@@ -137,7 +137,6 @@
     transform-origin: bottom;
     bottom: 8.5rem;
     border-radius: 0.2rem;
-    background: #67bbd3;
     z-index: 2;
   }
 
@@ -150,7 +149,7 @@
   .minutes {
     width: 0.4rem;
     height: 7rem;
-    background: #000000;
+    background: #67bbd3;
   }
   .seconds {
     width: 0.2rem;
