@@ -53,7 +53,7 @@ function Signup() {
       })
       .then((result) => {
         setSuccessMessage("Registered successfully. Login to Start!");
-        console.log(result);
+        //console.log(result);
       })
       .catch((err) => {
         if (err.response && err.response.data) {
@@ -61,7 +61,7 @@ function Signup() {
         } else {
           setError("Registration failed. Please try again.");
         }
-        console.log(err);
+        //console.log(err);
       });
   };
   const [isHoveredSignUp, setIsHoveredSignUp] = useState(false);
